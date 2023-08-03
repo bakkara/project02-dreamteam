@@ -1,0 +1,45 @@
+.mbtn {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .mbtn .icon-cross {
+    display: none;
+  }
+  
+  .mbtn.is-open .icon-cross {
+    display: block;
+  }
+  
+  .mbtn.is-open .icon-menu {
+    display: none;
+  }
+  
+  .menu-container {
+    /* position: absolute; */
+    display: none;
+    position: relative;
+    top: 100%;
+    left: 0;
+    width: 375px;
+    height: 812px;
+    background-color: aqua;
+    /* padding: 20px; */
+    text-align: center;
+    font-size: 20px;
+    
+    &.is-open {
+      display: block;
+    }
+  }
+  
+  .image-menu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  
