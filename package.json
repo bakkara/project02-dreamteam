@@ -18,9 +18,14 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "axios": "^1.4.0",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6"
+=======
+    "firebase": "^10.1.0",
+    "modern-normalize": "^1.1.0"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
