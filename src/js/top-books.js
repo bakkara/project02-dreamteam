@@ -12,9 +12,9 @@ function createTopBooks(data) {
     const { list_name, books } = data;
     const screenWidth = window.screen.width;
     let numBooksToShow = 1;
-    if (screenWidth >= 768 && screenWidth <= 1280) {
+    if (screenWidth >= 768 && screenWidth <= 1440) {
         numBooksToShow = 3
-    } else if(screenWidth >= 1280){
+    } else if(screenWidth >= 1440){
         numBooksToShow = 5
     }
     // console.log(screenWidth);
