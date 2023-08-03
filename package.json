@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://bakkara.github.io/project-dreamteam02",
+  "homepage": "https://bakkara.github.io/project02-dreamteam",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /project-dreamteam02/"
+    "build": "parcel build src/*.html --public-url /project02-dreamteam/"
   },
   "repository": {
     "type": "git",
