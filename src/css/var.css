@@ -1,0 +1,8 @@
+:root {
+  --transform: cubic-bezier(0.4, 0, 0.2, 1);
+  --body-bg-light: #f3f3f3;
+  --body-bg-dark: #202024;
+  --violet: #4f2ee8;
+  --yellow: #eac645;
+  --white: #fff;
+}
