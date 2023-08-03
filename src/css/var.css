@@ -1,10 +1,10 @@
 :root {
   --transform: cubic-bezier(0.4, 0, 0.2, 1);
-  --body-bg-light: #f3f3f3;
+  --body-bg-light: #f6f6f6;
   --body-bg-dark: #202024;
   --violet: #4f2ee8;
   --yellow: #eac645;
   --white: #fff;
-  --top-categoty-title: #b4afaf;
+  --top-category-title: #b4afaf;
   --text-color: #111;
 }
