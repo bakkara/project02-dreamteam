@@ -42,9 +42,10 @@ function createTopBooks(data) {
 fetchTopBooks()
     .then(data => {
         Loading.remove();
-        console.log(data);
+        // console.log(data);
            const markup = displayCategories(data);
-           elements.topBooksInfo.insertAdjacentHTML("beforeend", markup)
+        elements.topBooksInfo.insertAdjacentHTML("beforeend", markup);
+        addEventListenersToBooks();
     })
     .catch((error) => {
         Report.failure(
@@ -52,11 +53,32 @@ fetchTopBooks()
             'Something went wrong! Try reloading the page!',
             'Okay',
         );
-        console.log(error);
-
+        // console.log(error);
     }
     )
         .finally(
             Loading.remove()
 );
 
+// function addEventListenersToButtons() {
+//   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
+//   seeMoreButtons.forEach(button => {
+//     button.addEventListener('click', onSeeMoreClick);
+//   });
+// }
+
+// function onSeeMoreClick(list_name) {
+
+    
+// }
+
+function addEventListenersToBooks() {
+  const bookCards = document.querySelectorAll('.book-card');
+  bookCards.forEach(book => {
+    book.addEventListener('click', function() {
+      const title = book.querySelector('.book-card-title').textContent;
+      const author = book.querySelector('.book-card-autor').textContent;
+      console.log(`Clicked on book: ${title} by ${author}`);
+    });
+  });
+}
