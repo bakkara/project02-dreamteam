@@ -1,10 +1,11 @@
 import { fetchTopBooks } from './api.js';
 import { elements } from './refs.js';
+import { handlerSeeMoreBtn } from './books-from-category.js'; 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 function displayCategories(categories) {
-  elements.topBooksInfo.innerHTML = "";
+  elements.BooksInfo.innerHTML = "";
   const categoriesHtml = categories.map(createTopBooks).join('');
   elements.topBooksInfo.innerHTML = categoriesHtml;
 }
@@ -45,7 +46,7 @@ fetchTopBooks()
         Loading.remove();
         // console.log(data);
            const markup = displayCategories(data);
-        elements.topBooksInfo.insertAdjacentHTML("beforeend", markup);
+        elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
       addEventListenersToBooks();
       addEventListenersToButtons();
     })
@@ -71,8 +72,9 @@ function addEventListenersToButtons() {
 }
 
 function onSeeMoreClick(category) {
- console.log(category);
-    
+   elements.BooksInfo.innerHTML = "";
+   handlerSeeMoreBtn(category);
+//  console.log(category);
 }
 
 function addEventListenersToBooks() {
