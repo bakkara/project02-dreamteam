@@ -1,0 +1,140 @@
+.link {
+    cursor: pointer;
+}
+
+.header {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 29px;
+}
+
+.logo-img {
+    background-color: transparent;
+    height: 14px;
+    width: 14px;
+}
+
+.logotype-link {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.logotype-link-text {
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text-white-color);
+    transition: color 250ms var(--transform-cubik);
+}
+
+.logotype-link:hover>.logotype-link-text,
+.logotype-link:focus>.logotype-link-text {
+    color: var(--text-copyright-footer-color);
+}
+
+.header-nav-list {
+    display: none;
+}
+
+.header-nav-link {
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-white-color);
+    transition: color 250ms var(--transform-cubik);
+}
+
+.header-nav-link:hover,
+.header-nav-link:focus {
+    color: var(--text-copyright-footer-color);
+}
+
+.header-address {
+    display: none;
+}
+
+.address-link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-white-color);
+    padding: 18px 35px;
+    transition: color 250ms var(--transform-cubik);
+}
+
+.address-link:hover,
+.address-link:focus {
+    color: var(--text-copyright-footer-color);
+}
+
+.mob-menu-open-icon {
+    fill: var(--text-white-color);
+    background-color: transparent;
+    height: 24px;
+    width: 24px;
+}
+
+.mob-menu-open {
+    background-color: transparent;
+    border: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .header-container {
+        padding-top: 34px;
+        display: flex;
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-nav-list {
+        display: flex;
+        gap: 40px;
+    }
+
+    .logotype-link {
+        margin-right: 80px;
+    }
+
+    .logotype-link-text {
+        font-size: 15px;
+    }
+
+    .logo-img {
+        height: 19px;
+        width: 19px;
+    }
+
+    .header-address {
+        background-color: var(--footer-burger-accent-bg-dark-green);
+        border-radius: 8px;
+        width: 159px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mob-menu-open {
+        display: none;
+    }
+}
