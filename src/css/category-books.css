@@ -1,7 +1,13 @@
 .books-container-category {
     flex-wrap: wrap;
+    row-gap: 40px;
 }
 
 .last-word {
     color:blue;
+}
+
+.book-card {
+    border-radius: 8px;
+    overflow: hidden;
 }
