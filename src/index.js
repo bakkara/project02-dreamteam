@@ -1,2 +1,3 @@
 import './js/top-books.js'
-import './js/fire-base'
+
+import './js/fire-base.js'
