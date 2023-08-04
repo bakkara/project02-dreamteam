@@ -4,6 +4,7 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 function displayCategories(categories) {
+  elements.topBooksInfo.innerHTML = "";
   const categoriesHtml = categories.map(createTopBooks).join('');
   elements.topBooksInfo.innerHTML = categoriesHtml;
 }
@@ -12,21 +13,21 @@ function createTopBooks(data) {
     const { list_name, books } = data;
     const screenWidth = window.screen.width;
     let numBooksToShow = 1;
-    if (screenWidth >= 768 && screenWidth <= 1280) {
+    if (screenWidth >= 768 && screenWidth <= 1440) {
         numBooksToShow = 3
-    } else if(screenWidth >= 1280){
+    } else if(screenWidth >= 1440){
         numBooksToShow = 5
     }
     // console.log(screenWidth);
     // console.log(numBooksToShow);
   const booksHtml = books.slice(0, numBooksToShow)
     .map((book) => {
-      const { title, author, book_image } = book;
+      const {_id, title, author, book_image } = book;
       return `
-        <div class="book-card">
+        <div class="book-card" data-id="${_id}">
          <img src="${book_image}" alt="" class="book-card-img" width="300" height="300">
        <h4 class="book-card-title">${title}</h4>
-        <p class="book-card-autor">${author}</p>
+        <p class="book-card-author">${author}</p>
        </div>`;
     })
     .join('');
@@ -35,7 +36,7 @@ function createTopBooks(data) {
     <div class="top-category-item">
       <h2 class="name-top-category">${list_name}</h2>
       <div class="books-container">${booksHtml}</div>
-      <div class="btn-container-top-books"><button class="see-more-btn">see more</button></div>
+      <div class="btn-container-top-books"><button class="see-more-btn" data-category="${list_name}">see more</button></div>
     </div>`;
 }
 
@@ -45,7 +46,8 @@ fetchTopBooks()
         // console.log(data);
            const markup = displayCategories(data);
         elements.topBooksInfo.insertAdjacentHTML("beforeend", markup);
-        addEventListenersToBooks();
+      addEventListenersToBooks();
+      addEventListenersToButtons();
     })
     .catch((error) => {
         Report.failure(
@@ -60,25 +62,27 @@ fetchTopBooks()
             Loading.remove()
 );
 
-// function addEventListenersToButtons() {
-//   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
-//   seeMoreButtons.forEach(button => {
-//     button.addEventListener('click', onSeeMoreClick);
-//   });
-// }
+function addEventListenersToButtons() {
+  const seeMoreButtons = document.querySelectorAll('.see-more-btn');
+  seeMoreButtons.forEach(button => {
+    const category = button.dataset.category;
+    button.addEventListener('click', () => onSeeMoreClick(category));
+  });
+}
 
-// function onSeeMoreClick(list_name) {
-
+function onSeeMoreClick(category) {
+ console.log(category);
     
-// }
+}
 
 function addEventListenersToBooks() {
   const bookCards = document.querySelectorAll('.book-card');
   bookCards.forEach(book => {
-    book.addEventListener('click', function() {
-      const title = book.querySelector('.book-card-title').textContent;
-      const author = book.querySelector('.book-card-autor').textContent;
-      console.log(`Clicked on book: ${title} by ${author}`);
+    const bookId = book.dataset.id;
+    book.addEventListener('click', () => onOpenBook(bookId));
     });
-  });
-}
+};
+
+function onOpenBook(bookId) { 
+    console.log(bookId);
+ }

@@ -1,12 +1,12 @@
-.books-secction {
+.books-section {
   /* background: var(--body-bg-light);*/
-  background: paleturquoise;
+  background: powderblue;
 }
 .top-category-item {
   margin-bottom: 40px;
 }
 .name-top-category {
-  color: var(--top-categoty-title);
+  color: var(--top-category-title);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29; /* 128.571% */
@@ -36,8 +36,8 @@
   text-transform: uppercase;
   margin-bottom: 4px;
 }
-.book-card-autor {
-  color: var(--top-categoty-title);
+.book-card-author {
+  color: var(--top-category-title);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
