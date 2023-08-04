@@ -75,7 +75,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .book-card {
     width: calc((100% - 96px) / 5);
   }
