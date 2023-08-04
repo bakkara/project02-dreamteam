@@ -12,11 +12,25 @@ export function handlerSeeMoreBtn(categories) {
   category = categories;
   getOneCategoriesBooksFromApi(categories).then(resp => {
     console.log('resp', resp);
+    if (resp.length = 0) { Report.failure(
+      'Sorry!',
+      'There are no books in this category'
+    );
+
+    }
+    Loading.remove();
     createGalleryCategoriesBooksMarkup(resp);
     cardsListners();
 
     // blueWord(categories);
-}).catch(error => console.log(error))
+  }).catch(error => {
+    console.log(error);
+    Report.failure(
+      'Oops!',
+      'Something went wrong! Try reloading the page!',
+      'Okay',
+    );
+  })
 }
 
 
