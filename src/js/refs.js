@@ -1,5 +1,5 @@
 const elements = {
-    topBooksInfo: document.querySelector('.top-category-list'),
+    BooksInfo: document.querySelector('.books-list'),
 
 }
 

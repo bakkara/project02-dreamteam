@@ -1,12 +1,13 @@
 import { fetchTopBooks } from './api.js';
 import { elements } from './refs.js';
+import { handlerSeeMoreBtn } from './books-from-category.js'; 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 function displayCategories(categories) {
-  elements.topBooksInfo.innerHTML = "";
+  elements.BooksInfo.innerHTML = "";
   const categoriesHtml = categories.map(createTopBooks).join('');
-  elements.topBooksInfo.innerHTML = categoriesHtml;
+  elements.BooksInfo.innerHTML = categoriesHtml;
 }
 
 function createTopBooks(data) {
@@ -45,7 +46,7 @@ fetchTopBooks()
         Loading.remove();
         // console.log(data);
            const markup = displayCategories(data);
-        elements.topBooksInfo.insertAdjacentHTML("beforeend", markup);
+        elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
       addEventListenersToBooks();
       addEventListenersToButtons();
     })
@@ -55,7 +56,7 @@ fetchTopBooks()
             'Something went wrong! Try reloading the page!',
             'Okay',
         );
-        // console.log(error);
+        console.log(error);
     }
     )
         .finally(
@@ -66,14 +67,15 @@ function addEventListenersToButtons() {
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
   seeMoreButtons.forEach(button => {
     const category = button.dataset.category;
-    button.addEventListener('click', () => onSeeMoreClick(category));
+    button.addEventListener('click', () => handlerSeeMoreBtn(category));
   });
 }
 
-function onSeeMoreClick(category) {
- console.log(category);
-    
-}
+// function onSeeMoreClick(category) {
+//    elements.BooksInfo.innerHTML = "";
+//    handlerSeeMoreBtn(category);
+// //  console.log(category);
+// }
 
 function addEventListenersToBooks() {
   const bookCards = document.querySelectorAll('.book-card');
