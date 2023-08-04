@@ -7,7 +7,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 function displayCategories(categories) {
   elements.BooksInfo.innerHTML = "";
   const categoriesHtml = categories.map(createTopBooks).join('');
-  elements.topBooksInfo.innerHTML = categoriesHtml;
+  elements.BooksInfo.innerHTML = categoriesHtml;
 }
 
 function createTopBooks(data) {
@@ -56,7 +56,7 @@ fetchTopBooks()
             'Something went wrong! Try reloading the page!',
             'Okay',
         );
-        // console.log(error);
+        console.log(error);
     }
     )
         .finally(
@@ -67,15 +67,15 @@ function addEventListenersToButtons() {
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
   seeMoreButtons.forEach(button => {
     const category = button.dataset.category;
-    button.addEventListener('click', () => onSeeMoreClick(category));
+    button.addEventListener('click', () => handlerSeeMoreBtn(category));
   });
 }
 
-function onSeeMoreClick(category) {
-   elements.BooksInfo.innerHTML = "";
-   handlerSeeMoreBtn(category);
-//  console.log(category);
-}
+// function onSeeMoreClick(category) {
+//    elements.BooksInfo.innerHTML = "";
+//    handlerSeeMoreBtn(category);
+// //  console.log(category);
+// }
 
 function addEventListenersToBooks() {
   const bookCards = document.querySelectorAll('.book-card');

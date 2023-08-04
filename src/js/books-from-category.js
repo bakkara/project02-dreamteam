@@ -18,18 +18,18 @@ export function handlerSeeMoreBtn(categories) {
     );
 
     }
-    Loading.remove();
+    // Loading.remove();
     createGalleryCategoriesBooksMarkup(resp);
     cardsListners();
 
     // blueWord(categories);
   }).catch(error => {
     console.log(error);
-    Report.failure(
-      'Oops!',
-      'Something went wrong! Try reloading the page!',
-      'Okay',
-    );
+    // Report.failure(
+    //   'Oops!',
+    //   'Something went wrong! Try reloading the page!',
+    //   'Okay',
+    // );
   })
 }
 
