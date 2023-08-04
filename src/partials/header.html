@@ -1,35 +1,57 @@
 <header class="header">
     <div class="container">
-        <div class="header-container">
-            <nav class="header-nav">
-                <a class="link logotype-link" href="./index.html">
-                    <img class="logo-img" srcset="/img/logo-x1.png 1x, /img/logo-x2.png 2x" src="/img/logo-x1.png"
-                        alt="site statistics" width="19" height="19" />
-                    <span class="logotype-link-text">Bookshelf</span>
-                </a>
-
-                <ul class="header-nav-list list">
-                    <li class="header-list-item">
-                        <a class="header-nav-link link" aria-label="Go to information about us" href="#about-us">About
-                            us</a>
+        <div class="header__container">
+            <a href="./index.html" class="header__logo">
+                <svg class="header__logo-icon" width="24" height="24">
+                    <use href="/src/images/sprite.svg#icon-logo"></use>
+                </svg>
+                <span class="header__logo-text">Bookshelf</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--current">
+                        <a href="/src/index.html" class="nav__link">HOME</a>
                     </li>
-                    <li class="header-list-item">
-                        <a class="header-nav-link link" aria-label="Go to our catalog" href="#catalog">Catalog</a>
-                    </li>
-                    <li class="header-list-item">
-                        <a class="header-nav-link link" aria-label="Go to sale" href="#sale">Sale</a>
+                    <li class="nav__item">
+                        <a href="/src/shop-list.html" class="nav__link">SHOPPING LIST</a>
+                        <svg class="nav__link-icon" width="20" height="20">
+                            <use href="/src/images/sprite.svg#icon-basket"></use>
+                        </svg>
                     </li>
                 </ul>
+                <div class="toggle-switch">
+                    <span>
+                        <label for="theme-switch" class="switch">
+                            <input id="theme-switch" type="checkbox" />
+                            <span class="slider round"></span>
+                        </label>
+                    </span>
+                </div>
+                <button id="btn-hamburger" class="js-open-menu" aria-label="burger-menu">
+                    <div class="line-1"></div>
+                    <div class="line-2"></div>
+                    <div class="line-3"></div>
+                    <div class="line-4"></div>
+                </button>
             </nav>
-            <address class="header-address">
-                <a class="link address-link" href="tel:+380684439426">+380 (68) 443-94-26</a>
-            </address>
-            <button type="button" class="mob-menu-open js-open-menu" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="Open mobile menu">
-                <svg width="24" height="24" class="mob-menu-open-icon">
-                    <use href="/img/symbol.svg#menu-open-icon"></use>
-                </svg>
-            </button>
         </div>
     </div>
 </header>
+<!--Мобільне меню-->
+<div class="mobile-menu js-menu-container">
+    <div class="container mobile-menu__container mobile-menu__thumb">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="./index.html" class="mobile-menu__link nav__item--current">HOME</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="./shop-list.html" class="mobile-menu__link">SHOPPING LIST
+                    <svg class="mobile-menu__icon" width="20" height="20">
+                        <use href="/src/images/sprite.svg#icon-basket"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <img class="mobile-menu__img" src="/src/images/books.png" alt="books" />
+</div>
