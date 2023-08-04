@@ -11,12 +11,15 @@
     border-radius: 8px;
     overflow: hidden;
     /* position: relative; */
+    cursor: pointer;
+    outline: none;
 }
 
 .book-img {
     position: relative;
     overflow: hidden;
     margin-bottom: 14px;
+    border-radius: 8px;
 }
 
 .overlay {
@@ -58,7 +61,21 @@ color:--text-color;
 
 .book-card:focus .overlay {
     transform: translateY(415);
+    
 }
 .book-card-img {
     margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .overlay {
+        transform: translatey(451%);
+    }
+   .book-card:hover .overlay {
+      transform: translateY(250);
+  }
+
+  .book-card:focus .overlay {
+      transform: translateY(250);
+  }
 }

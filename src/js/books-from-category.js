@@ -42,7 +42,7 @@ function createGalleryCategoriesBooksMarkup(data) {
 // //         <p class="author-name">${author}</p>      
 // //       </div>
 // // </div>`
-     `<div class="book-card" data-id="${_id}">
+     `<div class="book-card" tabindex="0" data-id="${_id}">
        <div class = "book-img">
          <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300"  data-modal-open="true">
            <div class="overlay">
