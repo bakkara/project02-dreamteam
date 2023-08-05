@@ -6,7 +6,7 @@
             <h2 class="modal-title">${t.title}</h2>
             <h3 class="modal-autor">${t.author}</h3>
             <p class="modal-descr">I${t.description||t.list_name}</p>
-  `,B.forEach(e=>e.href=t.buy_links.find(t=>t.name===e.name).url);let[...i]=function(e){try{let t=localStorage.getItem(e);return null===t?[]:JSON.parse(t)}catch(e){console.error("Get state error: ",e.message)}}("targetBooks"),n=function(e,t){let i=e.some(e=>{});return i}(i,t._id);console.log(n),function(e){if(!e){H.textContent="add to shopping list",H.nextElementSibling.classList.add("is-hidden");return}H.textContent="remove from the shopping list",H.nextElementSibling.classList.remove("is-hidden")}(n),H.addEventListener("click",q),document.addEventListener("keydown",X)}catch(e){console.log(e)}$()}function $(){F.classList.toggle("is-hidden"),document.body.classList.toggle("no-scroll")}function X(e){console.log(j),console.log(e.target),$(),document.removeEventListener("keydown",X)}function q(e){console.log(e)}function K(e){let{list_name:t,books:i}=e,n=window.screen.width,r=1;n>=768&&n<=1440?r=3:n>=1440&&(r=5);let a=i.slice(0,r).map(e=>{let{_id:t,title:i,author:n,book_image:r}=e;return`
+  `,B.forEach(e=>e.href=t.buy_links.find(t=>t.name===e.name).url);let[...i]=function(e){try{let t=localStorage.getItem(e);return null===t?[]:JSON.parse(t)}catch(e){console.error("Get state error: ",e.message)}}("targetBooks"),n=function(e,t){let i=e.some(e=>{});return i}(i,t._id);console.log(n),function(e){if(!e){H.textContent="add to shopping list",H.nextElementSibling.classList.add("is-hidden");return}H.textContent="remove from the shopping list",H.nextElementSibling.classList.remove("is-hidden")}(n),H.addEventListener("click",q),j.addEventListener("click",X),F.addEventListener("click",X),document.addEventListener("keydown",X)}catch(e){console.log(e)}$()}function $(){F.classList.toggle("is-hidden"),document.body.classList.toggle("no-scroll")}function X(e){console.log(j),console.log(e.target),$(),document.removeEventListener("keydown",X)}function q(e){console.log(e)}function K(e){let{list_name:t,books:i}=e,n=window.screen.width,r=1;n>=768&&n<=1440?r=3:n>=1440&&(r=5);let a=i.slice(0,r).map(e=>{let{_id:t,title:i,author:n,book_image:r}=e;return`
         <div class="book-card" data-id="${t}">
          <img src="${r}" alt="" class="book-card-img" width="300" height="300">
        <h4 class="book-card-title">${i}</h4>
@@ -34,4 +34,4 @@
     </a>
    </div>
   </li>`).join(""))}();
-//# sourceMappingURL=index.cdbe8601.js.map
+//# sourceMappingURL=index.497cae1a.js.map
