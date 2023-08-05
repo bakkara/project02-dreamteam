@@ -2,27 +2,29 @@ import { fetchTopBooks } from './api.js';
 import { elements } from './refs.js';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { modal } from './modal-window.js';
 
 function displayCategories(categories) {
-  elements.topBooksInfo.innerHTML = "";
+  elements.topBooksInfo.innerHTML = '';
   const categoriesHtml = categories.map(createTopBooks).join('');
   elements.topBooksInfo.innerHTML = categoriesHtml;
 }
 
 function createTopBooks(data) {
-    const { list_name, books } = data;
-    const screenWidth = window.screen.width;
-    let numBooksToShow = 1;
-    if (screenWidth >= 768 && screenWidth <= 1440) {
-        numBooksToShow = 3
-    } else if(screenWidth >= 1440){
-        numBooksToShow = 5
-    }
-    // console.log(screenWidth);
-    // console.log(numBooksToShow);
-  const booksHtml = books.slice(0, numBooksToShow)
-    .map((book) => {
-      const {_id, title, author, book_image } = book;
+  const { list_name, books } = data;
+  const screenWidth = window.screen.width;
+  let numBooksToShow = 1;
+  if (screenWidth >= 768 && screenWidth <= 1440) {
+    numBooksToShow = 3;
+  } else if (screenWidth >= 1440) {
+    numBooksToShow = 5;
+  }
+  // console.log(screenWidth);
+  // console.log(numBooksToShow);
+  const booksHtml = books
+    .slice(0, numBooksToShow)
+    .map(book => {
+      const { _id, title, author, book_image } = book;
       return `
         <div class="book-card" data-id="${_id}">
          <img src="${book_image}" alt="" class="book-card-img" width="300" height="300">
@@ -41,26 +43,23 @@ function createTopBooks(data) {
 }
 
 fetchTopBooks()
-    .then(data => {
-        Loading.remove();
-        // console.log(data);
-           const markup = displayCategories(data);
-        elements.topBooksInfo.insertAdjacentHTML("beforeend", markup);
-      addEventListenersToBooks();
-      addEventListenersToButtons();
-    })
-    .catch((error) => {
-        Report.failure(
-            'Oops!',
-            'Something went wrong! Try reloading the page!',
-            'Okay',
-        );
-        // console.log(error);
-    }
-    )
-        .finally(
-            Loading.remove()
-);
+  .then(data => {
+    Loading.remove();
+    // console.log(data);
+    const markup = displayCategories(data);
+    elements.topBooksInfo.insertAdjacentHTML('beforeend', markup);
+    addEventListenersToBooks();
+    addEventListenersToButtons();
+  })
+  .catch(error => {
+    Report.failure(
+      'Oops!',
+      'Something went wrong! Try reloading the page!',
+      'Okay'
+    );
+    // console.log(error);
+  })
+  .finally(Loading.remove());
 
 function addEventListenersToButtons() {
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
@@ -71,8 +70,7 @@ function addEventListenersToButtons() {
 }
 
 function onSeeMoreClick(category) {
- console.log(category);
-    
+  console.log(category);
 }
 
 function addEventListenersToBooks() {
@@ -80,9 +78,10 @@ function addEventListenersToBooks() {
   bookCards.forEach(book => {
     const bookId = book.dataset.id;
     book.addEventListener('click', () => onOpenBook(bookId));
-    });
-};
+  });
+}
 
-function onOpenBook(bookId) { 
-    console.log(bookId);
- }
+function onOpenBook(bookId) {
+  console.log(bookId);
+  modal(bookId);
+}
