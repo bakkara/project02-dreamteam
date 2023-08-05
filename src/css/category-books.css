@@ -1,7 +1,81 @@
 .books-container-category {
     flex-wrap: wrap;
+    row-gap: 40px;
 }
 
 .last-word {
     color:blue;
+}
+
+.book-card {
+    border-radius: 8px;
+    overflow: hidden;
+    /* position: relative; */
+    cursor: pointer;
+    outline: none;
+}
+
+.book-img {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 14px;
+    border-radius: 8px;
+}
+
+.overlay {
+    position: absolute;
+
+    display: flex;
+    height: 70px;
+    width: 100%;
+    padding: 0px 52px;
+    justify-content: center;
+    align-items: center;
+    /* bottom: 50px; */
+
+    top: 0;
+    left: 0;
+    
+    
+
+    background-color: var(--yellow);
+    
+    transform: translatey(725%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay-text {
+text-transform: uppercase;
+color:--text-color;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    /* 128.571% */
+    letter-spacing: -0.56px
+}
+
+.book-card:hover .overlay {
+    transform: translateY(415);
+}
+
+.book-card:focus .overlay {
+    transform: translateY(415);
+    
+}
+.book-card-img {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .overlay {
+        transform: translatey(451%);
+    }
+   .book-card:hover .overlay {
+      transform: translateY(250);
+  }
+
+  .book-card:focus .overlay {
+      transform: translateY(250);
+  }
 }
