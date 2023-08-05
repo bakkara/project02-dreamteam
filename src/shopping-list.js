@@ -46,7 +46,8 @@ function createBookCard(book) {
             )
             .join('')}
         </div>
-        <button class="delete-button">Remove from Shopping List</button>
+        <button class="delete-button"><svg width="16" height="16" class="shopping-svg">
+        <use href="./images/symboldefs.svg#btn-shopping-list"></use></button>
       </div>
     `;
 
