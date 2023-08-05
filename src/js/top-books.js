@@ -1,13 +1,14 @@
 import { fetchTopBooks } from './api.js';
 import { elements } from './refs.js';
+import { handlerSeeMoreBtn } from './books-from-category.js'; 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
 
 function displayCategories(categories) {
-  elements.topBooksInfo.innerHTML = '';
+ elements.BooksInfo.innerHTML = "";
   const categoriesHtml = categories.map(createTopBooks).join('');
-  elements.topBooksInfo.innerHTML = categoriesHtml;
+  elements.BooksInfo.innerHTML = categoriesHtml;
 }
 
 function createTopBooks(data) {
@@ -43,35 +44,40 @@ function createTopBooks(data) {
 }
 
 fetchTopBooks()
-  .then(data => {
-    Loading.remove();
-    // console.log(data);
-    const markup = displayCategories(data);
-    elements.topBooksInfo.insertAdjacentHTML('beforeend', markup);
-    addEventListenersToBooks();
-    addEventListenersToButtons();
-  })
-  .catch(error => {
-    Report.failure(
-      'Oops!',
-      'Something went wrong! Try reloading the page!',
-      'Okay'
-    );
-    // console.log(error);
-  })
-  .finally(Loading.remove());
+    .then(data => {
+        Loading.remove();
+        // console.log(data);
+           const markup = displayCategories(data);
+        elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
+      addEventListenersToBooks();
+      addEventListenersToButtons();
+    })
+    .catch((error) => {
+        Report.failure(
+            'Oops!',
+            'Something went wrong! Try reloading the page!',
+            'Okay',
+        );
+        console.log(error);
+    }
+    )
+        .finally(
+            Loading.remove()
+);
 
 function addEventListenersToButtons() {
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
   seeMoreButtons.forEach(button => {
     const category = button.dataset.category;
-    button.addEventListener('click', () => onSeeMoreClick(category));
+    button.addEventListener('click', () => handlerSeeMoreBtn(category));
   });
 }
 
-function onSeeMoreClick(category) {
-  console.log(category);
-}
+// function onSeeMoreClick(category) {
+//    elements.BooksInfo.innerHTML = "";
+//    handlerSeeMoreBtn(category);
+// //  console.log(category);
+// }
 
 function addEventListenersToBooks() {
   const bookCards = document.querySelectorAll('.book-card');

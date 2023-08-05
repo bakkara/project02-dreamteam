@@ -1,5 +1,8 @@
+import { title } from 'process';
 import { getOneCategoriesBooksFromApi } from './fetch_API_categories.js';
-const booksSection = document.querySelector('.container');
+import { Report } from 'notiflix/build/notiflix-report-aio';
+// import { Loading } from 'notiflix/build/notiflix-loading-aio';
+const booksSection = document.querySelector('.books-list');
 // const button = document.querySelector('.see-more-btn');
 // button.addEventListener('click', handlerSeeMoreBtn);
 // console.dir(button);
@@ -12,16 +15,10 @@ export function handlerSeeMoreBtn(categories) {
   category = categories;
   getOneCategoriesBooksFromApi(categories).then(resp => {
     console.log('resp', resp);
-    if (resp.length = 0) { Report.failure(
-      'Sorry!',
-      'There are no books in this category'
-    );
-
-    }
-    Loading.remove();
-    createGalleryCategoriesBooksMarkup(resp);
-    cardsListners();
-
+          // Loading.remove();
+      createGalleryCategoriesBooksMarkup(resp);
+      cardsListners();
+    
     // blueWord(categories);
   }).catch(error => {
     console.log(error);
@@ -35,7 +32,7 @@ export function handlerSeeMoreBtn(categories) {
 
 
 function createGalleryCategoriesBooksMarkup(data) { 
-  const categoryHeader = `<h2 class="books-section-title category-books-title"> <span class="last-word"></span></h2>`;
+  const categoryHeader = `<h2 class="books-section-title category-books-title"> </h2>`;
      
    const cartBook = data.map(({_id, book_image, title, author }) => 
 // //    `<div class="photo-card">
@@ -45,9 +42,14 @@ function createGalleryCategoriesBooksMarkup(data) {
 // //         <p class="author-name">${author}</p>      
 // //       </div>
 // // </div>`
-   `<div class="book-card" data-id="${_id}">
+     `<div class="book-card" tabindex="0" data-id="${_id}">
+       <div class = "book-img">
          <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300"  data-modal-open="true">
-       <h4 class="book-card-title">${title}</h4>
+           <div class="overlay">
+             <p class="overlay-text">quick view</p>
+          </div>       
+         </div>
+         <h4 class="book-card-title">${title}</h4>
         <p class="book-card-author">${author}</p>
        </div>`
   ).join('');
@@ -57,22 +59,17 @@ function createGalleryCategoriesBooksMarkup(data) {
   booksSection.insertAdjacentHTML('afterbegin', categoryHeader);
   const booksCategContainer = document.querySelector('.books-container');
    booksCategContainer.insertAdjacentHTML('beforeend', cartBook);
-  // blueWord(categories);
-    const categoryBooksHeader = document.querySelector('.books-section-title');
-  const lastWordSpan = categoryBooksHeader.querySelector('.last-word');
+  
+  const categoryBooksHeader = document.querySelector('.books-section-title');
   const categoriesWordsArr = category.split(' ');
   const lastCategoryWord = categoriesWordsArr[categoriesWordsArr.length - 1];
   const allWordsExceptLast = categoriesWordsArr.slice(0, -1).join(' ');
   categoryBooksHeader.textContent = allWordsExceptLast;
   console.log(lastCategoryWord);
-  lastWordSpan.textContent = lastCategoryWord;
-  lastWordSpan.classList.add('blue-word');
-  console.log(lastWordSpan);
+   const titleCategory = document.querySelector('.category-books-title');
+  titleCategory.insertAdjacentHTML('beforeend', ` <span class="last-word">${lastCategoryWord}</span>`);
+ 
 };
-
-// function blueWord(categories) {
-
-// }
 
 function cardsListners() {
   const bookCards = document.querySelectorAll('.book-card');
