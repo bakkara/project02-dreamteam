@@ -55,7 +55,7 @@ function createTopBooks(data) {
 fetchTopBooks()
     .then(data => {
         Loading.remove();
-        console.log(data);
+        // console.log(data);
         const markup = displayCategories(data);
         elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
         addEventListenersToBooks();
