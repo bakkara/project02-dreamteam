@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZmcnC_2fBns-z8P5Wk9Fw_wxB6fZENSM",
@@ -15,11 +15,18 @@ const submit = document.querySelector('#submitData')
 const auth = getAuth();
 
 
-submit.addEventListener('click', (e) => { 
-const email = document.querySelector('#email').value;
+submit.addEventListener('click', signUp)
+
+function signUp(evt) {
+    try {
+        const email = document.querySelector('#email').value;
     const password = document.querySelector('#psw').value;
-    console.log(e)
-createUserWithEmailAndPassword(auth, email, password)
+        const userName = document.querySelector('#userName').value;
+    } catch (error) {
+        const errorMessage = error.message;
+        alert(errorMessage)
+    }
+    createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
       const user = userCredential.user;
@@ -32,4 +39,15 @@ createUserWithEmailAndPassword(auth, email, password)
       alert(errorMessage)
     // ..
   });
-})
+}
+
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
