@@ -8,21 +8,25 @@ const modalBookCardEl = document.querySelector('.book-modal-wrap');
 const modalStoresEl = document.querySelectorAll('.modal-link');
 const modalMainBtnEl = document.querySelector('.modal-btn-main');
 // const modalTextUderBtnEl = document.querySelector('.modal-bottom-text');
+const modalBookObj = {};
 
 export async function modal(id) {
   try {
     const modalBook = await getBook(id);
+    const [...targetBooks] = load('targetBooks');
+
+    modalBookObj.bookId = id;
+    modalBookObj.bookArr = targetBooks;
+    modalBookObj.isInLS = isInStorage(modalBookObj);
 
     modalBookCardEl.innerHTML = createModalMarkup(modalBook);
     findStoreLink(modalBook);
 
-    toggleModal();
+    console.log(modalBookObj);
 
+    toggleModal();
+    toggleBtn(modalBookObj.isInLS);
     addListeners();
-    modalMainBtnEl.addEventListener('click', onModalBtnClick);
-    function onModalBtnClick() {
-      listenModal(id);
-    }
   } catch (err) {
     console.log(err.message);
   }
@@ -52,36 +56,39 @@ function toggleModal() {
   document.body.classList.toggle('no-scroll');
 }
 
-function isInStorage(arr, id) {
-  if (!arr.length) return false;
-  return arr.some(i => i === id);
+function isInStorage(obj) {
+  if (!obj.bookArr.length) return false;
+  return obj.bookArr.some(i => i === obj.bookId);
 }
 
 function addListeners() {
-  modalMainBtnEl.addEventListener('click', onModalBtnClick);
-  btnCloseModalEl.addEventListener('click', toggleModal);
-  // modalEl.addEventListener('click', handlerClose);
-  document.addEventListener('keydown', handlerCloseEsc);
+  btnCloseModalEl.addEventListener('click', handlerClose);
+  document.addEventListener('keydown', handlerClose);
+  modalMainBtnEl.addEventListener('click', clickHandler);
 }
 
-// function handlerClose(evt) {
-//   toggleModal();
-// }
+function clickHandler() {
+  listenModal(modalBookObj);
+}
 
-function handlerCloseEsc(evt) {
-  if (evt.key !== 'Escape') return;
+function handlerClose() {
+  document.removeEventListener('keydown', handlerClose);
+  modalMainBtnEl.removeEventListener('click', clickHandler);
   toggleModal();
-  document.removeEventListener('keydown', handlerCloseEsc);
 }
-// доробити!!!!!
-function listenModal(id) {
-  const [...targetBooks] = load('targetBooks');
-  const bool = isInStorage(targetBooks, id);
-  toggleBtn(bool);
-  if (bool) {
-    arr.splice(arr.indexOf(id), 1);
+let a = 0;
+function listenModal(obj) {
+  a = +1;
+  console.log('listenModal', obj, a);
+  if (obj.isInLS) {
+    const idx = obj.bookArr.indexOf(obj.bookId);
+    obj.bookArr.splice(idx, 1);
+    obj.isInLS = false;
   } else {
-    arr.push(id);
+    obj.bookArr.push(obj.bookId);
+    obj.isInLS = true;
   }
-  save('targetBooks', arr);
+  save('targetBooks', obj.bookArr);
+  console.log('listen2', obj);
+  toggleBtn(obj.isInLS);
 }
