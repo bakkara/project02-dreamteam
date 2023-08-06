@@ -37,5 +37,5 @@
             <a class="category" href="#">
                 <span class="category-span">${e}</span>
             </a>
-        </li>`).join(""))).catch(e=>console.log(e)),sr({target:document.querySelector("#myElement")},{showNativeOverlaidScrollbars:!0})}();
-//# sourceMappingURL=index.d5de3586.js.map
+        </li>`).join(""))).catch(e=>console.log(e)),sr({target:document.querySelector("#myElement")},{showNativeOverlaidScrollbars:!0});let ss=document.querySelector(".footer-list"),sl=document.querySelector(".footer-block");sl.addEventListener("click",()=>{sl.classList.toggle("is-hidden"),ss.classList.toggle("is-hidden")})}();
+//# sourceMappingURL=index.ae12fcab.js.map

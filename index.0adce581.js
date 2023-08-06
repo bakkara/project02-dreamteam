@@ -37,5 +37,5 @@ let e,t,n,i,r;var a,o,s,l,c,u,d,h,p,f,m,g="undefined"!=typeof globalThis?globalT
             <a class="category" href="#">
                 <span class="category-span">${e}</span>
             </a>
-        </li>`).join(""))).catch(e=>console.log(e)),sr({target:document.querySelector("#myElement")},{showNativeOverlaidScrollbars:!0});
-//# sourceMappingURL=index.83f8d5ed.js.map
+        </li>`).join(""))).catch(e=>console.log(e)),sr({target:document.querySelector("#myElement")},{showNativeOverlaidScrollbars:!0});const ss=document.querySelector(".footer-list"),sl=document.querySelector(".footer-block");sl.addEventListener("click",()=>{sl.classList.toggle("is-hidden"),ss.classList.toggle("is-hidden")});
+//# sourceMappingURL=index.0adce581.js.map
