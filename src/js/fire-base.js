@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth"
 import { getFirestore, setDoc, doc } from "firebase/firestore"; 
 
 
@@ -15,12 +15,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
+const logoutBtn = document.querySelector('#logout')
+const signUpBtnHeader = document.querySelector('#btn-hamburger')
+const formEl = document.querySelector('.form-wrapper');
 const auth = getAuth();
 const db = getFirestore(app)
 
-
 signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
+logoutBtn.addEventListener('click', logOut)
+signUpBtnHeader.addEventListener('click', toggleForm)
+
+function toggleForm(evt) {
+  console.log(evt.target)
+  formEl.classList.toggle('is-hidden');
+  document.body.classList.toggle('no-scroll');
+  
+}
 
 async function signUp(evt) {
   
@@ -49,7 +60,6 @@ async function signUp(evt) {
 }
 
 async function signIn(evt) {
-  
     try {
       const email = document.querySelector('#email').value;
       const password = document.querySelector('#psw').value;
@@ -64,13 +74,15 @@ async function signIn(evt) {
     }
  
 }
-// signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in 
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
+
+async function logOut(evt) {
+  signOut(auth).then(() => {
+    console.log('Log out');
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userUid");
+    window.location.replace('/');
+  }).catch((err) => {
+    console.log('error')
+  })
+ 
+}
