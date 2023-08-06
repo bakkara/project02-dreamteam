@@ -1,6 +1,6 @@
 import axios from 'axios';
 // import 'overlayscrollbars/overlayscrollbars.css';
-import { OverlayScrollbars } from 'overlayscrollbars';
+// import { OverlayScrollbars } from 'overlayscrollbars';
 
 const URL = 'https://books-backend.p.goit.global/books/category-list';
 
@@ -39,11 +39,11 @@ getCategoryList()
 
 // const osInstance = OverlayScrollbars(document.querySelector('#myElement'), {});
 
-OverlayScrollbars({ 
-    target: document.querySelector('#myElement') 
-}, {
-    showNativeOverlaidScrollbars: true
-});
+// OverlayScrollbars({ 
+//     target: document.querySelector('#myElement') 
+// }, {
+//     showNativeOverlaidScrollbars: true
+// });
 
 function onclickCategory(event) {
     event.preventDefault();
@@ -64,19 +64,21 @@ function makeUpperCase(data) {
 };
 
 function removeUpperCase() {
-    const rem = document.querySelectorAll('.category-span');
-    rem.forEach(el => el.classList.remove('upper-case'))
+    const toRemove = document.querySelectorAll('.category-span');
+    toRemove.forEach(el => el.classList.remove('upper-case'))
 };
 
 function MouseClickAccentOn(event) {
     if (event.target.nodeName !== 'SPAN') {
         return;
     }
-    const line = event.target;
-    line.classList.add('active');
+    const Accent = event.target;
+    Accent.classList.add('active');
 };
 
 function MouseClickAccentOff(event) {
-    const line = event.target;
-    line.classList.remove('active');
+    const Accent = event.target;
+    Accent.classList.remove('active');
 };
+
+

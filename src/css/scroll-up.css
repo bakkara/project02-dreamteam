@@ -1,0 +1,16 @@
+#myBtn {
+    display: none;
+    position: fixed;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 15px;
+    border: 2px solid var(--violet);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.29;
+    text-transform: uppercase;
+}
+
+#myBtn:hover {
+    background-color: var(--violet);
+}
