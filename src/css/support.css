@@ -1,8 +1,7 @@
 .support {
-    margin-top: 100px;
-}
-.foundations {
+  }
 
+.foundations {
 display: block;
 padding-top: 24px;
 border: 1px solid #4F2EE8;
@@ -11,13 +10,10 @@ background-color: #4F2EE8;
 height: 352px;
 }
 
-.ulfounds {
- width: fit-content;
-}
+
 
 .blocks {
     margin-top: 40px;
-   
     height: 188px;
     overflow: hidden;
 }
@@ -49,16 +45,20 @@ font-size: 22px;
     color: #FFFFFF;
 }
 .image {
-    width: 200px;
-    height: 33px;
     filter: brightness(0) invert(1)
-     
 }
 .support-content {
     padding-left: 40px;
 
 }
-.support-button-scroll {
+.buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.button-scroll-up,
+.button-scroll-down {
     display: flex;
     z-index: 1;
     justify-content: center;
@@ -66,15 +66,22 @@ font-size: 22px;
     width: 32px;
     height: 32px;
     border-radius: 50%;
+    border-color: #FFFFFF;
     margin-top: 16px;
-    margin-left: 111px;
+    /* margin-left: 111px; */
+    
 }
 
+/* .button-scroll-up,
+.button-scroll-down :hover {
+    background-color:cadetblue ;
+} */
 
 
 @media screen and (min-width: 768px) {
     .container.support {
         max-width: 335px;
+        max-height: 474;
         padding-left: 32px;
         padding-right: 32px;
         margin-left: 0;
@@ -84,6 +91,7 @@ font-size: 22px;
 @media screen and (min-width: 1440px) {
     .container.support {
         max-width: 356px;
+        max-height: 474;
         padding-left: 24px;
         padding-right: 24px;
     }
