@@ -1,6 +1,6 @@
 function createModalMarkup(book) {
-  return `<div class="modal-img-wrap">
-              <img src="${book.book_image}" class="modal-img"
+  return `<div class="modal-img">
+              <img src="${book.book_image}" 
               alt="${book.list_name}" 
               id="${book._id}">
             </div>
