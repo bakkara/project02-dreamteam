@@ -1,71 +1,88 @@
-import axios from 'axios';
-const BOOKS_ID = `https://books-backend.p.goit.global/books/bookId`;
-
 const bookList = document.querySelector('#bookList');
 const message = document.querySelector('#message');
 
-async function fetchBookData(bookId) {
+async function getBook(bookId) {
+  const BASE_URL = 'https://books-backend.p.goit.global/books/';
+  const searchUrl = BASE_URL + bookId;
   try {
-    const response = await axios.get(`${BOOKS_ID}/${bookId}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching book data:', error);
+    const response = await fetch(searchUrl);
+    if (!response.ok) {
+      throw new Error('Error');
+    }
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err.message);
+    return null;
   }
 }
-
-function checkLocalStorageBooks() {
+function loadBooksFromLocalStorage() {
   const booksFromLocalStorage =
-    JSON.parse(localStorage.getItem('shoppingListBooks')) || [];
+    JSON.parse(localStorage.getItem('targetBooks')) || [];
+  return booksFromLocalStorage;
+}
 
-  if (booksFromLocalStorage.length === 0) {
+function displayBooksInShoppingList(bookIds) {
+  bookList.innerHTML = '';
+  if (bookIds.length === 0) {
     message.style.display = 'block';
   } else {
-    booksFromLocalStorage.forEach(async book => {
-      const bookData = await fetchBookData(book.id);
-      if (bookData) {
+    message.style.display = 'none';
+    bookIds.forEach(async bookId => {
+      try {
+        const bookData = await getBook(bookId);
         createBookCard(bookData);
+      } catch (err) {
+        console.log(err.message);
       }
     });
   }
 }
-
 function createBookCard(book) {
   const bookCard = document.createElement('div');
   bookCard.innerHTML = `
-      <div class="book-card">
-        <img class="book-image" src="${book.image}" alt="Book Image">
-        <div class="book-title">${book.title}</div>
-        <div class="book-category">${book.category}</div>
-        <div class="book-description">${book.description}</div>
-        <div class="book-author">Author: ${book.author}</div>
-        <div class="book-links">
-          ${book.links
-            .map(
-              link =>
-                `<div class="book-link"><a href="${link}">Buy on ${link}</a></div>`
-            )
-            .join('')}
-        </div>
-        <button class="delete-button"><svg width="16" height="16" class="shopping-svg">
-        <use href="./images/symboldefs.svg#btn-shopping-list"></use></button>
+<div class="book-card">
+      <img class="book-image" src="${book.book_image}" alt="${book.list_name}">
+      <div class="book-title">${book.title}</div>
+      <div class="book-category">${book.list_name}</div>
+      <div class="book-description">${book.description}</div>
+      <div class="book-author">${book.author}</div>
+      <div class="book-links">
+        ${
+          book.links
+            ? book.links
+                .map(
+                  link =>
+                    `<div class="book-link"><a href="${link}">Buy on ${link}</a></div>`
+                )
+                .join('')
+            : ''
+        }
       </div>
-    `;
-
-  bookCard.querySelector('.delete-button').addEventListener('click', () => {
-    removeBookFromLocalStorage(book);
-    bookCard.remove();
-  });
+      <button class="delete-button"><svg width="16" height="16" class="shopping-svg">
+                    <use href="./img/symbol-defs.svg#icon-dump"></use></button>
+    </div>
+  `;
 
   bookList.appendChild(bookCard);
+
+  const deleteButton = bookCard.querySelector('.delete-button');
+  deleteButton.addEventListener('click', () => {
+    removeBookFromLocalStorage(book._id);
+    bookCard.remove();
+
+    if (loadBooksFromLocalStorage().length === 0) {
+      message.style.display = 'block';
+    }
+  });
 }
 
-function removeBookFromLocalStorage(bookToRemove) {
-  const updatedBooks = booksFromLocalStorage.filter(
-    book => book.title !== bookToRemove.title
+function removeBookFromLocalStorage(bookIdToRemove) {
+  const updatedBooks = loadBooksFromLocalStorage().filter(
+    bookId => bookId !== bookIdToRemove
   );
-  localStorage.setItem('shoppingListBooks', JSON.stringify(updatedBooks));
-  if (updatedBooks.length === 0) {
-    message.style.display = 'block';
-  }
+  localStorage.setItem('targetBooks', JSON.stringify(updatedBooks));
 }
-checkLocalStorageBooks();
+
+const bookIdsFromLocalStorage = loadBooksFromLocalStorage();
+displayBooksInShoppingList(bookIdsFromLocalStorage);
