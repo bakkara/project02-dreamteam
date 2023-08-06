@@ -1,13 +1,19 @@
 import { fetchTopBooks } from './api.js';
 import { elements } from './refs.js';
+import { handlerSeeMoreBtn } from './books-from-category.js'; 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { modal } from './modal-window.js';
 
-function displayCategories(categories) {
-  elements.topBooksInfo.innerHTML = "";
-  const categoriesHtml = categories.map(createTopBooks).join('');
-  elements.topBooksInfo.innerHTML = categoriesHtml;
+function displayCategories(data) {
+  elements.BooksInfo.innerHTML = "";
+  const categoriesHtml = data.map(createTopBooks).join('');
+  elements.BooksInfo.innerHTML = ` <h2 class="books-section-title">Best Sellers <span class="last-word">Books</span> </h2>`
+  elements.BooksInfo.insertAdjacentHTML("beforeend",categoriesHtml) ;
+  return ""
 }
+
+
 
 function createTopBooks(data) {
     const { list_name, books } = data;
@@ -18,14 +24,22 @@ function createTopBooks(data) {
     } else if(screenWidth >= 1440){
         numBooksToShow = 5
     }
-    // console.log(screenWidth);
-    // console.log(numBooksToShow);
+    // console.log(list_name);
+    // console.log(books);
+  
+ 
   const booksHtml = books.slice(0, numBooksToShow)
     .map((book) => {
       const {_id, title, author, book_image } = book;
+
       return `
-        <div class="book-card" data-id="${_id}">
-         <img src="${book_image}" alt="" class="book-card-img" width="300" height="300">
+        <div class="book-card" tabindex="0" data-id="${_id}">
+         <div class = "book-img">
+         <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300" data-modal-open="true">
+         <div class="overlay">
+             <p class="overlay-text">quick view</p>
+          </div> 
+          </div>
        <h4 class="book-card-title">${title}</h4>
         <p class="book-card-author">${author}</p>
        </div>`;
@@ -44,10 +58,10 @@ fetchTopBooks()
     .then(data => {
         Loading.remove();
         // console.log(data);
-           const markup = displayCategories(data);
-        elements.topBooksInfo.insertAdjacentHTML("beforeend", markup);
-      addEventListenersToBooks();
-      addEventListenersToButtons();
+        const markup = displayCategories(data);
+        elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
+        addEventListenersToBooks();
+        addEventListenersToButtons();
     })
     .catch((error) => {
         Report.failure(
@@ -55,7 +69,7 @@ fetchTopBooks()
             'Something went wrong! Try reloading the page!',
             'Okay',
         );
-        // console.log(error);
+        console.log(error);
     }
     )
         .finally(
@@ -66,13 +80,8 @@ function addEventListenersToButtons() {
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
   seeMoreButtons.forEach(button => {
     const category = button.dataset.category;
-    button.addEventListener('click', () => onSeeMoreClick(category));
+    button.addEventListener('click', () => handlerSeeMoreBtn(category));
   });
-}
-
-function onSeeMoreClick(category) {
- console.log(category);
-    
 }
 
 function addEventListenersToBooks() {
@@ -80,9 +89,10 @@ function addEventListenersToBooks() {
   bookCards.forEach(book => {
     const bookId = book.dataset.id;
     book.addEventListener('click', () => onOpenBook(bookId));
-    });
-};
+  });
+}
 
-function onOpenBook(bookId) { 
-    console.log(bookId);
- }
+function onOpenBook(bookId) {
+  console.log(bookId);
+  modal(bookId);
+}
