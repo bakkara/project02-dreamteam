@@ -7,8 +7,9 @@ const modalEl = document.querySelector('.modal-wrapper');
 const modalBookCardEl = document.querySelector('.book-modal-wrap');
 const modalStoresEl = document.querySelectorAll('.modal-link');
 const modalMainBtnEl = document.querySelector('.modal-btn-main');
-// const modalTextUderBtnEl = document.querySelector('.modal-bottom-text');
 const modalBookObj = {};
+
+console.dir(modalBookCardEl);
 
 export async function modal(id) {
   try {
@@ -18,12 +19,9 @@ export async function modal(id) {
     modalBookObj.bookId = id;
     modalBookObj.bookArr = targetBooks;
     modalBookObj.isInLS = isInStorage(modalBookObj);
-
     modalBookCardEl.innerHTML = createModalMarkup(modalBook);
+
     findStoreLink(modalBook);
-
-    console.log(modalBookObj);
-
     toggleModal();
     toggleBtn(modalBookObj.isInLS);
     addListeners();
@@ -76,10 +74,8 @@ function handlerClose() {
   modalMainBtnEl.removeEventListener('click', clickHandler);
   toggleModal();
 }
-let a = 0;
+
 function listenModal(obj) {
-  a = +1;
-  console.log('listenModal', obj, a);
   if (obj.isInLS) {
     const idx = obj.bookArr.indexOf(obj.bookId);
     obj.bookArr.splice(idx, 1);
@@ -89,6 +85,5 @@ function listenModal(obj) {
     obj.isInLS = true;
   }
   save('targetBooks', obj.bookArr);
-  console.log('listen2', obj);
   toggleBtn(obj.isInLS);
 }
