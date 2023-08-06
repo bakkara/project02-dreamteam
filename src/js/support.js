@@ -1,9 +1,9 @@
 import {  blocks } from './refs'
 
 const blocksEl = document.querySelector('.blocks')
-const buttonEl = document.querySelector('.support-button-scroll')
-// const ulfoundsEl = document.querySelector('.ulfounds')
-// const image = document.querySelector('.image')
+const buttonDown = document.querySelector('.button-scroll-down')
+const buttonUp = document.querySelector('.button-scroll-up')
+
 console.dir(blocksEl);
 let newarr = []
 
@@ -16,20 +16,22 @@ function murkupFoundation(arr) {
    <div>
     <a href="${url}" class='gotofoundation'>
         <p>0${id}</p>
-        <img  class='image' src='${img}' alt="${title}" height=100% width =100%>
+        <img  class='image' src='${img}' alt="${title}" >
     </a>
    </div>
   </li>`).join('')
 }
 
 blocksEl.insertAdjacentHTML('beforeend', murkupFoundation(blocks))
-buttonEl.addEventListener('click', onLoad)
+buttonDown.addEventListener('click', scrollDown)
+buttonUp.addEventListener('click', scrollUp)
 blocksEl.scrollTo(0,0)
 
-function onLoad(evt) { 
+function scrollDown(evt) { 
    smoothScrolling()
 }
  
+
 
 function smoothScrolling() { 
   const { height: cardHeight } = document
@@ -37,6 +39,16 @@ function smoothScrolling() {
                     .firstElementChild.getBoundingClientRect();
               blocksEl.scrollBy({
                     top: cardHeight ,
+                    behavior: "smooth",
+                  });
+}
+
+function scrollUp() { 
+  const { height: cardHeight } = document
+                    .querySelector(".blocks")
+                    .firstElementChild.getBoundingClientRect();
+              blocksEl.scrollBy({
+                    top: -cardHeight ,
                     behavior: "smooth",
                   });
 }
