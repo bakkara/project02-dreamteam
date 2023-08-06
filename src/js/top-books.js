@@ -3,6 +3,7 @@ import { elements } from './refs.js';
 import { handlerSeeMoreBtn } from './books-from-category.js'; 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { modal } from './modal-window.js';
 
 function displayCategories(data) {
   elements.BooksInfo.innerHTML = "";
@@ -30,6 +31,7 @@ function createTopBooks(data) {
   const booksHtml = books.slice(0, numBooksToShow)
     .map((book) => {
       const {_id, title, author, book_image } = book;
+
       return `
         <div class="book-card" tabindex="0" data-id="${_id}">
          <div class = "book-img">
@@ -87,9 +89,10 @@ function addEventListenersToBooks() {
   bookCards.forEach(book => {
     const bookId = book.dataset.id;
     book.addEventListener('click', () => onOpenBook(bookId));
-    });
-};
+  });
+}
 
-function onOpenBook(bookId) { 
-    console.log(bookId);
- }
+function onOpenBook(bookId) {
+  console.log(bookId);
+  modal(bookId);
+}
