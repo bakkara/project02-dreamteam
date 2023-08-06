@@ -63,7 +63,7 @@ function isInStorage(arr, id) {
 
 function addListeners() {
   btnCloseModalEl.addEventListener('click', handlerClose);
-  modalEl.addEventListener('click', handlerClose);
+  /* modalEl.addEventListener('click', handlerClose); */
   document.addEventListener('keydown', handlerClose);
 }
 
