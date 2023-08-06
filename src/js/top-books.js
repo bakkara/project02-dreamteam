@@ -13,8 +13,6 @@ function displayCategories(data) {
   return ""
 }
 
-
-
 function createTopBooks(data) {
     const { list_name, books } = data;
     const screenWidth = window.screen.width;
@@ -88,6 +86,7 @@ function renderTopBooks() {
             Loading.remove()
 );
 }
+
 renderTopBooks();
 
 

@@ -1,6 +1,8 @@
 import axios from 'axios';
 // import 'overlayscrollbars/overlayscrollbars.css';
 // import { OverlayScrollbars } from 'overlayscrollbars';
+import { handlerSeeMoreBtn } from './books-from-category.js'; 
+// import { renderTopBooks } from './top-books.js'; 
 
 const URL = 'https://books-backend.p.goit.global/books/category-list';
 
@@ -48,14 +50,19 @@ getCategoryList()
 function onclickCategory(event) {
     event.preventDefault();
     if (event.target.nodeName !== 'SPAN') {
-        return
+      return
     }
     if (event.target.textContent === 'All categories') {
-        removeUpperCase();
-        makeUpperCase(event.target);
+      removeUpperCase();
+      makeUpperCase(event.target);
+
+      // renderTopBooks();
+
     } else {        
-        removeUpperCase();
-        makeUpperCase(event.target);
+      removeUpperCase();
+      makeUpperCase(event.target);
+      
+      handlerSeeMoreBtn();
     }
 }
 
