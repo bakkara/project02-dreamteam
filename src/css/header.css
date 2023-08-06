@@ -1,0 +1,7 @@
+.header {
+    z-index: 21;
+    position: relative;
+    width: 100%;
+    border: 1.5px solid #111;
+    border-radius: 0 0 8px 8px;
+}
