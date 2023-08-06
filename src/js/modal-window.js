@@ -7,27 +7,27 @@ const modalEl = document.querySelector('.modal-wrapper');
 const modalBookCardEl = document.querySelector('.book-modal-wrap');
 const modalStoresEl = document.querySelectorAll('.modal-link');
 const modalMainBtnEl = document.querySelector('.modal-btn-main');
+const modalBookObj = {};
+
+console.dir(modalBookCardEl);
 
 export async function modal(id) {
   try {
     const modalBook = await getBook(id);
-
-    modalBookCardEl.innerHTML = createModalMarkup(modalBook);
-    findStoreLink(modalBook);
-
     const [...targetBooks] = load('targetBooks');
-    const t = isInStorage(targetBooks, id);
-    console.log(t);
 
-    toggleBtn(t);
+    modalBookObj.bookId = id;
+    modalBookObj.bookArr = targetBooks;
+    modalBookObj.isInLS = isInStorage(modalBookObj);
+    modalBookCardEl.innerHTML = createModalMarkup(modalBook);
 
-    modalMainBtnEl.addEventListener('click', onClickBtn);
-
+    findStoreLink(modalBook);
+    toggleModal();
+    toggleBtn(modalBookObj.isInLS);
     addListeners();
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
-  toggleModal();
 }
 
 function findStoreLink(book) {
@@ -40,11 +40,13 @@ function findStoreLink(book) {
 function toggleBtn(bool) {
   if (!bool) {
     modalMainBtnEl.textContent = 'add to shopping list';
-    modalMainBtnEl.nextElementSibling.classList.add('is-hidden');
+    modalMainBtnEl.nextElementSibling.classList.add('is-hidden-text');
+    modalMainBtnEl.classList.remove('modal-btn-main-remove');
     return;
   }
   modalMainBtnEl.textContent = 'remove from the shopping list';
-  modalMainBtnEl.nextElementSibling.classList.remove('is-hidden');
+  modalMainBtnEl.classList.add('modal-btn-main-remove');
+  modalMainBtnEl.nextElementSibling.classList.remove('is-hidden-text');
 }
 
 function toggleModal() {
@@ -52,28 +54,36 @@ function toggleModal() {
   document.body.classList.toggle('no-scroll');
 }
 
-function isInStorage(arr, id) {
-  for (const a of arr) {
-    if (a === id) {
-      return true;
-    }
-    return false;
-  }
+function isInStorage(obj) {
+  if (!obj.bookArr.length) return false;
+  return obj.bookArr.some(i => i === obj.bookId);
 }
 
 function addListeners() {
   btnCloseModalEl.addEventListener('click', handlerClose);
-  /* modalEl.addEventListener('click', handlerClose); */
   document.addEventListener('keydown', handlerClose);
+  modalMainBtnEl.addEventListener('click', clickHandler);
 }
 
-function handlerClose(evt) {
-  console.log(btnCloseModalEl);
-  console.log(evt.target);
-  toggleModal();
+function clickHandler() {
+  listenModal(modalBookObj);
+}
+
+function handlerClose() {
   document.removeEventListener('keydown', handlerClose);
+  modalMainBtnEl.removeEventListener('click', clickHandler);
+  toggleModal();
 }
 
-function onClickBtn(bool) {
-  console.log(bool);
+function listenModal(obj) {
+  if (obj.isInLS) {
+    const idx = obj.bookArr.indexOf(obj.bookId);
+    obj.bookArr.splice(idx, 1);
+    obj.isInLS = false;
+  } else {
+    obj.bookArr.push(obj.bookId);
+    obj.isInLS = true;
+  }
+  save('targetBooks', obj.bookArr);
+  toggleBtn(obj.isInLS);
 }
