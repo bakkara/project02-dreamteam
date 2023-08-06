@@ -54,7 +54,19 @@ function createTopBooks(data) {
     </div>`;
 }
 
-fetchTopBooks()
+
+
+
+function addEventListenersToButtons() {
+  const seeMoreButtons = document.querySelectorAll('.see-more-btn');
+  seeMoreButtons.forEach(button => {
+    const category = button.dataset.category;
+    button.addEventListener('click', () => handlerSeeMoreBtn(category));
+  });
+}
+
+function renderTopBooks() {
+  fetchTopBooks()
     .then(data => {
         Loading.remove();
         // console.log(data);
@@ -75,14 +87,9 @@ fetchTopBooks()
         .finally(
             Loading.remove()
 );
-
-function addEventListenersToButtons() {
-  const seeMoreButtons = document.querySelectorAll('.see-more-btn');
-  seeMoreButtons.forEach(button => {
-    const category = button.dataset.category;
-    button.addEventListener('click', () => handlerSeeMoreBtn(category));
-  });
 }
+renderTopBooks();
+
 
 function addEventListenersToBooks() {
   const bookCards = document.querySelectorAll('.book-card');
@@ -96,3 +103,6 @@ function onOpenBook(bookId) {
   console.log(bookId);
   modal(bookId);
 }
+
+
+export {renderTopBooks}
