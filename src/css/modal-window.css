@@ -5,11 +5,10 @@
   top: 0;
   left: 0;
   background-color: rgba(17, 17, 17, 0.4);
-  z-index: 1;
 }
 
 .modal-window {
-  max-width: 335px;
+  width: 335px;
   max-height: 762px;
   position: relative;
   margin: auto;
@@ -18,12 +17,14 @@
   border-radius: 18px;
   border: 2px solid var(--text-color);
   background-color: var(--body-bg-light);
-  z-index: 10;
 }
 
 .modal-svg {
   stroke: black;
-  z-index: 50;
+}
+
+.book-modal-wrap {
+  margin-bottom: 14px;
 }
 
 .btn-modal-close {
@@ -38,21 +39,27 @@
   align-items: center;
   background-color: red;
   border: none;
-  z-index: 100;
 }
-.modal-img {
+
+.modal-img-wrap {
   max-width: 287px;
-  height: 408px;
+  max-height: 408px;
   border-radius: 8px;
   border: var(--text-color) 2px solid;
   margin-bottom: 14px;
 }
+
+.modal-img {
+  width: 100%;
+}
+
 .modal-title {
   font-size: 16px;
   line-height: 1.125;
   letter-spacing: -0.64px;
   margin-bottom: 4px;
 }
+
 .modal-autor {
   font-size: 12px;
   font-style: italic;
@@ -62,12 +69,13 @@
   color: var(--top-category-title);
   margin-bottom: 18px;
 }
+
 .modal-descr {
   line-height: 1.29;
   letter-spacing: -0.56px;
   height: 70px;
-  margin-bottom: 14px;
 }
+
 .modal-shops {
   display: flex;
   gap: 20px;
@@ -75,30 +83,36 @@
   align-items: center;
   margin-bottom: 40px;
 }
+
 .modal-img-shop {
   filter: grayscale(100%);
 }
+
 .modal-btn-wrapper {
-  padding: 0 4px;
   margin: 0 auto;
 }
+
 .modal-btn-main {
   font-weight: 700;
+  font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.14px;
   text-transform: uppercase;
   color: var(--text-color);
   display: block;
   margin: auto;
-  padding: 12px 21px;
+  padding: 14px 28px;
   border-radius: 40px;
   border: 2px solid var(--violet);
   background-color: inherit;
 }
 
+.modal-btn-main-remove {
+  padding: 14px 20px;
+}
+
 .modal-bottom-text {
-  display: none; /*поміняти
-/* display: block; */
+  display: block;
   width: 242px;
   font-size: 10px;
   line-height: 1.2;
@@ -116,4 +130,9 @@
 
 .no-scroll {
   overflow: hidden;
+}
+
+.is-hidden-text {
+  opacity: 0;
+  visibility: hidden;
 }
