@@ -3,27 +3,29 @@ import { elements } from './refs.js';
 import { handlerSeeMoreBtn } from './books-from-category.js'; 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { modal } from './modal-window.js';
 
 function displayCategories(categories) {
-  elements.BooksInfo.innerHTML = "";
+ elements.BooksInfo.innerHTML = "";
   const categoriesHtml = categories.map(createTopBooks).join('');
   elements.BooksInfo.innerHTML = categoriesHtml;
 }
 
 function createTopBooks(data) {
-    const { list_name, books } = data;
-    const screenWidth = window.screen.width;
-    let numBooksToShow = 1;
-    if (screenWidth >= 768 && screenWidth <= 1440) {
-        numBooksToShow = 3
-    } else if(screenWidth >= 1440){
-        numBooksToShow = 5
-    }
-    // console.log(screenWidth);
-    // console.log(numBooksToShow);
-  const booksHtml = books.slice(0, numBooksToShow)
-    .map((book) => {
-      const {_id, title, author, book_image } = book;
+  const { list_name, books } = data;
+  const screenWidth = window.screen.width;
+  let numBooksToShow = 1;
+  if (screenWidth >= 768 && screenWidth <= 1440) {
+    numBooksToShow = 3;
+  } else if (screenWidth >= 1440) {
+    numBooksToShow = 5;
+  }
+  // console.log(screenWidth);
+  // console.log(numBooksToShow);
+  const booksHtml = books
+    .slice(0, numBooksToShow)
+    .map(book => {
+      const { _id, title, author, book_image } = book;
       return `
         <div class="book-card" data-id="${_id}">
          <img src="${book_image}" alt="" class="book-card-img" width="300" height="300">
@@ -82,9 +84,10 @@ function addEventListenersToBooks() {
   bookCards.forEach(book => {
     const bookId = book.dataset.id;
     book.addEventListener('click', () => onOpenBook(bookId));
-    });
-};
+  });
+}
 
-function onOpenBook(bookId) { 
-    console.log(bookId);
- }
+function onOpenBook(bookId) {
+  console.log(bookId);
+  modal(bookId);
+}
