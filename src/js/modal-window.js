@@ -18,7 +18,6 @@ export async function modal(id) {
     modalBookObj.isInLS = isInStorage(modalBookObj);
 
     elements.modalBookCard.innerHTML = createModalMarkup(modalBook);
-    // findStoreLink(modalBook);
 
     toggleModal();
     Loading.remove(250);
@@ -28,19 +27,13 @@ export async function modal(id) {
     Report.failure(
       'Notiflix Failure',
       '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
-      'Okay',
-      { timeout: 2000 }
+      'Okey... Fix it',
+      () => {
+        location.reload();
+      }
     );
-    location.reload(300);
   }
 }
-
-// function findStoreLink(book) {
-//   elements.modalStores.forEach(
-//     storeEl =>
-//       (storeEl.href = book.buy_links.find(obj => obj.name === storeEl.name).url)
-//   );
-// }
 
 function isInStorage(obj) {
   if (!obj.bookArr.length) return false;
@@ -75,8 +68,7 @@ function handlerClose() {
 }
 
 function handlerCloseW(e) {
-  if (e.key !== 'Escape' && e.target.closest('.modal-window')) return;
-  handlerClose();
+  if (e.key === 'Escape' || !e.target.closest('.modal-window')) handlerClose();
 }
 
 function toggleBtn(bool) {
