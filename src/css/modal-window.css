@@ -9,7 +9,6 @@
 
 .modal-window {
   width: 335px;
-  max-height: 762px;
   position: relative;
   margin: auto;
   padding: 40px 24px;
@@ -37,20 +36,18 @@
   padding: 0;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: transparent;
   border: none;
 }
 
 .modal-img-wrap {
+  overflow: hidden;
+  display: flex;
   max-width: 287px;
   max-height: 408px;
   border-radius: 8px;
   border: var(--text-color) 2px solid;
   margin-bottom: 14px;
-}
-
-.modal-img {
-  width: 100%;
 }
 
 .modal-title {
@@ -107,7 +104,7 @@
   background-color: inherit;
 }
 
-.modal-btn-main-remove {
+.js-modal-remove {
   padding: 14px 20px;
 }
 
@@ -132,7 +129,72 @@
   overflow: hidden;
 }
 
-.is-hidden-text {
+.js-hidden-text {
+  display: none;
   opacity: 0;
   visibility: hidden;
+}
+
+/* ___________________________________________________________ */
+
+@media screen and (min-width: 768px) {
+  .modal-window {
+    width: 580px;
+    padding: 40px;
+  }
+
+  .modal-main {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .book-modal-wrap {
+    margin-bottom: 0;
+  }
+
+  .btn-modal-close {
+    width: 28px;
+    height: 28px;
+    top: 24px;
+    right: 24px;
+  }
+
+  .modal-img-wrap {
+    max-width: 192px;
+    max-height: 281px;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+
+  .modal-title {
+    font-size: 24px;
+    line-height: 1.17;
+    letter-spacing: -0.96px;
+    margin-bottom: 8px;
+  }
+
+  .modal-autor {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.56px;
+    margin-bottom: 20px;
+  }
+
+  .modal-descr {
+    height: unset;
+    min-height: 70px;
+    margin-bottom: 20px;
+  }
+
+  .modal-shops {
+    margin-bottom: auto;
+  }
+
+  .modal-btn-main {
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.18px;
+    padding: 20px auto;
+    width: 499px;
+  }
 }
