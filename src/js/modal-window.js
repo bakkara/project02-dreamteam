@@ -16,7 +16,7 @@ export async function modal(id) {
     findStoreLink(modalBook);
 
     const [...targetBooks] = load('targetBooks');
-    const t = isInStorage(targetBooks, modalBook._id);
+    const t = isInStorage(targetBooks, id);
     console.log(t);
 
     toggleBtn(t);
@@ -53,10 +53,12 @@ function toggleModal() {
 }
 
 function isInStorage(arr, id) {
-  const r = arr.some(i => {
-    i == id;
-  });
-  return r;
+  for (const a of arr) {
+    if (a === id) {
+      return true;
+    }
+    return false;
+  }
 }
 
 function addListeners() {
