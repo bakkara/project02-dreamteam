@@ -4,4 +4,51 @@
     width: 100%;
     border: 1.5px solid #111;
     border-radius: 0 0 8px 8px;
+    padding: 18px 20px;
+}
+
+.header_container {
+  display: flex;
+  text-align: center;
+}
+
+.header_logo-text {
+    color: var(--text-color);
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.29;
+
+    letter-spacing: -0.04em;
+}
+
+.header_logo {
+    margin-right: 8px;
+}
+
+.header_logo-icon {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.nav_list {
+    display: flex;
+}
+
+@media screen and (max-width: 767px) {
+    .nav_list {
+        display: none;
+    }
+
+    .nav_item {
+        display: none;
+    }
+                 
+}
+
+@media screen and (min-width: 768px){
+    .header {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
 }

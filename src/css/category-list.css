@@ -40,6 +40,7 @@
     color: var(--violet);
 }
 
+
 @media screen and (min-width: 768px) {
     .category-section {
         margin-bottom: 100px;
