@@ -19,12 +19,8 @@ async function fetchTopBooks() {
 
 async function getBook(str) {
   const searchUrl = BASE_URL + str;
-  try {
-    const data = await axios(searchUrl);
-    return data.data;
-  } catch (err) {
-    console.log(err);
-  }
+  const data = await axios(searchUrl);
+  return data.data;
 }
 
 export { fetchTopBooks, getBook };
