@@ -1,3 +1,7 @@
+
+import './js/top-books.js'
+import './js/burger.js'
+
 import './js/top-books.js';
 import './js/modal-window.js';
 import './js/top-books.js';
