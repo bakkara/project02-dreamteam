@@ -18,7 +18,7 @@ export async function modal(id) {
     modalBookObj.isInLS = isInStorage(modalBookObj);
 
     elements.modalBookCard.innerHTML = createModalMarkup(modalBook);
-    findStoreLink(modalBook);
+    // findStoreLink(modalBook);
 
     toggleModal();
     Loading.remove(250);
@@ -35,12 +35,12 @@ export async function modal(id) {
   }
 }
 
-function findStoreLink(book) {
-  elements.modalStores.forEach(
-    storeEl =>
-      (storeEl.href = book.buy_links.find(obj => obj.name === storeEl.name).url)
-  );
-}
+// function findStoreLink(book) {
+//   elements.modalStores.forEach(
+//     storeEl =>
+//       (storeEl.href = book.buy_links.find(obj => obj.name === storeEl.name).url)
+//   );
+// }
 
 function isInStorage(obj) {
   if (!obj.bookArr.length) return false;

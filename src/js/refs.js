@@ -7,7 +7,7 @@ const elements = {
   modalBtnClose: document.querySelector('.js-modal-close'),
   modal: document.querySelector('.js-modal'),
 };
-console.log(elements);
+
 export { elements };
 
 import img1 from '../images/image1.png'
