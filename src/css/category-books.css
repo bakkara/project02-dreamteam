@@ -5,6 +5,18 @@
 
 .last-word {
     color:blue;
+    font-size: 32px;
+    margin-bottom: 40px;
+    letter-spacing: -1.28px;
+    line-height: 38px;
+        /* 118.75% */
+    }
+.category-books-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    letter-spacing: -1.28px;
+    line-height: 38px;
+        /* 118.75% */
 }
 
 .book-card {
@@ -68,6 +80,9 @@ color:--text-color;
 }
 
 @media screen and (min-width: 768px) {
+    /* .books-list {
+            width: 704px;
+        } */
     .overlay {
         transform: translatey(451%);
     }
@@ -78,4 +93,32 @@ color:--text-color;
   .book-card:focus .overlay {
       transform: translateY(250);
   }
+  .last-word {
+      color: var(--violet);
+      font-size: 48px;
+       }
+
+  .category-books-title {
+      font-size: 48px;  
+    line-height: 52px;
+        /* 108.333% */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+    .books-list {
+        width: 996px;
+    }
+
+    .book-card-img {
+        height: 256px;
+    }
+
+    .book-card:hover .overlay {
+        transform: translateY(190);
+    }
+
+    .book-card:focus .overlay {
+        transform: translateY(190);
+    }
 }

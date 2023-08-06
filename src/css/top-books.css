@@ -2,6 +2,14 @@
   /* background: var(--body-bg-light);*/
   background: powderblue;
 }
+.books-section-title {
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.19; /* 118.75% */
+  letter-spacing: -1.28px;
+}
+
 .top-category-item {
   margin-bottom: 40px;
 }
