@@ -7,6 +7,7 @@ const modalEl = document.querySelector('.modal-wrapper');
 const modalBookCardEl = document.querySelector('.book-modal-wrap');
 const modalStoresEl = document.querySelectorAll('.modal-link');
 const modalMainBtnEl = document.querySelector('.modal-btn-main');
+// const modalTextUderBtnEl = document.querySelector('.modal-bottom-text');
 
 export async function modal(id) {
   try {
@@ -15,19 +16,16 @@ export async function modal(id) {
     modalBookCardEl.innerHTML = createModalMarkup(modalBook);
     findStoreLink(modalBook);
 
-    const [...targetBooks] = load('targetBooks');
-    const t = isInStorage(targetBooks, id);
-    console.log(t);
-
-    toggleBtn(t);
-
-    modalMainBtnEl.addEventListener('click', onClickBtn);
+    toggleModal();
 
     addListeners();
+    modalMainBtnEl.addEventListener('click', onModalBtnClick);
+    function onModalBtnClick() {
+      listenModal(id);
+    }
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
-  toggleModal();
 }
 
 function findStoreLink(book) {
@@ -40,11 +38,13 @@ function findStoreLink(book) {
 function toggleBtn(bool) {
   if (!bool) {
     modalMainBtnEl.textContent = 'add to shopping list';
-    modalMainBtnEl.nextElementSibling.classList.add('is-hidden');
+    modalMainBtnEl.nextElementSibling.classList.add('is-hidden-text');
+    modalMainBtnEl.classList.remove('modal-btn-main-remove');
     return;
   }
   modalMainBtnEl.textContent = 'remove from the shopping list';
-  modalMainBtnEl.nextElementSibling.classList.remove('is-hidden');
+  modalMainBtnEl.classList.add('modal-btn-main-remove');
+  modalMainBtnEl.nextElementSibling.classList.remove('is-hidden-text');
 }
 
 function toggleModal() {
@@ -53,27 +53,35 @@ function toggleModal() {
 }
 
 function isInStorage(arr, id) {
-  for (const a of arr) {
-    if (a === id) {
-      return true;
-    }
-    return false;
-  }
+  if (!arr.length) return false;
+  return arr.some(i => i === id);
 }
 
 function addListeners() {
-  btnCloseModalEl.addEventListener('click', handlerClose);
-  modalEl.addEventListener('click', handlerClose);
-  document.addEventListener('keydown', handlerClose);
+  modalMainBtnEl.addEventListener('click', onModalBtnClick);
+  btnCloseModalEl.addEventListener('click', toggleModal);
+  // modalEl.addEventListener('click', handlerClose);
+  document.addEventListener('keydown', handlerCloseEsc);
 }
 
-function handlerClose(evt) {
-  console.log(btnCloseModalEl);
-  console.log(evt.target);
+// function handlerClose(evt) {
+//   toggleModal();
+// }
+
+function handlerCloseEsc(evt) {
+  if (evt.key !== 'Escape') return;
   toggleModal();
-  document.removeEventListener('keydown', handlerClose);
+  document.removeEventListener('keydown', handlerCloseEsc);
 }
-
-function onClickBtn(bool) {
-  console.log(bool);
+// доробити!!!!!
+function listenModal(id) {
+  const [...targetBooks] = load('targetBooks');
+  const bool = isInStorage(targetBooks, id);
+  toggleBtn(bool);
+  if (bool) {
+    arr.splice(arr.indexOf(id), 1);
+  } else {
+    arr.push(id);
+  }
+  save('targetBooks', arr);
 }
