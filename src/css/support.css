@@ -2,21 +2,24 @@
     margin-top: 100px;
 }
 .foundations {
-/* position: relative; */
+
 display: block;
 padding-top: 24px;
 border: 1px solid #4F2EE8;
 border-radius: 16px;
 background-color: #4F2EE8;
-/* overflow: auto; */
 height: 352px;
+}
+
+.ulfounds {
+ width: fit-content;
 }
 
 .blocks {
     margin-top: 40px;
-    width: 159px;
+   
     height: 188px;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .block {

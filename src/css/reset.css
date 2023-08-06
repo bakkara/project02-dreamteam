@@ -49,6 +49,10 @@ body {
     padding-left: 32px;
     padding-right: 32px;
   }
+  .category-support {
+    display: flex;
+    gap: 32px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -56,5 +60,12 @@ body {
     max-width: 1440px;
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .main-section {
+    display: flex;
+    gap: 40px;
+  }
+  .category-support {
+    flex-direction: column;
   }
 }
