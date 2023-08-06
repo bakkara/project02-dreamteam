@@ -30,6 +30,7 @@
     "axios": "^1.4.0",
     "firebase": "^10.1.0",
     "notiflix": "^3.2.6",
-    "notifly": "^0.0.1"
+    "notifly": "^0.0.1",
+    "overlayscrollbars": "^2.2.1"
   }
 }
