@@ -3,7 +3,12 @@ import axios from 'axios';
 import { OverlayScrollbars } from 'overlayscrollbars';
 
 const URL = 'https://books-backend.p.goit.global/books/category-list';
+
 const categoryList = document.querySelector('.category-list');
+
+categoryList.addEventListener('click', onclickCategory);
+categoryList.addEventListener('mouseover', MouseClickAccentOn);
+categoryList.addEventListener('mouseout', MouseClickAccentOff);
 
 const getCategoryList = async () => {
   const response = await axios(URL);
@@ -14,13 +19,11 @@ function renderCategoryList(data) {
   return data
     .map(
       ({ list_name }) =>
-        `
-            <li class="category-li">
-                <a class="category" href="#">
-                    <span class="category-span">${list_name}</span>
-                </a>
-            </li>
-        `
+        `<li class="category-li">
+            <a class="category" href="#">
+                <span class="category-span">${list_name}</span>
+            </a>
+        </li>`
     )
     .join('');
 }
@@ -41,9 +44,6 @@ OverlayScrollbars({
 }, {
     showNativeOverlaidScrollbars: true
 });
-
-
-categoryList.addEventListener('click', onclickCategory);
 
 function onclickCategory(event) {
     event.preventDefault();
@@ -67,18 +67,6 @@ function removeUpperCase() {
     const rem = document.querySelectorAll('.category-span');
     rem.forEach(el => el.classList.remove('upper-case'))
 };
-
-function seeMoreFunc(data) {
-    removeUpperCase();
-    const newDom = document.querySelectorAll('.category-span');
-    newDom.forEach(el => {
-        if (el.textContent === data) el.classList.add('upper-case')
-    });
-}
-
-
-categoryList.addEventListener('mouseover', MouseClickAccentOn);
-categoryList.addEventListener('mouseout', MouseClickAccentOff);
 
 function MouseClickAccentOn(event) {
     if (event.target.nodeName !== 'SPAN') {
