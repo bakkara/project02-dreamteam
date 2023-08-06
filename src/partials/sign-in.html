@@ -1,10 +1,13 @@
-<form>
-    <label for="name">Name</label>
-    <input type="text" placeholder="Name" name="name" id="userName" required>
-    <label for="email">Email</label>
-    <input type="text" placeholder="Enter email" name="email" id="email" required>
-    <label for="password">Email</label>
-    <input type="password" placeholder="Password" name="psw" id="psw" required>
-    <button type="button" id="signup" name="signup" class="signupbtn">Sign up</button>
-    <button type="button" id="signin" name="signip" class="signinbtn">Sign in</button>
-</form>
+<div class="form-wrapper is-hidden">
+    <div class="form-window">
+        <form>
+            <input class="form-input" type="text" placeholder="NAME" name="name" id="userName" required>
+            <input class="form-input" type="text" placeholder="Enter email" name="email" id="email" required>
+            <input class="form-input" type="password" placeholder="Password" name="psw" id="psw" required>
+
+        </form>
+        <button class="btn-form" type="button" id="signup" name="signup" class="signupbtn">Sign up</button>
+        <button type="button" id="signin" name="signip" class="signinbtn">Sign in</button>
+        <button type="button" id="logout" name="logout" class="logoutbtn">Log Out</button>
+    </div>
+</div>
