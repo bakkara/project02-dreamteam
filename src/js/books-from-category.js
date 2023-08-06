@@ -2,6 +2,7 @@ import { title } from 'process';
 import { getOneCategoriesBooksFromApi } from './fetch_API_categories.js';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 // import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { modal } from './modal-window.js';
 const booksSection = document.querySelector('.books-list');
 // const button = document.querySelector('.see-more-btn');
 // button.addEventListener('click', handlerSeeMoreBtn);
@@ -80,5 +81,6 @@ function cardsListners() {
 }
 
 function onOpenBook(bookId) { 
-    console.log(bookId);
+  console.log(bookId);
+  modal(bookId);
  }
