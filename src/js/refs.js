@@ -6,7 +6,7 @@ const elements = {
   modalBtnClose: document.querySelector('.js-modal-close'),
   modal: document.querySelector('.js-modal'),
 };
-console.log(elements);
+
 export { elements };
 
 export const blocks = [

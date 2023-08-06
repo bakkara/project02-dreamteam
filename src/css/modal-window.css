@@ -1,5 +1,11 @@
+img {
+  width: 100%;
+}
+
 .modal-wrapper {
   position: fixed;
+  display: flex;
+  place-items: center;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -7,10 +13,18 @@
   background-color: rgba(17, 17, 17, 0.4);
 }
 
-.modal-window {
-  width: 335px;
+.modal-window-wrap {
   position: relative;
+  width: 339px;
+  height: 810px;
   margin: auto;
+  background-color: transparent;
+  border: none;
+}
+
+.modal-window {
+  position: relative;
+  /* margin: auto; */
   padding: 40px 24px;
   color: var(--text-color);
   border-radius: 18px;
@@ -22,9 +36,9 @@
   stroke: black;
 }
 
-.book-modal-wrap {
+/* .modal-main {
   margin-bottom: 14px;
-}
+} */
 
 .btn-modal-close {
   display: flex;
@@ -43,8 +57,8 @@
 .modal-img-wrap {
   overflow: hidden;
   display: flex;
-  max-width: 287px;
-  max-height: 408px;
+  width: 100%;
+  height: 408px;
   border-radius: 8px;
   border: var(--text-color) 2px solid;
   margin-bottom: 14px;
@@ -71,6 +85,8 @@
   line-height: 1.29;
   letter-spacing: -0.56px;
   height: 70px;
+  margin-bottom: 8px;
+  overflow: auto;
 }
 
 .modal-shops {
@@ -78,7 +94,6 @@
   gap: 20px;
   width: 173px;
   align-items: center;
-  margin-bottom: 40px;
 }
 
 .modal-img-shop {
@@ -86,7 +101,7 @@
 }
 
 .modal-btn-wrapper {
-  margin: 0 auto;
+  margin: 40px auto 0;
 }
 
 .modal-btn-main {
@@ -115,7 +130,7 @@
   line-height: 1.2;
   letter-spacing: -0.4px;
   text-align: center;
-  color: --bgc-modal;
+  color: var(--bgc-modal);
   margin: 8px auto 0;
 }
 
@@ -138,17 +153,27 @@
 /* ___________________________________________________________ */
 
 @media screen and (min-width: 768px) {
+  .modal-window-wrap {
+    position: relative;
+    margin: auto;
+    width: 583px;
+    height: 501px;
+    background-color: transparent;
+    border: none;
+  }
+
   .modal-window {
-    width: 580px;
+    width: 100%;
+    /* height: 465px; */
     padding: 40px;
   }
 
-  .modal-main {
+  /* .modal-main {
+    margin-bottom: 40px;
+  } */
+  .book-modal-wrap {
     display: flex;
     gap: 24px;
-    margin-bottom: 40px;
-  }
-  .book-modal-wrap {
     margin-bottom: 0;
   }
 
@@ -160,8 +185,8 @@
   }
 
   .modal-img-wrap {
-    max-width: 192px;
-    max-height: 281px;
+    width: 192px;
+    height: 100%;
     border-radius: 8px;
     margin-bottom: 0;
   }
@@ -181,8 +206,7 @@
   }
 
   .modal-descr {
-    height: unset;
-    min-height: 70px;
+    width: 279px;
     margin-bottom: 20px;
   }
 
@@ -194,7 +218,15 @@
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.18px;
-    padding: 20px auto;
+    padding: 20px;
     width: 499px;
+  }
+
+  .modal-bottom-text {
+    width: 324px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.48px;
+    margin: 8px auto 0;
   }
 }
