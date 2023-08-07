@@ -1,0 +1,143 @@
+.support {
+  display: none;
+}
+.shopping-list-title {
+  color: #111;
+
+  font-size: 32px;
+
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -1.28px;
+
+  margin-bottom: 120px;
+}
+
+.s-l-title {
+  color: #4f2ee8;
+}
+
+.text-shop-list {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  margin-bottom: 14px;
+}
+.shop-section {
+  padding-top: 40px;
+}
+.message {
+  width: 265px;
+  height: 248px;
+
+  margin: 0 auto;
+}
+.shopping-card {
+  position: relative;
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  background: #fff;
+
+  padding: 14px 14px;
+}
+
+.shopping-image {
+  border-radius: 8px;
+  width: 100px;
+  height: 142px;
+  margin-right: 14px;
+}
+.books-sh-container {
+  width: 193px;
+}
+.shop-title {
+  color: #111;
+
+  font-size: 16px;
+
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.shopping-category {
+  color: #b4afaf;
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: 0.36px;
+  margin-bottom: 4px;
+}
+.shopping-description {
+  overflow: hidden;
+  color: #111;
+  text-overflow: ellipsis;
+  whitespace: nowrap;
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.56px;
+  margin-bottom: 16px;
+  width: 193px;
+}
+.shopping-author {
+  color: #b4afaf;
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: -0.48px;
+}
+.delete-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border-radius: 50px;
+  background-color: rgba(79, 46, 232, 1);
+  border: none;
+  width: 28px;
+  height: 28px;
+}
+.shopping-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 768px) {
+  .shopping-list-title {
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -1.92px;
+    margin-bottom: 140px;
+  }
+  .text-shop-list {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    margin-bottom: 20px;
+  }
+  .message {
+    width: 349px;
+    height: 309px;
+  }
+  .shop-img {
+    width: 322px;
+    height: 241px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .support {
+    display: block;
+  }
+}

@@ -2,24 +2,34 @@
   <nav>
     <button type="button" class="mbtn is-open" aria-expanded="false" aria-controls="menu-container" data-menu-button>
       <svg width="28" height="28" aria-label="Переключатель мобильного меню">
-        <!-- <use class="icon-cross" href="#"></use>
-          <use class="icon-menu" href="#"></use> -->
+        <use class="icon-cross" href="./images/symbol-defs.svg#icon-modal-close"></use>
+        <use class="icon-menu" href="./images/symbol-defs.svg#icon-burger"></use>
       </svg>
     </button>
     <div class="menu-container" id="menu-container" data-menu>
-      <ul>
+      <div class="div-stephen">
+        <!-- <img src="./images/Stephen.png" class="stephen"> -->
+        <img src="#" class="stephen">
+        <p class="text-stephen">Stephen</p>
+      </div>
+      <ul class="list-burger">
         <li>
-          <button type="button" class="button burger" href="../index.html">HOME</button>
+          <button type="button" class="btn-burger" href="../partials/books-section.html">HOME</button>
         </li>
-        <li>
-          <a class="burger link SL" href="./shopping-list.html">
+        <li class="link-sl">
+          <a class="burger-link-sl" href="./shopping-list.html">
             SHOPPING LIST
-            <!-- <svg>
-                icon-SL
-              </svg> -->
+            <svg width="20" height="20" class="icon-sl">
+              <use href="./images/symbol-defs.svg#icon-sl"></use>
+            </svg>
           </a>
         </li>
       </ul>
+      <button type="button" class="log-out">Log out
+        <svg width="20" height="20" class="logout-svg">
+          <use href="./images/symbol-defs.svg#icon-arrow-right" class="modal-close"></use>
+        </svg>
+      </button>
       <img src="./images/forBurger.png" class="image-menu">
     </div>
   </nav>

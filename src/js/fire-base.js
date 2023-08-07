@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth"
+import { getFirestore, setDoc, doc } from "firebase/firestore"; 
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZmcnC_2fBns-z8P5Wk9Fw_wxB6fZENSM",
@@ -11,25 +13,96 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const submit = document.querySelector('#submitData')
+const signUpBtn = document.querySelector('#signup')
+const signInBtn = document.querySelector('#signin')
+const logoutBtn = document.querySelector('#logout')
+const signUpBtnHeader = document.querySelector('.signup-header')
+const userNameText = document.querySelector('.user-name')
+const closeFormBtn = document.querySelector('.js-form-close')
+const formEl = document.querySelector('.form-wrapper');
+const navList = document.querySelector('.nav');
 const auth = getAuth();
+const db = getFirestore(app)
 
+signUpBtn.addEventListener('click', signUp)
+signInBtn.addEventListener('click', signIn)
+logoutBtn.addEventListener('click', logOut)
+signUpBtnHeader.addEventListener('click', toggleForm)
+closeFormBtn.addEventListener('click', toggleForm)
 
-submit.addEventListener('click', (e) => { 
-const email = document.querySelector('#email').value;
-    const password = document.querySelector('#psw').value;
-    console.log(e)
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-      const user = userCredential.user;
-      alert('user created')
-    // ...
+const userNameLocal = localStorage.getItem("userName");
+if (userNameLocal) {
+  userNameText.textContent = userNameLocal;
+  navList.classList.remove('is-hidden')
+} else {
+  userNameText.textContent = "Sign in";
+}
+
+function toggleForm(evt) {
+  formEl.classList.toggle('is-hidden');
+  if (!formEl.classList.contains('is-hidden')) {
+    document.body.classList.toggle('no-scroll');
+  }
+  
+  
+}
+
+async function signUp(evt) {
+  
+    try {
+      const email = document.querySelector('#email').value;
+      const password = document.querySelector('#psw').value;
+      const userName = document.querySelector('#userName').value;
+      const userAuth = await createUserWithEmailAndPassword(auth, email, password);
+      const uid = userAuth.user.uid
+      // const userObj = {
+      //   userName,
+      //   email,  
+      //   accountActivate: true,
+      //   uid
+      // }
+      // console.log("authObj", userObj)
+      // const userRef = doc(db, "users", userAuth.uid,);
+      // const userDB = await setDoc(userRef, userObj);
+      // console.log("authObj", userDB);
+      localStorage.setItem("userUid", uid)
+      localStorage.setItem("userName", userName)
+      userNameText.textContent = userName;
+      navList.classList.remove('is-hidden')
+      window.location.replace('/index')
+      } catch (error) {
+        const errorMessage = error.message;
+        alert(errorMessage)
+    }
+ 
+}
+
+async function signIn(evt) {
+    try {
+      const email = document.querySelector('#email').value;
+      const password = document.querySelector('#psw').value;
+      const userName = document.querySelector('#userName').value;
+      const userLogin = await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("userUid", userLogin.user.uid)
+      localStorage.setItem("userName", userName)
+      userNameText.textContent = userName;
+      window.location.replace('/index')
+      } catch (error) {
+        const errorMessage = error.message;
+        alert(errorMessage)
+    }
+ 
+}
+
+async function logOut(evt) {
+  signOut(auth).then(() => {
+    console.log('Log out');
+    localStorage.removeItem("userName");
+    userNameText.textContent = "Sign in";
+    localStorage.removeItem("userUid");
+    window.location.replace('/index');
+  }).catch((err) => {
+    console.log('error')
   })
-  .catch((error) => {
-    const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage)
-    // ..
-  });
-})
+ 
+}

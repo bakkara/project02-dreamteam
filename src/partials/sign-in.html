@@ -1,7 +1,18 @@
-<form>
-    <label for="email">Email</label>
-    <input type="text" placeholder="Enter email" name="email" id="email" required>
-    <label for="password">Email</label>
-    <input type="password" placeholder="Password" name="psw" id="psw" required>
-    <button type="button" id="submitData" name="submitData" class="registerbtn">Sign up</button>
-</form>
+<div class="form-wrapper is-hidden">
+    <div class="form-window">
+        <button type="button" class="btn-form-close js-form-close" data-modal-close>
+            <svg width="24" height="24" class="modal-svg">
+                <use href="./images/symbol-defs.svg#icon-modal-close" class="modal-close"></use>
+            </svg>
+        </button>
+        <form>
+            <input class="form-input" type="text" placeholder="NAME" name="name" id="userName" required>
+            <input class="form-input" type="text" placeholder="Enter email" name="email" id="email" required>
+            <input class="form-input" type="password" placeholder="Password" name="psw" id="psw" required>
+
+        </form>
+        <button class="btn-form" type="button" id="signup" name="signup" class="signupbtn">Sign up</button>
+        <button type="button" id="signin" name="signip" class="signinbtn">Sign in</button>
+        <button type="button" id="logout" name="logout" class="logoutbtn">Log Out</button>
+    </div>
+</div>

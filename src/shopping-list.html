@@ -6,10 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+
+    <link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body>
+    <include src="./partials/header.html"></include>
+    <main>
+        <section class="shop-section">
+            <include src="./partials/support.html"></include>
+            <div class="shopping-list container">
 
+                <h1 class="shopping-list-title">Shopping <span class="shopping-list-title s-l-title">List</span>
+                </h1>
+                <div class="book-list" id="bookList">
+                    <!-- Картки книг  -->
+
+                </div>
+
+
+                <div class="message" id="message">
+                    <!-- Повідомлення, якщо список порожній -->
+                    <p class="text-shop-list">This page is empty, add some books and proceed to order.</p>
+                    <img src="./images/shopping-list-books.png" alt="book" class="shop-img" width="265px">
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <script type="module" src="./shopping-list.js"></script>
 </body>
 
 </html>
