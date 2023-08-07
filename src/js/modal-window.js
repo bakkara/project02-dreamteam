@@ -5,6 +5,7 @@ import { createModalMarkup } from './markup.js';
 import { getBook } from './api';
 import { load, save } from './storage.js';
 
+let scrollWidth = '';
 const modalBookObj = {}; /**ініціалізація об'єкту з інформацією про книгу */
 
 /**
@@ -13,10 +14,10 @@ const modalBookObj = {}; /**ініціалізація об'єкту з інфо
  */
 export async function modal(id) {
   try {
+    scrollWidth = window.innerWidth - elements.body.clientWidth + 'px'; /*визначаємо ширину скролу*/
     Loading.standard(); /** вкл спінер */
     const modalBook = await getBook(id); /** запит на api */
-    const [...targetBooks] =
-      load('targetBooks'); /** оримуємо масив книг з лок, сховища */
+    const [...targetBooks] = load('targetBooks'); /** оримуємо масив книг з лок, сховища */
 
     /** оновлюємо отриманими даними наш об'єкт книги*/
     modalBookObj.bookId = id;
@@ -28,7 +29,7 @@ export async function modal(id) {
 
     toggleBtn(modalBookObj.isInLS); /** заповнюємо текстом головну кнопку  */
     toggleModal(); /** відкриваємо модалку */
-    Loading.remove(250); /**викл спінер через 250мс */
+    Loading.remove(); /**викл спінер через */
     addListeners(); /** "вішаємо" слухачів на події */
   } catch (err) {
     Report.failure(
@@ -119,6 +120,9 @@ function toggleBtn(bool) {
  * відкриває/закриває модалку
  */
 function toggleModal() {
-  elements.modal.classList.toggle('is-hidden');
-  document.body.classList.toggle('no-scroll');
+  elements.body.style.paddingRight = elements.modal.classList.contains('is-open')
+    ? '0px'
+    : scrollWidth;
+  elements.modal.classList.toggle('is-open');
+  elements.body.classList.toggle('no-scroll');
 }
