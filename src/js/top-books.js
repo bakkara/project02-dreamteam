@@ -13,22 +13,37 @@ function displayCategories(data) {
   return ""
 }
 
+// function markupBookCard(_id, title, author, book_image ) {
+  
+//   return `
+//         <div class="book-card" tabindex="0" data-id="${_id}">
+//          <div class = "book-img">
+//          <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300" data-modal-open="true">
+//          <div class="overlay">
+//              <p class="overlay-text">quick view</p>
+//           </div> 
+//           </div>
+//        <h4 class="book-card-title">${title}</h4>
+//         <p class="book-card-author">${author}</p>
+//        </div>`;
+// }
+
 function createTopBooks(data) {
     const { list_name, books } = data;
-    const screenWidth = window.screen.width;
+    const screenWidth = window.innerWidth;
     let numBooksToShow = 1;
     if (screenWidth >= 768 && screenWidth <= 1440) {
         numBooksToShow = 3
     } else if(screenWidth >= 1440){
         numBooksToShow = 5
-    }
-    // console.log(list_name);
-    // console.log(books);
+  };
   
  
   const booksHtml = books.slice(0, numBooksToShow)
     .map((book) => {
-      const {_id, title, author, book_image } = book;
+     const { _id, title, author, book_image } = book;
+      
+      // return markupBookCard(_id, title, author, book_image);
 
       return `
         <div class="book-card" tabindex="0" data-id="${_id}">
@@ -52,8 +67,8 @@ function createTopBooks(data) {
     </div>`;
 }
 
-
-
+window.addEventListener('resize', renderTopBooks);
+renderTopBooks();
 
 function addEventListenersToButtons() {
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
@@ -85,9 +100,7 @@ function renderTopBooks() {
         .finally(
             Loading.remove()
 );
-}
-
-renderTopBooks();
+};
 
 
 function addEventListenersToBooks() {
