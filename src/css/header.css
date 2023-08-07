@@ -13,6 +13,7 @@
 }
 .header-buttons {
   display: flex;
+    align-items: center;
   gap: 24px;
 }
 .header_logo-text {
