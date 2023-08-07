@@ -1,5 +1,5 @@
-import amazon from '../images/amazon.png';
-import applebook from '../images/applebook.png';
+import amazon from '../images/amazon1.png';
+import applebook from '../images/applebook1.png';
 import barnesnoble from '../images/barnesnoble.png';
 
 function createModalMarkup(book) {
