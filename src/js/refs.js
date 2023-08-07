@@ -4,6 +4,7 @@ const elements = {
   modalBookCard: document.querySelector('.js-modal-book'),
   modalBtnClose: document.querySelector('.js-modal-close'),
   modal: document.querySelector('.js-modal'),
+  body: document.body,
 };
 
 export { elements };
