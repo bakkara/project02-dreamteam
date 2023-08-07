@@ -21,10 +21,15 @@ async function fetchTopBooks() {
   }
 }
 
+/**
+ *запит на апі, (на мою думку оптимізованіша функція)
+ * @param {*} str -довільний рядок з потрібними ключами для запиту
+ * @returns об'єкт(и) за запитом
+ */
 async function getBook(str) {
   const searchUrl = BASE_URL + str;
-  const data = await axios(searchUrl);
-  return data.data;
+  const { data } = await axios(searchUrl);
+  return data;
 }
 
 export { fetchTopBooks, getBook };

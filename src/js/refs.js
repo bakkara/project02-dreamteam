@@ -2,7 +2,6 @@
 const elements = {
   BooksInfo: document.querySelector('.books-list'),
   modalMainBtn: document.querySelector('.js-modal-btn'),
-  modalStores: document.querySelectorAll('.js-modal-link'),
   modalBookCard: document.querySelector('.js-modal-book'),
   modalBtnClose: document.querySelector('.js-modal-close'),
   modal: document.querySelector('.js-modal'),
