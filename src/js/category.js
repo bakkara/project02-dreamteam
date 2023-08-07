@@ -3,6 +3,7 @@ import { handlerSeeMoreBtn } from './books-from-category.js';
 import { renderTopBooks } from './top-books.js';
 import { elements } from './refs.js';
 
+
 const URL = 'https://books-backend.p.goit.global/books/category-list';
 
 elements.categoryList.addEventListener('click', onclickCategory);
