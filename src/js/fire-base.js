@@ -35,13 +35,13 @@ logoutBtn.addEventListener('click', logOut)
 btnLogOut.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)
-signUpSvg.addEventListener('click', ()=> {btnLogOut.classList.remove('is-hidden')})
+signUpSvg.addEventListener('click', ()=> {btnLogOut.style.display = "flex"})
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {
-  signUpBtnHeader.classList.add('is-hidden')
+  signUpBtnHeader.style.display = "none"
   userNameText.textContent = localStorage.getItem("userName")
-  userDivHeader.classList.remove('is-hidden')
-  navList.classList.remove('is-hidden')
+  userDivHeader.style.display = "flex"
+  navList.style.display = "flex"
 } 
 
 function toggleForm(evt) {
@@ -74,7 +74,7 @@ async function signUp(evt) {
       localStorage.setItem("userUid", uid)
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
-      navList.classList.remove('is-hidden')
+      navList.style.display = "flex"
       window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
@@ -107,11 +107,10 @@ async function logOut(evt) {
      userDivHeader.classList.add('is-hidden')
   localStorage.removeItem("userUid");
     window.location.replace('./index.html');
-     navList.classList.add('is-hidden')
-  signUpBtnHeader.classList.remove('is-hidden')
+     navList.style.display = "none"
+  signUpBtnHeader.style.display = "flex"
 
- 
-    
+   
   }).catch((err) => {
     console.log('error')
   })

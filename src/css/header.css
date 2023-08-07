@@ -6,17 +6,17 @@
   padding: 18px 20px;
 }
 
-.header_container {
+.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .header-buttons {
   display: flex;
-    align-items: center;
+  align-items: center;
   gap: 24px;
 }
-.header_logo-text {
+.header-logo-text {
   color: var(--text-color);
 
   font-weight: 700;
@@ -26,16 +26,16 @@
   letter-spacing: -0.04em;
 }
 
-.header_logo {
+.header-logo {
   margin-right: 40px;
 }
 
-.header_logo-icon {
+.header-logo-icon {
   text-align: center;
   margin: 0 auto;
 }
 
-.nav_list {
+.nav-list {
   display: none;
 }
 
@@ -45,21 +45,33 @@
 
 @media screen and (min-width: 767px) {
   .nav {
-    display: flex;
+    display: none;
     margin-right: auto;
     align-items: center;
   }
-  .nav_list {
+  .nav-list {
     display: flex;
     align-items: center;
     gap: 24px;
   }
 
-  .nav_item {
+  .nav-item {
     display: flex;
     align-items: center;
   }
-
+  .icon-sl-header {
+    stroke: #111;
+  }
+  .nav-item-current {
+    display: flex;
+    padding: 8px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    width: 72px;
+    height: 34px;
+    border-radius: 36px;
+    background: #eac645;
+  }
   .signup-header {
     display: inline-flex;
     justify-content: space-between;
@@ -75,7 +87,7 @@
     padding: 14px;
   }
   .div-stephen-header {
-    display: flex;
+    display: none;
     width: 184px;
     height: 45px;
     align-items: center;
@@ -83,6 +95,20 @@
     gap: 9px;
     border-radius: 36px;
     background: var(--violet);
+  }
+  .log-out-header {
+    width: 184px;
+    height: 48px;
+    display: none;
+    justify-content: space-between;
+    padding: 14px;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: #fff;
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.56px;
   }
 }
 
