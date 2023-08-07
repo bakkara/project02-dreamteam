@@ -1,5 +1,6 @@
 :root {
   --transform: cubic-bezier(0.4, 0, 0.2, 1);
+  --time-transform: 250ms;
   --body-bg-light: #f6f6f6;
   --body-bg-dark: #202024;
   --violet: #4f2ee8;
