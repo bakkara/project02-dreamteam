@@ -1,5 +1,27 @@
+import './js/support.js';
+
+import img1 from './images/amazon.png';
+import img2 from './images/apple-book.png';
+import img3 from './images/barnes-noble.png';
+
 const bookList = document.querySelector('#bookList');
 const message = document.querySelector('#message');
+const bookStore = {
+  buy_links: [
+    {
+      name: 'Amazon',
+      url: 'https://www.amazon.com/Wish-Barbara-OConnor/dp/1250144051?tag=NYTBSREV-20',
+    },
+    {
+      name: 'Apple Books',
+      url: 'https://goto.applebooks.apple/9781250144058?at=10lIEQ',
+    },
+    {
+      name: 'Barnes and Noble',
+      url: 'https://www.anrdoezrs.net/click-7990613-11819508?url=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781250144058',
+    },
+  ],
+};
 
 async function getBook(bookId) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/';
@@ -38,29 +60,48 @@ function displayBooksInShoppingList(bookIds) {
     });
   }
 }
+function findStoreLink(book) {
+  const modalStoresEl = bookList.querySelectorAll('.modal-link');
+  modalStoresEl.forEach(storeEl => {
+    const storeName = storeEl.getAttribute('name');
+    const storeLink = bookStore.buy_links.find(
+      obj => obj.name === storeName
+    )?.url;
+    storeEl.href = storeLink;
+  });
+}
+
 function createBookCard(book) {
   const bookCard = document.createElement('div');
+
   bookCard.innerHTML = `
-<div class="book-card">
-      <img class="book-image" src="${book.book_image}" alt="${book.list_name}">
-      <div class="book-title">${book.title}</div>
-      <div class="book-category">${book.list_name}</div>
-      <div class="book-description">${book.description}</div>
-      <div class="book-author">${book.author}</div>
-      <div class="book-links">
-        ${
-          book.links
-            ? book.links
-                .map(
-                  link =>
-                    `<div class="book-link"><a href="${link}">Buy on ${link}</a></div>`
-                )
-                .join('')
-            : ''
-        }
-      </div>
+<div class="shopping-card">
+      <img class="shopping-image" src="${book.book_image}" alt="${book.list_name}" id="${book._id}">
+      <h2 class="shop-title">${book.title}</h2>
+      <h3 class="shopping-category">${book.list_name}</h3>
+      <p class="shopping-description">${book.description}</p>
+      <span class="shopping-author">${book.author}</span>
+          <ul class="modal-shops">
+                        <li class="modal-shops-item">
+                            <a class="modal-link" href="#" target="_blank" name="Amazon" rel="noreferrer noopener">
+                                <img class="modal-img-shop" src="${img1}" alt="amazon store">
+                            </a>
+                        </li>
+                        <li class="modal-shops-item">
+                            <a class="modal-link" href="#" target="_blank" name="Apple Books" rel="noreferrer noopener">
+                                <img class="modal-img-shop" src="${img2}" alt="apple store">
+                            </a>
+                        </li>
+                        <li class="modal-shops-item">
+                            <a class="modal-link" href="#" target="_blank" name="Barnes and Noble"
+                                rel="noreferrer noopener">
+                                <img class="modal-img-shop" src="${img3}"
+                                    alt="barnes and noble store">
+                            </a>
+                        </li>
+                    </ul>
       <button class="delete-button"><svg width="16" height="16" class="shopping-svg">
-                    <use href="./img/symbol-defs.svg#icon-dump"></use></button>
+                    <use href="./images/symbol-defs.svg#icon-trash-03-1-1"></use></button>
     </div>
   `;
 
@@ -75,6 +116,7 @@ function createBookCard(book) {
       message.style.display = 'block';
     }
   });
+  findStoreLink(book);
 }
 
 function removeBookFromLocalStorage(bookIdToRemove) {
@@ -86,3 +128,9 @@ function removeBookFromLocalStorage(bookIdToRemove) {
 
 const bookIdsFromLocalStorage = loadBooksFromLocalStorage();
 displayBooksInShoppingList(bookIdsFromLocalStorage);
+
+const bookCards = document.querySelectorAll('.book-card');
+bookCards.forEach(bookCard => {
+  const bookId = bookCard.querySelector('.book-image').id;
+  getBook(bookId).then(bookData => findStoreLink(bookData));
+});
