@@ -6,7 +6,7 @@ function createModalMarkup(book) {
   return `<div class="modal-img-wrap">
               <img src="${book.book_image}" 
               alt="${book.list_name}" 
-              id="${book._id}">
+              id="${book._id}" class="modal-img">
             </div>
             <div>
             <h2 class="modal-title">${book.title}</h2>
@@ -14,7 +14,7 @@ function createModalMarkup(book) {
             <p class="modal-descr">${book.description || book.list_name}</p>
   <ul class="modal-shops">
                 <li class="modal-shops-item">
-                    <a class="modal-link js-modal-link" href="${
+                    <a class="modal-link" href="${
                       book.buy_links.find(i => i.name === 'Amazon').url
                     }" target="_blank" name="Amazon"
                         rel="noreferrer noopener">
@@ -22,7 +22,7 @@ function createModalMarkup(book) {
                     </a>
                 </li>
                 <li class="modal-shops-item">
-                    <a class="modal-link js-modal-link" href="${
+                    <a class="modal-link" href="${
                       book.buy_links.find(i => i.name === 'Apple Books').url
                     }" target="_blank" name="Apple Books"
                         rel="noreferrer noopener">
@@ -30,7 +30,7 @@ function createModalMarkup(book) {
                     </a>
                 </li>
                 <li class="modal-shops-item">
-                    <a class="modal-link js-modal-link" href="${
+                    <a class="modal-link" href="${
                       book.buy_links.find(i => i.name === 'Barnes and Noble')
                         .url
                     }" target="_blank" name="Barnes and Noble"
