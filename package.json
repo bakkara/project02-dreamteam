@@ -22,12 +22,17 @@
     "buffer": "^6.0.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
+    "@parcel/watcher": "^2.2.0",
     "axios": "^1.4.0",
+    "firebase": "^10.1.0",
+    "firestore": "^1.1.6",
     "notiflix": "^3.2.6",
-    "notifly": "^0.0.1"
+    "notifly": "^0.0.1",
+    "overlayscrollbars": "^2.2.1"
   }
 }
