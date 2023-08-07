@@ -1,6 +1,6 @@
-.support {
+/* .support {
   display: none;
-}
+} */
 .shopping-list-title {
   color: var(--text-color);
 
@@ -138,9 +138,9 @@
   }
 }
 @media screen and (min-width: 1440px) {
-  .support {
+  /* .support {
     display: block;
-  }
+  } */
   .shopping-list {
     display: flex;
   }
