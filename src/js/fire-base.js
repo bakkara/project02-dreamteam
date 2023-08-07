@@ -16,27 +16,33 @@ const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
 const logoutBtn = document.querySelector('#logout')
-const signUpBtnHeader = document.querySelector('.signup-header')
-const userNameText = document.querySelector('.user-name')
+
+const signUpBtnHeader = document.querySelector('.sign-up-btn')
+const userNameText = document.querySelector('.text-stephen')
 const closeFormBtn = document.querySelector('.js-form-close')
 const formEl = document.querySelector('.form-wrapper');
 const navList = document.querySelector('.nav');
+const signUpSvg = document.querySelector('.sign-up-svg')
+const userDivHeader = document.querySelector('.div-stephen-header')
+
+const btnLogOut = document.querySelector('.log-out')
 const auth = getAuth();
 const db = getFirestore(app)
 
 signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
 logoutBtn.addEventListener('click', logOut)
+btnLogOut.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)
-
+signUpSvg.addEventListener('click', ()=> {btnLogOut.classList.remove('is-hidden')})
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {
-  userNameText.textContent = userNameLocal;
+  signUpBtnHeader.classList.add('is-hidden')
+  userNameText.textContent = localStorage.getItem("userName")
+  userDivHeader.classList.remove('is-hidden')
   navList.classList.remove('is-hidden')
-} else {
-  userNameText.textContent = "Sign in";
-}
+} 
 
 function toggleForm(evt) {
   formEl.classList.toggle('is-hidden');
@@ -69,7 +75,7 @@ async function signUp(evt) {
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
       navList.classList.remove('is-hidden')
-      window.location.replace('/index')
+      window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
         alert(errorMessage)
@@ -86,7 +92,7 @@ async function signIn(evt) {
       localStorage.setItem("userUid", userLogin.user.uid)
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
-      window.location.replace('/index')
+      window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
         alert(errorMessage)
@@ -98,9 +104,14 @@ async function logOut(evt) {
   signOut(auth).then(() => {
     console.log('Log out');
     localStorage.removeItem("userName");
-    userNameText.textContent = "Sign in";
-    localStorage.removeItem("userUid");
-    window.location.replace('/index');
+     userDivHeader.classList.add('is-hidden')
+  localStorage.removeItem("userUid");
+    window.location.replace('./index.html');
+     navList.classList.add('is-hidden')
+  signUpBtnHeader.classList.remove('is-hidden')
+
+ 
+    
   }).catch((err) => {
     console.log('error')
   })

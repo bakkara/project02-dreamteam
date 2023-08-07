@@ -1,5 +1,4 @@
 .header {
-  /* z-index: 21; */
   position: relative;
   width: 100%;
   border: 1.5px solid #111;
@@ -10,7 +9,6 @@
 .header_container {
   display: flex;
   align-items: center;
-  /* text-align: center; */
   justify-content: space-between;
 }
 .header-buttons {
@@ -57,9 +55,9 @@
   }
 
   .nav_item {
-  display: flex;
-align-items: center;
-  } 
+    display: flex;
+    align-items: center;
+  }
 
   .signup-header {
     display: inline-flex;
@@ -74,6 +72,16 @@ align-items: center;
     border-radius: 18px;
     border: 1.5px solid #111;
     padding: 14px;
+  }
+  .div-stephen-header {
+    display: flex;
+    width: 184px;
+    height: 45px;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 9px;
+    border-radius: 36px;
+    background: var(--violet);
   }
 }
 
