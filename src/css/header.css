@@ -1,5 +1,5 @@
 .header {
-  z-index: 21;
+  /* z-index: 21; */
   position: relative;
   width: 100%;
   border: 1.5px solid #111;
@@ -9,9 +9,14 @@
 
 .header_container {
   display: flex;
-  text-align: center;
+  align-items: center;
+  /* text-align: center; */
+  justify-content: space-between;
 }
-
+.header-buttons {
+  display: flex;
+  gap: 24px;
+}
 .header_logo-text {
   color: var(--text-color);
 
@@ -23,7 +28,7 @@
 }
 
 .header_logo {
-  margin-right: 8px;
+  margin-right: 40px;
 }
 
 .header_logo-icon {
@@ -32,7 +37,7 @@
 }
 
 .nav_list {
-  display: flex;
+  display: none;
 }
 
 .signup-header {
@@ -40,13 +45,22 @@
 }
 
 @media screen and (min-width: 767px) {
+  .nav {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+  }
   .nav_list {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 24px;
   }
 
   .nav_item {
-    display: none;
-  }
+  display: flex;
+align-items: center;
+  } 
+
   .signup-header {
     display: inline-flex;
     justify-content: space-between;

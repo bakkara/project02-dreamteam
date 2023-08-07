@@ -76,7 +76,8 @@ function removeUpperCase() {
 };
 
 function MouseClickAccentOn(event) {
-    if (event.target.nodeName !== 'SPAN') {
+
+  if (event.target.nodeName !== 'SPAN') {
         return;
     }
     const Accent = event.target;
