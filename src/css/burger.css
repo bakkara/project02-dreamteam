@@ -117,8 +117,8 @@ letter-spacing: -0.56px;
 }
 
 .menu-container {
-  /* position: absolute; */
-  /* display: none; */
+  position: absolute;
+  display: none;
   position: relative;
   margin-left: 0;
   top: 100%;
