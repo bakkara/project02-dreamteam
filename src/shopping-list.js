@@ -1,6 +1,6 @@
 import './js/support.js';
 
-// import './js/fire-base.js';
+import './js/fire-base.js';
 
 import './js/burger.js';
 

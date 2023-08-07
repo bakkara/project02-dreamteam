@@ -196,12 +196,12 @@
   .shopping-list-title {
     margin-bottom: 140px;
   }
-  /* .message {
+  .message {
     position: absolute;
     top: 60%;
     left: 50%;
 
     padding: 10px;
     transform: translateY(-50%);
-  } */
+  }
 }
