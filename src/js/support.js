@@ -8,9 +8,9 @@ function murkupFoundation(arr) {
    return arr.map(({ title, url, img , id}) => `
     <li class="block">
    <div>
-    <a href="${url}" class='gotofoundation'>
+    <a href="${url}" class='gotofoundation' target="_blank">
         <p>0${id}</p>
-        <img  class='image' src='${img}' alt="${title}" target="_blank">
+        <img  class='image' src='${img}' alt="${title}">
     </a>
    </div>
   </li>`).join('')
