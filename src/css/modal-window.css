@@ -6,8 +6,14 @@
   height: 100vh;
   top: 0;
   left: 0;
+  opacity: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  visibility: hidden;
+  pointer-events: none;
   background-color: var(--bgc-modal);
   z-index: 500;
+  transition: all var(--time-transform) var(--transform);
 }
 
 .modal-window-wrap {
@@ -19,17 +25,42 @@
   border: none;
 }
 
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal-wrapper.is-open .modal-window {
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
 .modal-window {
   position: relative;
   padding: 40px 24px;
+  height: auto;
   color: var(--text-color);
   border-radius: 18px;
   border: 2px solid var(--text-color);
   background-color: var(--body-bg-light);
+  opacity: 0;
+  transform: translate(0px, -100%) perspective(600px) rotateX(90deg);
+  transition: all var(--time-transform) var(--transform);
 }
 
 .modal-svg {
   stroke: var(--text-color);
+  transition: all var(--time-transform) var(--transform);
+}
+
+.modal-svg:hover {
+  filter: drop-shadow(0 0 1px var(--text-color));
+  stroke: var(--violet);
 }
 
 .btn-modal-close {
@@ -44,6 +75,17 @@
   align-items: center;
   background-color: transparent;
   border: none;
+  z-index: 2;
+  transition: all var(--time-transform) var(--transform);
+}
+
+.btn-modal-close:is(:hover, :focus) .modal-svg,
+.modal-btn-main :is(:hover, :focus) {
+  scale: 1.5;
+}
+
+.btn-modal-close:is(:hover, :focus) .modal-svg {
+  scale: 1.5;
 }
 
 .modal-img-wrap {
@@ -89,7 +131,12 @@
 }
 
 .modal-img-shop {
-  filter: grayscale(100%);
+  transition: all var(--time-transform) var(--transform);
+}
+
+.modal-link:is(:hover) .modal-img-shop {
+  scale: 1.3;
+  filter: drop-shadow(0 7px 2px rgba(17, 17, 17, 0.2));
 }
 
 .modal-btn-wrapper {
@@ -108,7 +155,22 @@
   padding: 14px 28px;
   border-radius: 40px;
   border: 2px solid var(--violet);
-  background-color: inherit;
+  background-color: transparent;
+  transition: all var(--time-transform) var(--transform);
+}
+
+.modal-btn-main:hover {
+  color: var(--white);
+  background-color: var(--violet);
+  box-shadow: 0 0 3px var(--violet);
+  text-shadow: 0 0 3px var(--white);
+  scale: 1.05;
+  transition: all 100ms var(--transform);
+}
+
+.modal-btn-main:active,
+.btn-modal-close:is(:active) .modal-svg {
+  scale: 1;
 }
 
 .js-modal-remove {
@@ -124,22 +186,14 @@
   text-align: center;
   color: var(--bgc-modal);
   margin: 8px auto 0;
-}
-
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.no-scroll {
-  overflow: hidden;
+  opacity: 1;
+  transition: all var(--time-transform) var(--transform);
 }
 
 .js-hidden-text {
-  display: none;
   opacity: 0;
   visibility: hidden;
+  height: 0px;
 }
 
 /* ___________________________________________________________ */
