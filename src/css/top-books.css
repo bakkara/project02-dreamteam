@@ -1,6 +1,5 @@
 .books-section {
-  /* background: var(--body-bg-light);*/
-  background: powderblue;
+  background: var(--body-bg-light);
 }
 .books-section-title {
   margin-bottom: 40px;
@@ -80,6 +79,11 @@
   .book-card-img {
     display: block;
     height: 316px;
+  }
+  .books-section-title {
+    font-size: 48px;
+    line-height: 1.08; /* 108.333% */
+    letter-spacing: -1.92px;
   }
 }
 
