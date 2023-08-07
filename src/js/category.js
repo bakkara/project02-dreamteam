@@ -2,7 +2,7 @@ import axios from 'axios';
 // import 'overlayscrollbars/overlayscrollbars.css';
 // import { OverlayScrollbars } from 'overlayscrollbars';
 import { handlerSeeMoreBtn } from './books-from-category.js'; 
-// import { renderTopBooks } from './top-books.js'; 
+import { renderTopBooks } from './top-books.js'; 
 
 const URL = 'https://books-backend.p.goit.global/books/category-list';
 
@@ -41,30 +41,36 @@ getCategoryList()
 
 // const osInstance = OverlayScrollbars(document.querySelector('#myElement'), {});
 
-// OverlayScrollbars({ 
-//     target: document.querySelector('#myElement') 
+// OverlayScrollbars({
+//     target: document.querySelector('#myElement')
 // }, {
 //     showNativeOverlaidScrollbars: true
 // });
 
+
 function onclickCategory(event) {
-    event.preventDefault();
-    if (event.target.nodeName !== 'SPAN') {
+  event.preventDefault();
+  // console.log(event.target.innerText);
+
+  if (event.target.nodeName !== 'SPAN') {
       return
-    }
-    if (event.target.textContent === 'All categories') {
-      removeUpperCase();
-      makeUpperCase(event.target);
+  }
 
-      // renderTopBooks();
+  const category = event.target.innerText;
+  
+  if (category === "ALL CATEGORIES" || category === "All categories") {
+    removeUpperCase();
+    makeUpperCase(event.target);
 
-    } else {        
-      removeUpperCase();
-      makeUpperCase(event.target);
-      
-      handlerSeeMoreBtn();
-    }
+    renderTopBooks();
+  } else {
+    removeUpperCase();
+    makeUpperCase(event.target);
+
+    handlerSeeMoreBtn(event.target.textContent)
+  }
 }
+
 
 function makeUpperCase(data) {
     data.classList.add('upper-case');
