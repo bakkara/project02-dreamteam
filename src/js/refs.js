@@ -17,8 +17,8 @@ import img4 from '../images/image4.png'
 import img5 from '../images/image5.png'
 import img6 from '../images/image6.png'
 import img7 from '../images/image7.png'
-import img8 from  '../images/image8.png'
-import img9 from  '../images/image9.png'
+import img8 from '../images/image8.png'
+import img9 from '../images/image9.png'
 
  export const blocks =  [
     {
@@ -35,32 +35,32 @@ import img9 from  '../images/image9.png'
   },
     {
     id: 3,
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
+    title: 'International Medical Corps',
+    url: 'https://internationalmedicalcorps.org/country/ukraine/',
     img: `${img3}`,
   },
     {
     id: 4,  
-    title: 'International Medical Corps',
-    url: 'https://internationalmedicalcorps.org/country/ukraine/',
+    title: 'RAZOM',
+    url: 'https://www.razomforukraine.org/',
     img: `${img4}`,
   },
     {
     id: 5,  
-    title: 'Medicins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
+    title: 'Action against hunger',
+    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
     img: `${img5}`,
   },
     {
     id: 6,  
-    title: 'RAZOM',
-    url: 'https://www.razomforukraine.org/',
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
     img: `${img6}`,
   },
     {
     id: 7,  
-    title: 'Action against hunger',
-    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
     img: `${img7}`,
   },
     {
@@ -71,8 +71,9 @@ import img9 from  '../images/image9.png'
   },
     {
     id: 9,  
-    title: 'Serhiy Prytula Charity Foundation',
-    url: 'https://prytulafoundation.org/en',
+  
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
     img: `${img9}`,
   },
 ]

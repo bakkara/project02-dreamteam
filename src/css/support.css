@@ -10,8 +10,6 @@ width: 335px;
 height: 352px;
 }
 
-
-
 .blocks {
     margin-top: 40px;
     height: 188px;
@@ -112,15 +110,3 @@ transform: rotate(180deg);
             margin-top: 0;
         }
 }
-
-/* @media screen and (min-width: 375px) {
-    .container {
-       
-        width: 335px;
-    }
-
-    .mob-menu-soc {
-        justify-content: left;
-        gap: 56px;
-
-    }} */
