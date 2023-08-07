@@ -49,8 +49,6 @@ function toggleForm(evt) {
   if (!formEl.classList.contains('is-hidden')) {
     document.body.classList.toggle('no-scroll');
   }
-  
-  
 }
 
 async function signUp(evt) {
@@ -97,7 +95,6 @@ async function signIn(evt) {
         const errorMessage = error.message;
         alert(errorMessage)
     }
- 
 }
 
 async function logOut(evt) {
