@@ -16,7 +16,8 @@ const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
 const logoutBtn = document.querySelector('#logout')
-const signUpBtnHeader = document.querySelector('#btn-hamburger')
+const signUpBtnHeader = document.querySelector('.signup-header')
+const closeFormBtn = document.querySelector('.js-form-close')
 const formEl = document.querySelector('.form-wrapper');
 const auth = getAuth();
 const db = getFirestore(app)
@@ -25,11 +26,15 @@ signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
 logoutBtn.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
+closeFormBtn.addEventListener('click', toggleForm)
+
 
 function toggleForm(evt) {
-  console.log(evt.target)
   formEl.classList.toggle('is-hidden');
-  document.body.classList.toggle('no-scroll');
+  if (!formEl.classList.contains('is-hidden')) {
+    document.body.classList.toggle('no-scroll');
+  }
+  
   
 }
 
