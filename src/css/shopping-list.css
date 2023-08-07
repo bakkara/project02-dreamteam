@@ -1,6 +1,6 @@
-/* .support {
+.support {
   display: none;
-} */
+}
 .shopping-list-title {
   color: var(--text-color);
 
@@ -43,9 +43,12 @@
   padding: 14px 14px;
   display: flex;
 }
-
+.shopping-descr {
+  display: flex;
+}
 .shopping-image {
   border-radius: 8px;
+
   width: 100px;
   height: 142px;
   margin-right: 14px;
@@ -138,9 +141,9 @@
   }
 }
 @media screen and (min-width: 1440px) {
-  /* .support {
+  .support {
     display: block;
-  } */
+  }
   .shopping-list {
     display: flex;
   }
