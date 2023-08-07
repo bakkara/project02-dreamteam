@@ -25,7 +25,7 @@ const navList = document.querySelector('.nav');
 const signUpSvg = document.querySelector('.sign-up-svg')
 const userDivHeader = document.querySelector('.div-stephen-header')
 
-const btnLogOut = document.querySelector('.log-out')
+const btnLogOut = document.querySelector('.log-out-header')
 const auth = getAuth();
 const db = getFirestore(app)
 
@@ -35,7 +35,10 @@ logoutBtn.addEventListener('click', logOut)
 btnLogOut.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)
-signUpSvg.addEventListener('click', ()=> {btnLogOut.style.display = "flex"})
+signUpSvg.addEventListener('click', () => {
+  console.log('logout')
+  btnLogOut.style.display = "flex"
+})
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {
   signUpBtnHeader.style.display = "none"
