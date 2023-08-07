@@ -1,8 +1,8 @@
 import './js/support.js';
 
 import img1 from './images/amazon.png';
-import img2 from './images/apple-book.png';
-import img3 from './images/barnes-noble.png';
+import img2 from './images/applebook.png';
+import img3 from './images/barnesnoble.png';
 
 const bookList = document.querySelector('#bookList');
 const message = document.querySelector('#message');
