@@ -1,9 +1,13 @@
 import './js/support.js';
 
+// import './js/fire-base.js';
+
+import './js/burger.js';
+
 import img1 from './images/amazon.png';
 import img2 from './images/applebook.png';
 import img3 from './images/barnesnoble.png';
-
+import sprite from './images/symbol-defs.svg';
 const bookList = document.querySelector('#bookList');
 const message = document.querySelector('#message');
 const bookStore = {
@@ -101,7 +105,7 @@ function createBookCard(book) {
                         </li>
                     </ul>
       <button class="delete-button"><svg width="16" height="16" class="shopping-svg">
-                    <use href="./images/symbol-defs.svg#icon-trash-03-1-1"></use></button>
+                    <use href="${sprite}#icon-trash-03-1-1"></use></button>
     </div>
   `;
 
