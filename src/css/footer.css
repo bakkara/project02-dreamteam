@@ -19,6 +19,35 @@
   background-color: var(--violet);
 }
 
+.promo-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--promo-title);
+  margin: 0 0 72px;
+}
+
+.promo-subject {
+  display: flex;
+  gap: 24px;
+}
+
+.img {
+  display: block;
+  border: 1px solid #000000;
+  margin: auto;
+  border-radius: 25%;
+}
+
+.style {
+  display: block;
+  max-width: 100%;
+}
+
 .team {
   background-color: var(--section-team-background);
 }
