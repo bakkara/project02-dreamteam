@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .header-buttons {
@@ -258,6 +259,9 @@
     border-radius: 36px;
     background: var(--violet);
   }
+  .wrapper-button {
+    position: relative;
+  }
   .log-out-header {
     width: 184px;
     height: 48px;
@@ -271,6 +275,12 @@
     font-weight: 500;
     line-height: 18px;
     letter-spacing: -0.56px;
+    position: absolute;
+    bottom: -48px;
+    left: 0;
+  }
+  .log-out-header.show {
+    display: flex;
   }
 }
 

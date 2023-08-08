@@ -35,9 +35,9 @@ logoutBtn.addEventListener('click', logOut)
 btnLogOut.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)
+
 signUpSvg.addEventListener('click', () => {
-  console.log('logout')
-  btnLogOut.style.display = "flex"
+    btnLogOut.classList.toggle('show');
 })
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {

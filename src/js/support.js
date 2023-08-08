@@ -4,19 +4,13 @@ const blocksEl = document.querySelector('.blocks')
 const buttonDown = document.querySelector('.button-scroll-down')
 const buttonUp = document.querySelector('.button-scroll-up')
 
-console.dir(blocksEl);
-let newarr = []
-
-
-
-
 function murkupFoundation(arr) {
    return arr.map(({ title, url, img , id}) => `
     <li class="block">
    <div>
-    <a href="${url}" class='gotofoundation'>
+    <a href="${url}" class='gotofoundation' target="_blank">
         <p>0${id}</p>
-        <img  class='image' src='${img}' alt="${title}" >
+        <img  class='image' src='${img}' alt="${title}">
     </a>
    </div>
   </li>`).join('')
@@ -25,15 +19,8 @@ function murkupFoundation(arr) {
 blocksEl.insertAdjacentHTML('beforeend', murkupFoundation(blocks))
 buttonDown.addEventListener('click', scrollDown)
 buttonUp.addEventListener('click', scrollUp)
-blocksEl.scrollTo(0,0)
 
 function scrollDown(evt) { 
-   smoothScrolling()
-}
- 
-
-
-function smoothScrolling() { 
   const { height: cardHeight } = document
                     .querySelector(".blocks")
                     .firstElementChild.getBoundingClientRect();
@@ -43,7 +30,7 @@ function smoothScrolling() {
                   });
 }
 
-function scrollUp() { 
+function scrollUp(evt) { 
   const { height: cardHeight } = document
                     .querySelector(".blocks")
                     .firstElementChild.getBoundingClientRect();

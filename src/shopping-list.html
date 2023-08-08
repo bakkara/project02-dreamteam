@@ -10,39 +10,39 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
 
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/shopping-list.css">
 </head>
 
 <body>
     <include src="./partials/header.html"></include>
-    <main class="main-section">
-        <include src="./partials/support.html"></include>
+    <div class="container">
+        <main class="main-section">
+            <include src="./partials/support.html"></include>
 
-        <section class="shop-section">
+            <section class="shop-section">
 
+                <div class="shopping-list">
+                    <h1 class="shopping-list-title">Shopping <span class="shopping-list-title s-l-title">List</span>
+                    </h1>
+                    <div class="book-list" id="bookList">
+                        <!-- Картки книг  -->
+                    </div>
 
-            <div class="shopping-list container">
+                    <div class="message" id="message">
+                        <!-- Повідомлення, якщо список порожній -->
+                        <p class="text-shop-list">This page is empty, add some books and proceed to order.</p>
+                        <img srcset="./images/shopping-list-books2x.png 2x" src="./images/shopping-list-books.png"
+                            alt="book" class="shop-img" width="265px">
 
-
-
-                <h1 class="shopping-list-title">Shopping <span class="shopping-list-title s-l-title">List</span>
-                </h1>
-                <div class="book-list" id="bookList">
-                    <!-- Картки книг  -->
-
+                    </div>
                 </div>
 
-
-                <div class="message" id="message">
-                    <!-- Повідомлення, якщо список порожній -->
-                    <p class="text-shop-list">This page is empty, add some books and proceed to order.</p>
-                    <img src="./images/shopping-list-books.png" alt="book" class="shop-img" width="265px">
-
-                </div>
-            </div>
-
-            </div>
-        </section>
+    </div>
+    </section>
     </main>
+    </div>
+    <include src="./partials/sign-in.html"></include>
+
 
 
 
