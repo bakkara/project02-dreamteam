@@ -2,7 +2,6 @@ import axios from 'axios';
 const BASE_URL = 'https://books-backend.p.goit.global/books/';
 const TOP_BOOKS_URL = `top-books`
 
-
 async function fetchTopBooks() {
   const config = {
     method: 'get',
@@ -31,5 +30,6 @@ async function getBook(str) {
   const { data } = await axios(searchUrl);
   return data;
 }
+
 
 export { fetchTopBooks, getBook };

@@ -42,4 +42,22 @@ function createModalMarkup(book) {
         </div>`;
 }
 
+function createCartBookMarcup(data) { 
+const cartBook = data.map(({_id, book_image, title, author }) => 
+
+     `<div class="book-card" tabindex="0" data-id="${_id}">
+       <div class = "book-img">
+         <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300"  data-modal-open="true">
+           <div class="overlay">
+             <p class="overlay-text">quick view</p>
+          </div>       
+         </div>
+         <h4 class="book-card-title">${title}</h4>
+        <p class="book-card-author">${author}</p>
+       </div>`
+  ).join('');
+  return cartBook;
+}
+
 export { createModalMarkup };
+export { createCartBookMarcup };

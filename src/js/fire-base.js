@@ -15,30 +15,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
-const logoutBtn = document.querySelector('#logout')
 
-const signUpBtnHeader = document.querySelector('.sign-up-btn')
+const signUpBtnHeader = document.querySelector('.signup-header')
 const userNameText = document.querySelector('.text-stephen')
+const userNameTextMobile = document.querySelector('#text-stephen')
 const closeFormBtn = document.querySelector('.js-form-close')
 const formEl = document.querySelector('.form-wrapper');
 const navList = document.querySelector('.nav');
 const signUpSvg = document.querySelector('.sign-up-svg')
 const userDivHeader = document.querySelector('.div-stephen-header')
 
-const btnLogOut = document.querySelector('.log-out-header')
+const btnLogOut = document.querySelector('.log-out')
 const auth = getAuth();
 const db = getFirestore(app)
 
 signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
-logoutBtn.addEventListener('click', logOut)
 btnLogOut.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)
+
 signUpSvg.addEventListener('click', () => {
-  console.log('logout')
-  btnLogOut.style.display = "flex"
+    btnLogOut.classList.toggle('show');
 })
+
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {
   signUpBtnHeader.style.display = "none"
@@ -75,6 +75,7 @@ async function signUp(evt) {
       localStorage.setItem("userUid", uid)
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
+      userNameTextMobile.textContent = userName;
       navList.style.display = "flex"
       window.location.replace('./index.html')
       } catch (error) {
@@ -93,6 +94,7 @@ async function signIn(evt) {
       localStorage.setItem("userUid", userLogin.user.uid)
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
+      userNameTextMobile.textContent = userName;
       window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
