@@ -60,7 +60,8 @@
 
 @media screen and (min-width: 1440px) {
   .team-info {
-    width: calc((100% - 72px)/4);
+    width: calc((100% - 12px)/8);
+   
   }
 }
 
