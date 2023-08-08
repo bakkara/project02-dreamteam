@@ -5,8 +5,10 @@
 @import url('./reset.css');
 @import url('./top-books.css');
 @import url('./footer.css');
-@import url('./burger.css');
-@import url('./burger-sign-up.css');
+
+/* @import url('./burger.css'); */
+/* @import url('./burger-sign-up.css'); */
+@import url('./shopping-list.css');
 
 @import url('./modal-window.css');
 @import url('./category-books.css');

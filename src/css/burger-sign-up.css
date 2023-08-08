@@ -1,4 +1,4 @@
-.mbtn {
+/* .mbtn {
   display: inline-flex;
   margin: 0;
   padding: 0;
@@ -16,6 +16,10 @@
 
 .mbtn.is-open .icon-menu {
   display: none;
+}
+
+.container .is-open {
+  display: block;
 }
 
 .sign-up-btn {
@@ -61,12 +65,8 @@
   font-size: 20px;
 }
 
-.container .is-open {
-  display: block;
-}
-
 .image-for-burger {
   position: absolute;
   bottom: 0;
   left: 0;
-}
+} */
