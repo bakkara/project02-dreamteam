@@ -3,7 +3,7 @@
   display: flex;
   /* place-items: center; */
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   /* height: 100vh; */
   /* min-height: 2568px; */
   height: 100%;
@@ -211,6 +211,10 @@
 /* ___________________________________________________________ */
 
 @media screen and (min-width: 768px) {
+  .modal-wrapper {
+    width: 100%;
+  }
+
   .modal-window-wrap {
     /* position: fixed; */
     bottom: 200px;
