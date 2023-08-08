@@ -144,6 +144,10 @@
   flex-direction: column;
   gap: 20px;
 }
+.shopping-descr {
+  width: 193px;
+}
+
 @media screen and (min-width: 768px) {
   .shopping-list-title {
     font-size: 48px;
@@ -205,6 +209,9 @@
     width: auto;
     overflow: visible;
   }
+  .shopping-descr {
+    width: 508px;
+  }
 }
 @media screen and (min-width: 1440px) {
   .support {
@@ -226,5 +233,8 @@
     text-overflow: initial;
     width: auto;
     overflow: visible;
+  }
+  .shopping-descr {
+    width: 808px;
   }
 }
