@@ -166,7 +166,7 @@
   font-style: normal;
   text-decoration: none;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.29;
   letter-spacing: -0.56px;
   text-transform: uppercase;
 }
