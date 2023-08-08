@@ -19,7 +19,50 @@
                         </svg>
                     </li>
                 </ul>
+
+                <button type="button"
+                class="mbtn"
+                aria-expanded="false"
+                aria-controls="menu-container"
+                data-menu-button>
+                    <svg
+                      width="28" 
+                      height="28" 
+                      aria-label="Перемикач мобільного меню"
+                    >
+                    <use class="icon-menu" href="./images/symbol-defs.svg#icon-burger"></use>  
+                    <use class="icon-cross" href="./images/symbol-defs.svg#icon-modal-close"></use> 
+                    </svg>
+                  </button>
+
+                  <div class="menu-container" data-menu>
+                    <div class="div-stephen">
+                      <img src="./images/Stephen.png" class="stephen">
+                      <p class="text-stephen">${localStorage.getItem("userName")}</p>
+                    </div>
+                    <ul class="list-burger">
+                      <li>
+                        <button type="button" class="btn-burger" href="../partials/books-section.html">HOME</button>
+                      </li>
+                      <li class="link-sl">
+                        <a class="burger-link-sl" href="./shopping-list.html">
+                          SHOPPING LIST
+                          <svg width="20" height="20" class="icon-sl">
+                            <use href="./images/symbol-defs.svg#icon-sl"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                    <button type="button" class="log-out">Log out
+                      <svg width="20" height="20" class="logout-svg">
+                        <use href="./images/symbol-defs.svg#icon-arrow-right" class="modal-close"></use>
+                      </svg>
+                    </button>
+                    <img src="./images/forBurger.png" class="image-menu">
+                  </div>
+
             </nav>
+            
             <div class="header-buttons">
                 <div class="toggle-switch">
                     <span>
@@ -47,6 +90,7 @@
                         <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
                     </svg>
                 </button>
+                
 
             </div>
 
