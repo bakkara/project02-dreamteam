@@ -6,6 +6,7 @@ const elements = {
   modalBtnClose: document.querySelector('.js-modal-close'),
   modal: document.querySelector('.js-modal'),
   body: document.body,
+  categoryList: document.querySelector('.category-list'),
 };
 
 export { elements };

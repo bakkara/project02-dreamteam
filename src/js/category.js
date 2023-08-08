@@ -1,16 +1,14 @@
 import axios from 'axios';
-// import 'overlayscrollbars/overlayscrollbars.css';
-// import { OverlayScrollbars } from 'overlayscrollbars';
 import { handlerSeeMoreBtn } from './books-from-category.js'; 
-import { renderTopBooks } from './top-books.js'; 
+import { renderTopBooks } from './top-books.js';
+import { elements } from './refs.js';
+
 
 const URL = 'https://books-backend.p.goit.global/books/category-list';
 
-const categoryList = document.querySelector('.category-list');
-
-categoryList.addEventListener('click', onclickCategory);
-categoryList.addEventListener('mouseover', MouseClickAccentOn);
-categoryList.addEventListener('mouseout', MouseClickAccentOff);
+elements.categoryList.addEventListener('click', onclickCategory);
+elements.categoryList.addEventListener('mouseover', MouseClickAccentOn);
+elements.categoryList.addEventListener('mouseout', MouseClickAccentOff);
 
 const getCategoryList = async () => {
   const response = await axios(URL);
@@ -32,25 +30,17 @@ function renderCategoryList(data) {
 
 getCategoryList()
   .then(data =>
-    categoryList.insertAdjacentHTML(
+    elements.categoryList.insertAdjacentHTML(
       'beforeend',
       renderCategoryList(data)
     )
   )
   .catch(error => console.log(error));
 
-// const osInstance = OverlayScrollbars(document.querySelector('#myElement'), {});
-
-// OverlayScrollbars({
-//     target: document.querySelector('#myElement')
-// }, {
-//     showNativeOverlaidScrollbars: true
-// });
-
 
 function onclickCategory(event) {
   event.preventDefault();
-  // console.log(event.target.innerText);
+
 
   if (event.target.nodeName !== 'SPAN') {
       return
