@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page title</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page title</title>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
 
-  <link rel="stylesheet" href="./css/index.css" />
-</head>
+  <body>
+    <include src="./partials/header.html"></include>
+    <div class="container">
+      <main class="main-section">
+        <section class="category-support">
+          <include src="./partials/category.html"></include>
+          <include src="./partials/support.html"></include>
+        </section>
+        <include src="./partials/books-section.html"></include>
+      </main>
+    </div>
 
-<body>
-  <include src="./partials/header.html"></include>
-  <div class="container">
-    <main class="main-section">
-      <section class="category-support">
-        <include src="./partials/category.html"></include>
-        <include src="./partials/support.html"></include>
-      </section>
-      <include src="./partials/books-section.html"></include>
-    </main>
-  </div>
+    <include src="./partials/sign-in.html"></include>
 
-
-  <include src="./partials/sign-in.html"></include>
-
-  <include src="./partials/footer.html"></include>
-  <include src="./partials/modal-window.html"></include>
-  <include src="./partials/scroll-up.html"></include>
-  <!-- <include src="./partials/burger.html"></include>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal-window.html"></include>
+    <include src="./partials/scroll-up.html"></include>
+    <!-- <include src="./partials/burger.html"></include>
   <include src="./partials/burger-sign-up.html"></include> -->
-  <script type="module" src="./index.js"></script>
-</body>
-
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
