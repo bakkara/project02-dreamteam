@@ -30,7 +30,7 @@
   gap: 72px 24px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .team-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,7 +39,7 @@
   }
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1440px) {
   .team-list {
     max-width: 100%;
   }
@@ -52,13 +52,13 @@
   border-radius: 0px 0px 4px 4px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .team-info {
     width: calc((100% - 48px)/2);
   }
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1440px) {
   .team-info {
     width: calc((100% - 72px)/4);
   }
