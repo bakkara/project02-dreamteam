@@ -236,7 +236,9 @@
     border-radius: 36px;
     background: #eac645;
   }
-
+  .sign-up-svg {
+    fill: #fff;
+  }
   .header-buttons {
     display: flex;
     align-items: center;
@@ -294,6 +296,7 @@
     width: 184px;
     height: 48px;
     display: none;
+    justify-content: space-between;
   }
 
   .log-out.show {
