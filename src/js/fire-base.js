@@ -17,7 +17,7 @@ const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
 const logoutBtn = document.querySelector('#logout')
 
-const signUpBtnHeader = document.querySelector('.sign-up-btn')
+const signUpBtnHeader = document.querySelector('.signup-header')
 const userNameText = document.querySelector('.text-stephen')
 const closeFormBtn = document.querySelector('.js-form-close')
 const formEl = document.querySelector('.form-wrapper');
@@ -39,6 +39,7 @@ closeFormBtn.addEventListener('click', toggleForm)
 signUpSvg.addEventListener('click', () => {
     btnLogOut.classList.toggle('show');
 })
+
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {
   signUpBtnHeader.style.display = "none"
