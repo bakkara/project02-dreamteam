@@ -15,7 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
-const logoutBtn = document.querySelector('#logout')
 
 const signUpBtnHeader = document.querySelector('.signup-header')
 const userNameText = document.querySelector('.text-stephen')
@@ -31,7 +30,6 @@ const db = getFirestore(app)
 
 signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
-logoutBtn.addEventListener('click', logOut)
 btnLogOut.addEventListener('click', logOut)
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)

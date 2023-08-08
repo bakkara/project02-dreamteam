@@ -79,7 +79,7 @@
   }
 }
 
-.signinbtn {
+.signupbtn {
   color: var(--violet);
   font-size: 18px;
   text-transform: uppercase;
@@ -88,7 +88,7 @@
   text-decoration: underline;
 }
 
-.logoutbtn {
+.signinbtn {
   color: var(--top-category-title);
   font-size: 18px;
   font-weight: 700;
