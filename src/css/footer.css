@@ -136,11 +136,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--all-btn);
+  background-color: forestgreen;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  color: var(--section-team-background);
+  width: 20px;
+  height: 20px;
+  color: fuchsia;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
