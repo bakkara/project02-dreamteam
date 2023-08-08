@@ -30,16 +30,7 @@
   font-size: 24px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-}
-
-.header-logo {
-  position: relative;
-  margin-right: 40px;
-}
-
-.header-logo-icon {
-  text-align: center;
-  margin: 0 auto;
+  margin-left: 8px;
 }
 
 .nav-list {
