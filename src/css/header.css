@@ -224,7 +224,7 @@
     align-items: center;
   }
   .icon-sl-header {
-    stroke: #111;
+    fill: #111;
   }
   .nav-item-current {
     display: flex;
@@ -281,25 +281,22 @@
   .wrapper-button {
     position: relative;
   }
-  .log-out-header {
-    width: 184px;
-    height: 48px;
-    display: none;
-    justify-content: space-between;
-    padding: 14px;
-    border-radius: 18px;
-    border: 1.5px solid #111;
-    background: #fff;
-    color: var(--text-color);
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: -0.56px;
+  .log-out {
+    z-index: 0;
     position: absolute;
     bottom: -48px;
     left: 0;
+    vertical-align: middle;
+    margin-right: 237px;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding: 14px;
+    width: 184px;
+    height: 48px;
+    display: none;
   }
 
-  .log-out-header.show {
+  .log-out.show {
     display: flex;
   }
   .mobile-menu {

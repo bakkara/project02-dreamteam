@@ -25,7 +25,7 @@ const navList = document.querySelector('.nav');
 const signUpSvg = document.querySelector('.sign-up-svg')
 const userDivHeader = document.querySelector('.div-stephen-header')
 
-const btnLogOut = document.querySelector('.log-out-header')
+const btnLogOut = document.querySelector('.log-out')
 const auth = getAuth();
 const db = getFirestore(app)
 
