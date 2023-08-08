@@ -1,5 +1,5 @@
 import './js/support.js';
-
+import './js/header.js';
 import './js/fire-base.js';
 
 import './js/burger.js';
@@ -70,7 +70,7 @@ function createBookCard(book) {
   }" id="${book._id}" width ="100px">
   <div class = "shopping-descr">
       <h2 class="book-card-title">${book.title}</h2>
-      <h3 class="shopping-category">${book.list_name}</h3>
+      <h3 class="shopping-category book-card-title">${book.list_name}</h3>
       <div class="shopping-description-container">  <p class="shopping-description">${
         book.description
       }</p> </div>

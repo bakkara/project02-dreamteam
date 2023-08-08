@@ -104,6 +104,11 @@
 
   line-height: 14px;
   letter-spacing: -0.48px;
+
+  width: 96px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .delete-button {
   position: absolute;
@@ -188,6 +193,18 @@
   .list-shops {
     gap: 16px;
   }
+  .shopping-author {
+    white-space: normal;
+    text-overflow: initial;
+    width: auto;
+    overflow: visible;
+  }
+  .book-card-title {
+    white-space: normal;
+    text-overflow: initial;
+    width: auto;
+    overflow: visible;
+  }
 }
 @media screen and (min-width: 1440px) {
   .support {
@@ -203,5 +220,11 @@
 
     padding: 10px;
     transform: translateY(-50%);
+  }
+  .shopping-description {
+    white-space: normal;
+    text-overflow: initial;
+    width: auto;
+    overflow: visible;
   }
 }
