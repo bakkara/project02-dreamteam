@@ -1,11 +1,15 @@
 .header {
   position: relative;
   width: 100%;
-  border: 1.5px solid #111;
-  border-radius: 0 0 8px 8px;
   padding: 18px 20px;
   margin-bottom: 40px;
-
+  border: 1.5px solid #111;
+  border-radius: 0 0 8px 8px;
+  background-color: #fff;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .is-hidden {
@@ -15,18 +19,10 @@
 }
 
 .header-container {
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
   width: 100%;
-  border: 1.5px solid #111;
-  border-radius: 0 0 8px 8px;
-  padding: 18px 20px;
 }
 
 .header-buttons {
@@ -39,9 +35,14 @@
   font-size: 24px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-  margin-left: 8px;
 }
 
+.header-logo {
+  margin-right: 40px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 .nav-list {
   display: none;
 }
@@ -240,6 +241,9 @@
     line-height: 1.29;
     letter-spacing: -0.56px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   .icon-sl-header {
@@ -377,12 +381,12 @@
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   transform: translateX(-16px);
 }
 
@@ -395,6 +399,6 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
-input:checked+.round::before {
+input:checked + .round::before {
   background-color: #fff;
 }
