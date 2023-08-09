@@ -5,12 +5,33 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
 import { createCartBookMarcup } from './markup.js';
+import {scrollFunction} from './scroll-up.js'
+
+let numTopCategoriesToShow = 4;
+let isFirstHandlerPagination = true;
+
+const options = {
+    root: null,
+    rootMargin: "300px",
+    threshold: 0,
+};
+
+const observer = new IntersectionObserver(handlerPagination, options);
+
 
 function displayCategories(data) {
   elements.BooksInfo.innerHTML = "";
-  const categoriesHtml = data.map(createTopBooks).join('');
+  const categoriesHtml = data.slice(0, numTopCategoriesToShow).map(createTopBooks).join('');
   elements.BooksInfo.innerHTML = ` <h2 class="books-section-title">Best Sellers <span class="last-word">Books</span> </h2>`
-  elements.BooksInfo.insertAdjacentHTML("beforeend",categoriesHtml) ;
+  elements.BooksInfo.insertAdjacentHTML("beforeend", categoriesHtml);
+  
+  // Отримання всіх блоків категорій та додавання спостереження
+    const categoryBlocks = document.querySelectorAll('.top-category-item');
+    categoryBlocks.forEach(block => {
+        observer.observe(block);
+    });
+
+
   return ""
 }
 
@@ -50,7 +71,6 @@ function renderTopBooks() {
   fetchTopBooks()
     .then(data => {
         Loading.remove();
-        // console.log(data);
         const markup = displayCategories(data);
         elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
         addEventListenersToBooks();
@@ -80,9 +100,24 @@ function addEventListenersToBooks() {
 }
 
 function onOpenBook(bookId) {
-  console.log(bookId);
   modal(bookId);
 }
 
+function handlerPagination(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Відмалювати наступні 4 категорії
+            numTopCategoriesToShow += 4;
+            renderTopBooks();
+          
+          observer.unobserve(entry.target);
+        }
+    });
+   if (numTopCategoriesToShow >= 5) {
+        
+        // Викликати scrollFunction після першого handlerPagination
+        scrollFunction();
+      }
+}
 
 export {renderTopBooks}

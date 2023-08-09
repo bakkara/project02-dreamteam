@@ -1,21 +1,22 @@
-let scrollToTopBtnEl = document.querySelector('.scroll-up-btn');
+import { elements } from "./refs.js";
 
 window.onscroll = function () {
   scrollFunction();
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    scrollToTopBtnEl.style.display = 'flex';
+  if (document.body.scrollTop > 900 || document.documentElement.scrollTop > 900) {
+    elements.scrollToTopBtnEl.style.display = 'flex';
   } else {
-    scrollToTopBtnEl.style.display = 'none';
+    elements.scrollToTopBtnEl.style.display = 'none';
   }
 }
 
-scrollToTopBtnEl.addEventListener('click', backToTop);
+elements.scrollToTopBtnEl.addEventListener('click', backToTop);
 
 export function backToTop(value = 0) {
-  document.body.scrollTop = 0;
+  document.body.scrollTop = value;
   document.documentElement.scrollTop = value;
 }
 
+export {scrollFunction}

@@ -61,7 +61,14 @@
   border-radius: 40px;
   border: 2px solid var(--violet);
   padding: 14px 28px;
+  transition: color var(--time-transform) var(--transform);
 }
+.see-more-btn:hover,
+.see-more-btn:focus {
+  background-color: var(--violet);
+  color: var(--white);
+}
+
 .btn-container-top-books {
   display: flex;
   justify-content: flex-end;

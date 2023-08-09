@@ -1,17 +1,16 @@
 #myBtn {
-cursor: pointer;
-position: sticky;
-bottom: 30px;
-left: 100%;
-width: 70px;
-height: 70px;
-border: none;
-border-radius: 50%;
-transition: transfrorm cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  /* left: 100%; */
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: transfrorm cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #myBtn:hover {
- transform: scale(1.1);
+  transform: scale(1.1);
 }
-
-

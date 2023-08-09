@@ -7,6 +7,7 @@ const elements = {
   modal: document.querySelector('.js-modal'),
   body: document.body,
   categoryList: document.querySelector('.category-list'),
+  scrollToTopBtnEl : document.querySelector('.scroll-up-btn')
 };
 
 export { elements };
