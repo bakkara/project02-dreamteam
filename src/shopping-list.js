@@ -7,6 +7,12 @@ import './js/burger.js';
 import amazon from './images/amazon1.png';
 import applebook from './images/applebook1.png';
 import barnesnoble from './images/barnesnoble.png';
+import amazon1x from './images/amazon@1x.png';
+import amazon2x from './images/amazon@2x.png';
+import applebook1x from './images/applebook@1x.png';
+import applebook2x from './images/applebook@2x.png';
+import barnesnoble1x from './images/barnesnoble@1x.png';
+import barnesnoble2x from './images/barnesnoble@2x.png';
 
 import sprite from './images/symbol-defs.svg';
 
@@ -65,47 +71,51 @@ function displayBooksInShoppingList(bookIds) {
 
 // Створюємо HTML-структуру карточки книги
 function createBookCard(book) {
+  const storesImgs = [
+    {
+      name: 'Amazon',
+      img: [amazon, amazon1x, amazon2x],
+    },
+    {
+      name: 'Apple Books',
+      img: [applebook, applebook1x, applebook2x],
+    },
+    {
+      name: 'Barnes and Noble',
+      img: [barnesnoble, barnesnoble1x, barnesnoble2x],
+    },
+  ];
+
+  /**шукаю посилання на сторінку магазинів і записую їх в попередній об'єкт */
+  storesImgs.forEach(i => {
+    i.link = book.buy_links.find(item => item.name == i.name).url;
+  });
+
+  const storesListMarkup = storesImgs
+    .map(
+      i => `<li class="modal-shops-item">
+            <a class="modal-link" href="${i.link}"
+               target="_blank" name="${i.name}"
+                        rel="noreferrer noopener">
+                        <img class="modal-img-shop" src="${i.img[0]}" alt="${i.name}" srcset="${i.img[1]} 1x, ${i.img[2]} 2x">
+                    </a>
+                </li>`
+    )
+    .join('');
+
   const bookCard = document.createElement('div');
 
   bookCard.innerHTML = `
 <div class="shopping-card">
-      <img class="shopping-image" src="${book.book_image}" alt="${
-    book.list_name
-  }" id="${book._id}" width ="100px">
+      <img class="shopping-image" src="${book.book_image}" alt="${book.list_name}" id="${book._id}" width ="100px">
   <div class = "shopping-descr">
       <h2 class="book-card-title title-shop-list">${book.title}</h2>
       <h3 class="shopping-category title-shop-list">${book.list_name}</h3>
-      <div class="shopping-description-container">  <p class="shopping-description">${
-        book.description
-      }</p> </div>
+      <div class="shopping-description-container">  <p class="shopping-description">${book.description}</p> </div>
       <div class="link-book-shop">
       <span class="shopping-author">${book.author}</span>
           <ul class="list-shops">
-                <li class="modal-shops-item">
-                    <a class="modal-link" href="${
-                      book.buy_links.find(i => i.name === 'Amazon').url
-                    }" target="_blank" name="Amazon"
-                        rel="noreferrer noopener">
-                        <img class="modal-img-shop amazon-img" src="${amazon}" alt="amazon store">
-                    </a>
-                </li>
-                <li class="modal-shops-item">
-                    <a class="modal-link" href="${
-                      book.buy_links.find(i => i.name === 'Apple Books').url
-                    }" target="_blank" name="Apple Books"
-                        rel="noreferrer noopener">
-                        <img class="modal-img-shop shopping-img-store" src="${applebook}" alt="apple store">
-                    </a>
-                </li>
-                <li class="modal-shops-item">
-                    <a class="modal-link" href="${
-                      book.buy_links.find(i => i.name === 'Barnes and Noble')
-                        .url
-                    }" target="_blank" name="Barnes and Noble"
-                        rel="noreferrer noopener">
-                        <img class="modal-img-shop shopping-img-store" src="${barnesnoble}" alt="barnes and noble store">
-                    </a>
-                </li>
+                ${storesListMarkup}
             </ul>
             </div>
             </div>
