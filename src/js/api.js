@@ -12,7 +12,6 @@ async function fetchTopBooks() {
 }
     try {
     const response = await axios.get('', config);
-        // console.log(response);
         return response.data;
 
   } catch (error) {
