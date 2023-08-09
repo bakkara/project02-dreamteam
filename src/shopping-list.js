@@ -1,8 +1,8 @@
 import './js/support.js';
 import './js/header.js';
 import './js/fire-base.js';
-
 import './js/burger.js';
+import './js/pagination.js';
 
 import amazon from './images/amazon1.png';
 import applebook from './images/applebook1.png';
@@ -23,6 +23,7 @@ async function getBook(bookId) {
       throw new Error('Error');
     }
     const data = await response.json();
+    console.log(data)
     return data;
   } catch (err) {
     console.log(err.message);
@@ -33,6 +34,7 @@ async function getBook(bookId) {
 function loadBooksFromLocalStorage() {
   const booksFromLocalStorage =
     JSON.parse(localStorage.getItem('targetBooks')) || [];
+    console.log((localStorage.getItem('targetBooks')))
   return booksFromLocalStorage;
 }
 // Оновлюємо відступ заголовку в залежності від того, чи додані книги до списку
