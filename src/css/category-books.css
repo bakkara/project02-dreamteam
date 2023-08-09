@@ -100,7 +100,7 @@ color:--text-color;
 
   .category-books-title {
       font-size: 48px;  
-    line-height: 52px;
+    line-height: 1.08;
         /* 108.333% */
   }
 }

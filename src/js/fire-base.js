@@ -18,6 +18,7 @@ const signInBtn = document.querySelector('#signin')
 
 const signUpBtnHeader = document.querySelector('.signup-header')
 const userNameText = document.querySelector('.text-stephen')
+const userNameTextMobile = document.querySelector('#text-stephen')
 const closeFormBtn = document.querySelector('.js-form-close')
 const formEl = document.querySelector('.form-wrapper');
 const navList = document.querySelector('.nav');
@@ -74,6 +75,7 @@ async function signUp(evt) {
       localStorage.setItem("userUid", uid)
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
+      userNameTextMobile.textContent = userName;
       navList.style.display = "flex"
       window.location.replace('./index.html')
       } catch (error) {
@@ -92,6 +94,7 @@ async function signIn(evt) {
       localStorage.setItem("userUid", userLogin.user.uid)
       localStorage.setItem("userName", userName)
       userNameText.textContent = userName;
+      userNameTextMobile.textContent = userName;
       window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
@@ -99,19 +102,16 @@ async function signIn(evt) {
     }
 }
 
-async function logOut(evt) {
-  signOut(auth).then(() => {
+async function logOut() {
+    signOut(auth).then(() => {
     console.log('Log out');
     localStorage.removeItem("userName");
      userDivHeader.classList.add('is-hidden')
-  localStorage.removeItem("userUid");
+    localStorage.removeItem("userUid");
     window.location.replace('./index.html');
      navList.style.display = "none"
-  signUpBtnHeader.style.display = "flex"
-
-   
+    signUpBtnHeader.style.display = "flex"   
   }).catch((err) => {
-    console.log('error')
+    console.log(err)
   })
- 
 }

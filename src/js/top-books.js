@@ -4,6 +4,7 @@ import { handlerSeeMoreBtn } from './books-from-category.js';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
+import { createCartBookMarcup } from './markup.js';
 
 function displayCategories(data) {
   elements.BooksInfo.innerHTML = "";
@@ -12,21 +13,6 @@ function displayCategories(data) {
   elements.BooksInfo.insertAdjacentHTML("beforeend",categoriesHtml) ;
   return ""
 }
-
-// function markupBookCard(_id, title, author, book_image ) {
-  
-//   return `
-//         <div class="book-card" tabindex="0" data-id="${_id}">
-//          <div class = "book-img">
-//          <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300" data-modal-open="true">
-//          <div class="overlay">
-//              <p class="overlay-text">quick view</p>
-//           </div> 
-//           </div>
-//        <h4 class="book-card-title">${title}</h4>
-//         <p class="book-card-author">${author}</p>
-//        </div>`;
-// }
 
 function createTopBooks(data) {
     const { list_name, books } = data;
@@ -37,28 +23,10 @@ function createTopBooks(data) {
     } else if(screenWidth >= 1440){
         numBooksToShow = 5
   };
+
+  const booksSliise = books.slice(0, numBooksToShow);
+  const booksHtml = createCartBookMarcup(booksSliise);
   
- 
-  const booksHtml = books.slice(0, numBooksToShow)
-    .map((book) => {
-     const { _id, title, author, book_image } = book;
-      
-      // return markupBookCard(_id, title, author, book_image);
-
-      return `
-        <div class="book-card" tabindex="0" data-id="${_id}">
-         <div class = "book-img">
-         <img src="${book_image}" alt="${title}" class="book-card-img" width="300" height="300" data-modal-open="true">
-         <div class="overlay">
-             <p class="overlay-text">quick view</p>
-          </div> 
-          </div>
-       <h4 class="book-card-title">${title}</h4>
-        <p class="book-card-author">${author}</p>
-       </div>`;
-    })
-    .join('');
-
   return `
     <div class="top-category-item">
       <h2 class="name-top-category">${list_name}</h2>

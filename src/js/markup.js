@@ -78,5 +78,5 @@ function createCartBookMarcup(data) {
   return cartBook;
 }
 
-export { createModalMarkup };
-export { createCartBookMarcup };
+export { createModalMarkup, createCartBookMarcup};
+

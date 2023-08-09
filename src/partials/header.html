@@ -7,15 +7,24 @@
                 </svg>
                 <span class="header-logo-text">Bookshelf</span>
             </a>
+            <div class="mobile-menu">
+                <button type="button" class="mbtn" aria-expanded="false" aria-controls="menu-container"
+                    data-menu-button>
+                    <svg width="28" height="28" aria-label="switch-mobile-menu">
+                        <use class="icon-menu" href="./images/symbol-defs.svg#icon-burger"></use>
+                        <use class="icon-cross" href="./images/symbol-defs.svg#icon-modal-close"></use>
+                    </svg>
+                </button>
+            </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li class="nav-item nav-item-current">
-                        <a href="./index.html" class="nav-link">HOME</a>
+                    <li class="nav-item nav-item-current" data-page="index">
+                        <a href="./index.html" class=" nav-link">HOME</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="./shopping-list.html" class="nav-link">SHOPPING LIST</a>
+                    <li class="nav-item" data-page="shopping-list">
+                        <a href="./shopping-list.html" class=" nav-link">SHOPPING LIST</a>
                         <svg width="20" height="20" class="icon-sl-header">
-                            <use href="./images/symbol-defs.svg#icon-sl"></use>
+                            <use href="./images/symbol-defs.svg#icon-basket"></use>
                         </svg>
                     </li>
                 </ul>
@@ -45,52 +54,12 @@
                         </svg>
                     </div>
                     <button type="button" class="log-out">Log out
-                        <svg width=" 20" height="20" class="logout-svg">
+                        <svg width="20" height="20" class="logout-svg">
                             <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
                         </svg>
                     </button>
                 </div>
             </div>
-
-            <!--Мобільне меню-->
-            <div class="mobile-menu">
-                <button type="button" class="mbtn" aria-expanded="false" aria-controls="menu-container"
-                    data-menu-button>
-                    <svg width="28" height="28" aria-label="Перемикач мобільного меню">
-                        <use class="icon-menu" href="./images/symbol-defs.svg#icon-burger"></use>
-                        <use class="icon-cross" href="./images/symbol-defs.svg#icon-modal-close"></use>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="menu-container" data-menu>
-                <div class="div-stephen">
-                    <img src="./images/Stephen.png" class="stephen">
-                    <p class="text-stephen"></p>
-                </div>
-                <ul class="list-burger">
-                    <li>
-                        <button type="button" class="btn-burger">
-                            <a class="burger-link-sl" href="./index.html">HOME
-                            </a>
-                        </button>
-                    </li>
-                    <li class="link-sl">
-                        <a class="burger-link-sl" href="./shopping-list.html">
-                            SHOPPING LIST
-                            <svg width="20" height="20" class="icon-sl">
-                                <use href="./images/symbol-defs.svg#icon-sl"></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-                <button type="button" class="log-out">Log out
-                    <svg width="20" height="20" class="logout-svg">
-                        <use href="./images/symbol-defs.svg#icon-arrow-right" class="modal-close"></use>
-                    </svg>
-                </button>
-                <img src="./images/forBurger.png" class="image-menu">
-            </div>
         </div>
-    </div>
 </header>
+

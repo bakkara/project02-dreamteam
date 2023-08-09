@@ -42,6 +42,9 @@ body {
   padding-right: 20px;
   margin: 0 auto;
 }
+.main-section {
+  margin-top: 104px;
+}
 
 @media screen and (min-width: 768px) {
   .container {
@@ -64,6 +67,7 @@ body {
   .main-section {
     display: flex;
     gap: 40px;
+    margin-top: 112px;
   }
   .category-support {
     flex-direction: column;
