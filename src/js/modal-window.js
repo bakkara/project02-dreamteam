@@ -36,6 +36,7 @@ export async function modal(id) {
     Loading.remove(); /**викл спінер через */
     addListeners(); /** "вішаємо" слухачів на події */
   } catch (err) {
+    console.log(err);
     Report.failure(
       'Notiflix Failure',
       '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
