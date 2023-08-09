@@ -5,7 +5,7 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
     scrollToTopBtnEl.style.display = 'flex';
   } else {
     scrollToTopBtnEl.style.display = 'none';
@@ -18,3 +18,4 @@ export function backToTop(value = 0) {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = value;
 }
+

@@ -13,6 +13,7 @@ import sprite from './images/symbol-defs.svg';
 const bookList = document.querySelector('#bookList');
 const message = document.querySelector('#message');
 
+// Отримуємо дані про книгу за її ідентифікатором
 async function getBook(bookId) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/';
   const searchUrl = BASE_URL + bookId;
@@ -28,12 +29,13 @@ async function getBook(bookId) {
     return null;
   }
 }
+// Завантажуємо масив ідентифікаторів книг з локального сховища
 function loadBooksFromLocalStorage() {
   const booksFromLocalStorage =
     JSON.parse(localStorage.getItem('targetBooks')) || [];
   return booksFromLocalStorage;
 }
-
+// Оновлюємо відступ заголовку в залежності від того, чи додані книги до списку
 function updateMainTitleMargin(isBooksAdded) {
   const mainTitle = document.querySelector('.shopping-list-title');
   if (isBooksAdded) {
@@ -41,6 +43,7 @@ function updateMainTitleMargin(isBooksAdded) {
   }
 }
 
+// Відображаємо карточки книг на сторінці
 function displayBooksInShoppingList(bookIds) {
   bookList.innerHTML = '';
   if (bookIds.length === 0) {
@@ -60,6 +63,7 @@ function displayBooksInShoppingList(bookIds) {
   }
 }
 
+// Створюємо HTML-структуру карточки книги
 function createBookCard(book) {
   const bookCard = document.createElement('div');
 
@@ -69,8 +73,8 @@ function createBookCard(book) {
     book.list_name
   }" id="${book._id}" width ="100px">
   <div class = "shopping-descr">
-      <h2 class="book-card-title">${book.title}</h2>
-      <h3 class="shopping-category book-card-title">${book.list_name}</h3>
+      <h2 class="book-card-title title-shop-list">${book.title}</h2>
+      <h3 class="shopping-category title-shop-list">${book.list_name}</h3>
       <div class="shopping-description-container">  <p class="shopping-description">${
         book.description
       }</p> </div>
@@ -123,6 +127,7 @@ function createBookCard(book) {
   });
 }
 
+// Видаляємо ідентифікатор книги зі списку локального сховища
 function removeBookFromLocalStorage(bookIdToRemove) {
   const updatedBooks = loadBooksFromLocalStorage().filter(
     bookId => bookId !== bookIdToRemove
@@ -130,11 +135,20 @@ function removeBookFromLocalStorage(bookIdToRemove) {
   localStorage.setItem('targetBooks', JSON.stringify(updatedBooks));
 }
 
+// Завантажуємо ідентифікатори книг з локального сховища та відображає їх карточки
 const bookIdsFromLocalStorage = loadBooksFromLocalStorage();
 displayBooksInShoppingList(bookIdsFromLocalStorage);
 
+// Отримуємо всі карточки книг на сторінці
 const bookCards = document.querySelectorAll('.book-card');
-bookCards.forEach(bookCard => {
-  const bookId = bookCard.querySelector('.book-image').id;
-  getBook(bookId).then(bookData => findStoreLink(bookData));
+bookCards.forEach(async bookCard => {
+  const bookId = bookCard.querySelector('.shopping-image').id;
+  try {
+    const bookData = await getBook(bookId);
+    if (bookData) {
+      createBookCard(bookData, bookCard);
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
 });

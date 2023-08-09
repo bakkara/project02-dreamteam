@@ -2,7 +2,7 @@ import './js/header.js'
 // import './js/burger.js'
 import './js/fire-base.js'
 import './js/api.js'
-import './js/fetch_API_categories';
+// import './js/fetch_API_categories';
 import './js/category.js';
 import './js/top-books.js'
 import './js/books-from-category.js';

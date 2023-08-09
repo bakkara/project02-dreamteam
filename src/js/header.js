@@ -26,6 +26,32 @@
 //       bodyScrollLock.enableBodyScroll(document.body);
 //     });
 //   })();
+// const linkHome = document.querySelector('.nav-link-home');
+// const linkShopping = document.querySelector('.nav-link-shopping');
+
+// const navList = document.querySelector('.nav-list');
+// navList.addEventListener('click', (evt) => {
+//   const currentItem = evt.target.closest('.nav-item');
+  
+//   if (currentItem) {
+//     // Збережіть стан в локальне сховище
+//     const isCurrent = currentItem.classList.contains('nav-item-current');
+//     if (isCurrent) {
+//       localStorage.removeItem('currentNavItem');
+//     } else {
+//       localStorage.setItem('currentNavItem', 'nav-item-current');
+//     }
+//   }
+// });
+
+
+
+// navList.addEventListener('click', switchHeaderButtons)
+    
+// function switchHeaderButtons(evt) {
+//     console.log(evt.target)
+//     evt.target.classList.toggle('nav-item-current')
+// }
 
 (() => {
     const menuBtnRef = document.querySelector("[data-menu-button]");
