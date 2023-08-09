@@ -7,6 +7,8 @@ const elements = {
   modal: document.querySelector('.js-modal'),
   body: document.body,
   categoryList: document.querySelector('.category-list'),
+  themeSwitcher: document.querySelector('#theme-switch'),
+  themeLink:document.querySelector('[title="theme"]')
 };
 
 export { elements };

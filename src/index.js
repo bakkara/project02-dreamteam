@@ -12,5 +12,6 @@ import './js/storage.js';
 import './js/scroll-up.js';
 import './js/refs.js';
 import './js/markup.js';
-import './js/footer.js'
+// import './js/footer.js';
+import './js/theme-switch.js'
 

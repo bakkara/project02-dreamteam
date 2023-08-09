@@ -1,0 +1,16 @@
+.books-section {
+  background: var(--body-bg-light);
+}
+.name-top-category {
+  color: var(--top-category-title);
+}
+.book-card-title {
+  color: var(--text-color);
+}
+.book-card-author {
+  color: var(--top-category-title);
+}
+.see-more-btn {
+  color: var(--text-color);
+  border: 2px solid var(--violet);
+}
