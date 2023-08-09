@@ -55,5 +55,5 @@
             <a class="category" href="#">
                 <span class="category-span">${t}</span>
             </a>
-        </li>`).join(""))).catch(t=>console.log(t)),h("xpKCW");let na=document.querySelector(".scroll-up-btn");window.onscroll=function(){document.body.scrollTop>300||document.documentElement.scrollTop>300?na.style.display="flex":na.style.display="none"},na.addEventListener("click",function(t=0){document.body.scrollTop=0,document.documentElement.scrollTop=t}),h("4Nugj");let ns=document.querySelector(".footer-list"),nl=document.querySelector(".footer-block");nl.addEventListener("click",()=>{nl.classList.toggle("is-hidden"),ns.classList.toggle("is-hidden")})}();
-//# sourceMappingURL=index.ae5f3fb4.js.map
+        </li>`).join(""))).catch(t=>console.log(t)),h("xpKCW");let na=document.querySelector(".scroll-up-btn");window.onscroll=function(){document.body.scrollTop>200||document.documentElement.scrollTop>200?na.style.display="flex":na.style.display="none"},na.addEventListener("click",function(t=0){document.body.scrollTop=0,document.documentElement.scrollTop=t}),h("4Nugj");let ns=document.querySelector(".footer-list"),nl=document.querySelector(".footer-block");nl.addEventListener("click",()=>{nl.classList.toggle("is-hidden"),ns.classList.toggle("is-hidden")})}();
+//# sourceMappingURL=index.1ebe1554.js.map
