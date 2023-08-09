@@ -7,6 +7,15 @@
                 </svg>
                 <span class="header-logo-text">Bookshelf</span>
             </a>
+            <div class="mobile-menu">
+                <button type="button" class="mbtn" aria-expanded="false" aria-controls="menu-container"
+                    data-menu-button>
+                    <svg width="28" height="28" aria-label="Перемикач мобільного меню">
+                        <use class="icon-menu" href="./images/symbol-defs.svg#icon-burger"></use>
+                        <use class="icon-cross" href="./images/symbol-defs.svg#icon-modal-close"></use>
+                    </svg>
+                </button>
+            </div>
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item nav-item-current">
@@ -52,45 +61,38 @@
                 </div>
             </div>
 
-            <!--Мобільне меню-->
-            <div class="mobile-menu">
-                <button type="button" class="mbtn" aria-expanded="false" aria-controls="menu-container"
-                    data-menu-button>
-                    <svg width="28" height="28" aria-label="Перемикач мобільного меню">
-                        <use class="icon-menu" href="./images/symbol-defs.svg#icon-burger"></use>
-                        <use class="icon-cross" href="./images/symbol-defs.svg#icon-modal-close"></use>
-                    </svg>
-                </button>
-            </div>
+            
+        </div>
+        <!--Мобільне меню-->
+        
 
-            <div class="menu-container" data-menu>
-                <div class="div-stephen">
-                    <img src="./images/Stephen.png" class="stephen">
-                    <p class="text-stephen" id="text-stephen"></p>
-                </div>
-                <ul class="list-burger">
-                    <li>
-                        <button type="button" class="btn-burger">
-                            <a class="burger-link-sl" href="./index.html">HOME
-                            </a>
-                        </button>
-                    </li>
-                    <li class="link-sl">
-                        <a class="burger-link-sl" href="./shopping-list.html">
-                            SHOPPING LIST
-                            <svg width="20" height="20" class="icon-sl">
-                                <use href="./images/symbol-defs.svg#icon-sl"></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-                <button type="button" class="log-out">Log out
-                    <svg width="20" height="20" class="logout-svg">
-                        <use href="./images/symbol-defs.svg#icon-arrow-right" class="modal-close"></use>
-                    </svg>
-                </button>
-                <img src="./images/forBurger.png" class="image-menu">
+        <div class="menu-container" data-menu>
+            <div class="div-stephen">
+                <img src="./images/Stephen.png" class="stephen">
+                <p class="text-stephen" id="text-stephen"></p>
             </div>
+            <ul class="list-burger">
+                <li>
+                    <button type="button" class="btn-burger">HOME
+                        <a class="burger-link-sl" href="./index.html">
+                        </a>
+                    </button>
+                </li>
+                <li class="link-sl">
+                    <a class="burger-link-sl" href="./shopping-list.html">
+                        SHOPPING LIST
+                        <svg width="20" height="20" class="icon-sl">
+                            <use href="./images/symbol-defs.svg#icon-sl"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+            <button type="button" class="log-out">Log out
+                <svg width="20" height="20" class="logout-svg">
+                    <use href="./images/symbol-defs.svg#icon-arrow-right" class="modal-close"></use>
+                </svg>
+            </button>
+            <img src="./images/forBurger.png" class="image-menu">
         </div>
     </div>
 </header>
