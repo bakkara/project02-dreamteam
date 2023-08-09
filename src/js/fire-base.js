@@ -102,19 +102,16 @@ async function signIn(evt) {
     }
 }
 
-async function logOut(evt) {
-  signOut(auth).then(() => {
+async function logOut() {
+    signOut(auth).then(() => {
     console.log('Log out');
     localStorage.removeItem("userName");
      userDivHeader.classList.add('is-hidden')
-  localStorage.removeItem("userUid");
+    localStorage.removeItem("userUid");
     window.location.replace('./index.html');
      navList.style.display = "none"
-  signUpBtnHeader.style.display = "flex"
-
-   
+    signUpBtnHeader.style.display = "flex"   
   }).catch((err) => {
-    console.log('error')
+    console.log(err)
   })
- 
 }

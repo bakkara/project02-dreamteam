@@ -1,35 +1,3 @@
-// (() => {
-//     const mobileMenu = document.querySelector('.menu-container');
-//     const openMenuBtn = document.querySelector('.icon-cross');
-//     const closeMenuBtn = document.querySelector('.icon-menu');
-  
-//     const toggleMenu = () => {
-//       const isMenuOpen =
-//         openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-//       openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-//       mobileMenu.classList.toggle('is-open');
-  
-//       const scrollLockMethod = !isMenuOpen
-//         ? 'disableBodyScroll'
-//         : 'enableBodyScroll';
-//       bodyScrollLock[scrollLockMethod](document.body);
-//     };
-  
-//     openMenuBtn.addEventListener('click', toggleMenu);
-//     closeMenuBtn.addEventListener('click', toggleMenu);
-  
-//     // Close the mobile menu on wider screens if the device orientation changes
-//     window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-//       if (!e.matches) return;
-//       mobileMenu.classList.remove('is-open');
-//       openMenuBtn.setAttribute('aria-expanded', false);
-//       bodyScrollLock.enableBodyScroll(document.body);
-//     });
-//   })();
-
-// });
-
-
 let currentPage = localStorage.getItem('currentPage') || 'index';
 
 const navList = document.querySelector('.nav-list');
@@ -53,18 +21,24 @@ function updateNavLinks() {
 
 updateNavLinks();
 
+const userNameTextMobile = document.querySelector('#text-stephen')
+const userNameLocal = localStorage.getItem("userName");
 
-(() => {
-    const menuBtnRef = document.querySelector("[data-menu-button]");
-    const mobileMenuRef = document.querySelector("[data-menu]");
+const menuBtnRef = document.querySelector("[data-menu-button]");
+menuBtnRef.addEventListener('click', openBurger)
 
-    menuBtnRef.addEventListener("click", () => {
-        const expanded =
-        menuBtnRef.getAttribute("aria-expanded") === "true" || false;
+function openBurger() {
+  const mobileMenu = document.querySelector('.mobile-wrapper')
+  const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false;
+  menuBtnRef.classList.toggle("is-open");
+  menuBtnRef.setAttribute("aria-expanded", !expanded);
+  
+  if (userNameLocal) userNameTextMobile.textContent = localStorage.getItem("userName");
 
-        menuBtnRef.classList.toggle("is-open");
-        menuBtnRef.setAttribute("aria-expanded", !expanded);
+  if (!mobileMenu.classList.contains('is-hidden')) {
+    document.body.classList.toggle('no-scroll');
+    }
+  mobileMenu.classList.toggle("is-open");
+  
+};
 
-        mobileMenuRef.classList.toggle("is-open");
-    });
-})();
