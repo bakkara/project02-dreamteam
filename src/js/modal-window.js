@@ -114,25 +114,30 @@ function handlerCloseEsc(e) {
  */
 function toggleBtn(bool) {
   if (!bool) {
-    elements.modalMainBtn.textContent = 'add to shopping list';
     elements.modalMainBtn.nextElementSibling.classList.add('js-hidden-text');
-    elements.modalMainBtn.classList.remove('js-modal-remove');
+    setTimeout(() => {
+      elements.modalMainBtn.classList.remove('js-modal-remove');
+      elements.modalMainBtn.textContent = 'add to shopping list';
+    }, 100);
+
     return;
   }
   elements.modalMainBtn.textContent = 'remove from the shopping list';
-  elements.modalMainBtn.nextElementSibling.classList.remove('js-hidden-text');
   elements.modalMainBtn.classList.add('js-modal-remove');
+  setTimeout(() => {
+    elements.modalMainBtn.nextElementSibling.classList.remove('js-hidden-text');
+  }, 50);
 }
 
 /**
  * відкриває/закриває модалку
  */
 function toggleModal() {
-  // elements.body.style.paddingRight = elements.modal.classList.contains(
-  //   'is-open'
-  // )
-  //   ? '0px'
-  //   : scrollWidth;
+  elements.body.style.paddingRight = elements.modal.classList.contains(
+    'is-open'
+  )
+    ? '0px'
+    : scrollWidth;
   elements.modal.classList.toggle('is-open');
   elements.body.classList.toggle('no-scroll');
 }
