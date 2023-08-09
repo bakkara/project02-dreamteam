@@ -145,7 +145,7 @@
 }
 
 .team-social:is(:hover, :focus) {
-  background-color: var(--hover-focus);
+  background-color: var(--violet);
 }
 
 .team-icon {
