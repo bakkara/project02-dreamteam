@@ -1,5 +1,4 @@
-import { title } from 'process';
-import { getOneCategoriesBooksFromApi } from './fetch_API_categories.js';
+import { getOneCategoriesBooksFromApi } from './api.js';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
@@ -8,17 +7,15 @@ const booksSection = document.querySelector('.books-list');
 
 let category;
 
-export function handlerSeeMoreBtn(categories) { 
-  // categories = evt.currentTarget.dataset.category;
+export function handlerSeeMoreBtn(categories) {   
   category = categories;
-  getOneCategoriesBooksFromApi(categories).then(resp => {
-    
-          // Loading.remove();
+  getOneCategoriesBooksFromApi(categories).then(resp => {    
+          
       createGalleryCategoriesBooksMarkup(resp);
       cardsListners();
         
   }).catch(error => {
-    // console.log(error);
+    
     Report.failure(
       'Oops!',
       'Something went wrong! Try reloading the page!',
