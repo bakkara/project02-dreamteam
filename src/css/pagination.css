@@ -1,0 +1,52 @@
+.pagination-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.pagination-list li a,
+.pagination-list li span {
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid #E0E3E8;
+    text-decoration: none;
+    border-radius: 20px;
+    border-color: #000000;
+    background: #FFF;
+    color: #000000;
+    user-select: none;
+}
+
+.pagination-list .previous a {
+    color: #C7CDD5;
+    border: 1px solid #000000;
+    border-color: #000000;
+    background: #000000;
+    color: #ffffff;
+}
+
+.pagination-list .next a {
+    border: 1px solid #000000;
+    border-color: #000000;
+    background: #EAC645;;
+    color: #000000;
+
+}
+
+.pagination-list .current span {
+    border: 1px solid #000000;
+    border-color: #000000;
+    background: #000000;
+    color: #ffffff;
+}
+
+.pagination-list .previous span,
+.pagination-list .next span {
+    background: #BDC2C8;
+    color: #D6D9DD;
+    border: 1px solid #BDC2C8;
+}
