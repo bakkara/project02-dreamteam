@@ -1,45 +1,59 @@
-import {  blocks } from './refs'
+import { blocks } from './refs.js'
+
 
 const blocksEl = document.querySelector('.blocks')
-const buttonDown = document.querySelector('.button-scroll-down')
-const buttonUp = document.querySelector('.button-scroll-up')
+const btnDownUp = document.querySelector('.button-scroll-down')
+
+
+blocksEl.insertAdjacentHTML('beforeend', murkupFoundation(blocks))
+btnDownUp.addEventListener('click', scrollDownUp)
+
 
 function murkupFoundation(arr) {
-   return arr.map(({ title, url, img , id}) => `
+  blocksEl.innerHTML=''
+    return arr.map(({ title, url, img , id, imgr}) => `
     <li class="block">
    <div>
     <a href="${url}" class='gotofoundation' target="_blank">
         <p>0${id}</p>
-        <img  class='image' src='${img}' alt="${title}">
+        <img  class='image' src='${img}' srcset='${imgr}' alt="${title}">
     </a>
    </div>
   </li>`).join('')
 }
+ 
 
-blocksEl.insertAdjacentHTML('beforeend', murkupFoundation(blocks))
-buttonDown.addEventListener('click', scrollDown)
-buttonUp.addEventListener('click', scrollUp)
+function scrollDownUp() { 
 
-function scrollDown(evt) { 
+let scrollBottom =blocksEl.scrollHeight - blocksEl.scrollTop - blocksEl.clientHeight;
+  if (scrollBottom > 1)  {
+    scrollDown()
+    } else {
+    scrollUp()
+  }
+
+}
+
+function scrollDown() { 
+
   const { height: cardHeight } = document
                     .querySelector(".blocks")
                     .firstElementChild.getBoundingClientRect();
-              blocksEl.scrollBy({
-                    top: cardHeight ,
-                    behavior: "smooth",
-                  });
+      blocksEl.scrollBy({
+      top: cardHeight * 1.5,
+      behavior: "smooth",
+      })
 }
 
-function scrollUp(evt) { 
-  const { height: cardHeight } = document
-                    .querySelector(".blocks")
-                    .firstElementChild.getBoundingClientRect();
-              blocksEl.scrollBy({
-                    top: -cardHeight ,
-                    behavior: "smooth",
-                  });
+function scrollUp() { 
+ 
+      blocksEl.scrollBy({
+      top: -blocksEl.scrollHeight,
+      behavior: "smooth",
+      })
 }
 
+ 
 
 
 

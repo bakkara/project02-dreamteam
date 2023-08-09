@@ -5,7 +5,7 @@ padding-top: 24px;
 border-radius: 16px;
 background-image: linear-gradient(to bottom,
             #4F2EE8,
-            #bfb2f9);
+            #b9abf8);
 width: 335px;
 height: 352px;
 }
@@ -46,14 +46,9 @@ font-size: 22px;
     filter: brightness(0) invert(1)
 }
 
-.buttons {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    margin-top: 16px;
+.support-content {
+    margin-bottom: 16px;
 }
-
-.button-scroll-up,
 .button-scroll-down {
     display: flex;
     justify-content: center;
@@ -63,37 +58,39 @@ font-size: 22px;
     border: 1px solid #ffffff ;
     border-radius: 50%;
     border-color: #ffffff;
-   
+    margin: auto;
+
 }
 
-.button-scroll-up {
+.button-scroll-down:hover{
+background-color: #d7d0f8;
+border-color:#d7d0f8;
+} 
+
+.rotate {
 transform: rotate(180deg);
 }
 
 
 @media screen and (min-width: 768px) {
    
-    .support{
-        margin-top: 40px;
-    }
-   .foundations {
+    .foundations {
         width: 335px;
         height: 474;
     }
     .blocks {
-        width: 159px;
-        height: 292px;
+       height: 292px;
     }
 
-    .buttons {
-        margin-top: 24px;
+    .support-content {
+            margin-bottom: 24px;
     }
 
     .foundations-title-text {
         font-size: 24px;
     }
-        .button-scroll-up,
-        .button-scroll-down {
+      
+    .button-scroll-down {
            width: 38px;
            height: 38px;
     }
@@ -107,7 +104,5 @@ transform: rotate(180deg);
         padding-left: 24px;
         padding-right: 24px;
     }
-        .support {
-            margin-top: 0;
-        }
+       
 }
