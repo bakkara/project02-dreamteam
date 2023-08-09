@@ -26,32 +26,33 @@
 //       bodyScrollLock.enableBodyScroll(document.body);
 //     });
 //   })();
-// const linkHome = document.querySelector('.nav-link-home');
-// const linkShopping = document.querySelector('.nav-link-shopping');
 
-// const navList = document.querySelector('.nav-list');
-// navList.addEventListener('click', (evt) => {
-//   const currentItem = evt.target.closest('.nav-item');
-  
-//   if (currentItem) {
-//     // Збережіть стан в локальне сховище
-//     const isCurrent = currentItem.classList.contains('nav-item-current');
-//     if (isCurrent) {
-//       localStorage.removeItem('currentNavItem');
-//     } else {
-//       localStorage.setItem('currentNavItem', 'nav-item-current');
-//     }
-//   }
 // });
 
 
+let currentPage = localStorage.getItem('currentPage') || 'index';
 
-// navList.addEventListener('click', switchHeaderButtons)
-    
-// function switchHeaderButtons(evt) {
-//     console.log(evt.target)
-//     evt.target.classList.toggle('nav-item-current')
-// }
+const navList = document.querySelector('.nav-list');
+navList.addEventListener('click', (evt) => {
+  const currentItem = evt.target.closest('.nav-item');
+
+  if (currentItem) {
+    currentPage = currentItem.getAttribute('data-page');
+    localStorage.setItem('currentPage', currentPage);
+    updateNavLinks();
+  }
+});
+
+function updateNavLinks() {
+  const homeLink = document.querySelector('.nav-item[data-page="index"]');
+  const shoppingListLink = document.querySelector('.nav-item[data-page="shopping-list"]');
+  
+  homeLink.classList.toggle('nav-item-current', currentPage === 'index');
+  shoppingListLink.classList.toggle('nav-item-current', currentPage === 'shopping-list');
+}
+
+updateNavLinks();
+
 
 (() => {
     const menuBtnRef = document.querySelector("[data-menu-button]");
