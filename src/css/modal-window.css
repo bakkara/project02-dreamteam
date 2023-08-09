@@ -1,9 +1,10 @@
 .modal-wrapper {
   position: fixed;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   opacity: 0;
@@ -20,7 +21,7 @@
   position: relative;
   width: 339px;
   height: 810px;
-  margin: auto;
+  overflow-y: auto;
   background-color: transparent;
   border: none;
 }
@@ -36,31 +37,28 @@
 }
 
 .modal-wrapper.is-open .modal-window {
-  transform: translate(0px, 0px);
   opacity: 1;
+  transform: translate(0px, 0%);
 }
 
 .modal-window {
-  position: relative;
-  padding: 40px 24px;
+  position: absolute;
+  padding: 38px 22px;
   height: auto;
   color: var(--text-color);
   border-radius: 18px;
   border: 2px solid var(--text-color);
   background-color: var(--body-bg-light);
   opacity: 0;
-  transform: translate(0px, -100%) perspective(600px) rotateX(90deg);
+  top: 0;
+  transform: translate(0px, -100%);
   transition: all var(--time-transform) var(--transform);
 }
 
 .modal-svg {
   stroke: var(--text-color);
+  fill: white;
   transition: all var(--time-transform) var(--transform);
-}
-
-.modal-svg:hover {
-  filter: drop-shadow(0 0 1px var(--text-color));
-  stroke: var(--violet);
 }
 
 .btn-modal-close {
@@ -79,23 +77,21 @@
   transition: all var(--time-transform) var(--transform);
 }
 
-.btn-modal-close:is(:hover, :focus) .modal-svg,
-.modal-btn-main :is(:hover, :focus) {
-  scale: 1.5;
-}
-
-.btn-modal-close:is(:hover, :focus) .modal-svg {
-  scale: 1.5;
-}
-
 .modal-img-wrap {
-  overflow: hidden;
   display: flex;
-  width: 100%;
+  width: 287px;
   height: 408px;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
-  border: var(--text-color) 2px solid;
   margin-bottom: 14px;
+  overflow: hidden;
+  outline: none;
+}
+
+.modal-img {
+  min-height: 100%;
+  height: unset;
 }
 
 .modal-title {
@@ -119,7 +115,7 @@
   line-height: 1.29;
   letter-spacing: -0.56px;
   height: 70px;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   overflow: auto;
 }
 
@@ -134,13 +130,11 @@
   transition: all var(--time-transform) var(--transform);
 }
 
-.modal-link:is(:hover) .modal-img-shop {
-  scale: 1.3;
-  filter: drop-shadow(0 7px 2px rgba(17, 17, 17, 0.2));
-}
-
 .modal-btn-wrapper {
   margin: 40px auto 0;
+  height: auto;
+  width: 100%;
+  /* transition: all var(--time-transform) var(--transform); */
 }
 
 .modal-btn-main {
@@ -151,71 +145,74 @@
   text-transform: uppercase;
   color: var(--text-color);
   display: block;
+  position: relative;
+  width: auto;
   margin: auto;
-  padding: 14px 28px;
+  padding: 12px 26px;
   border-radius: 40px;
   border: 2px solid var(--violet);
   background-color: transparent;
-  transition: all var(--time-transform) var(--transform);
-}
-
-.modal-btn-main:hover {
-  color: var(--white);
-  background-color: var(--violet);
-  box-shadow: 0 0 3px var(--violet);
-  text-shadow: 0 0 3px var(--white);
-  scale: 1.05;
-  transition: all 100ms var(--transform);
-}
-
-.modal-btn-main:active,
-.btn-modal-close:is(:active) .modal-svg {
   scale: 1;
+  transition-property: background-color, scale;
+  transition-duration: var(--time-transform);
+  transition-timing-function: ease;
+  z-index: 1;
 }
 
 .js-modal-remove {
   padding: 14px 20px;
 }
 
+.modal-btn-main:active {
+  scale: 0.95;
+}
+
 .modal-bottom-text {
   display: block;
-  width: 242px;
   font-size: 10px;
+  width: 242px;
+  /* height: 28px; */
+  padding-top: 8px;
   line-height: 1.2;
   letter-spacing: -0.4px;
   text-align: center;
   color: var(--bgc-modal);
-  margin: 8px auto 0;
+  margin: auto;
   opacity: 1;
-  transition: all var(--time-transform) var(--transform);
+  transform: translateY(0px);
+  transition: all 200ms var(--transform);
 }
 
-.js-hidden-text {
+.modal-bottom-text.js-hidden-text {
   opacity: 0;
+  height: 0;
+  padding-top: 0;
   visibility: hidden;
-  height: 0px;
+  transform: translateY(-100%);
 }
 
-/* ___________________________________________________________ */
+/* ________________________768px___________________________________ */
 
 @media screen and (min-width: 768px) {
+  .modal-wrapper {
+    align-items: flex-end;
+  }
+
   .modal-window-wrap {
-    position: relative;
-    margin: auto;
+    bottom: calc(200px - 36px);
     width: 583px;
-    height: 501px;
-    background-color: transparent;
-    border: none;
+    height: 506px;
   }
 
   .modal-window {
     width: 100%;
-    padding: 40px;
+    padding: 38px;
+
+    position: relative;
   }
 
   .book-modal-wrap {
     display: flex;
-    gap: 24px;
     margin-bottom: 0;
   }
 
@@ -227,13 +224,9 @@
   }
 
   .modal-img-wrap {
-    height: 285px;
-    border-radius: 8px;
-    margin-bottom: 0;
-  }
-
-  .modal-img {
     width: 192px;
+    height: 281px;
+    margin: 0 24px 0 0;
   }
 
   .modal-title {
@@ -266,8 +259,14 @@
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.18px;
-    padding: 20px;
+    padding: 18px;
     width: 499px;
+    height: auto;
+  }
+
+  .js-modal-remove {
+    width: 499px;
+    padding: 20px;
   }
 
   .modal-bottom-text {
@@ -275,6 +274,45 @@
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.48px;
-    margin: 8px auto 0;
+    /* height: calc(28px + 8px); */
+  }
+}
+
+.modal-btn-main:hover {
+  color: var(--white);
+  background-color: var(--violet);
+  box-shadow: 0 0 3px var(--violet);
+  text-shadow: 0 0 3px var(--white);
+}
+
+.modal-link:is(:hover) .modal-img-shop {
+  scale: 1.3;
+  filter: drop-shadow(0 7px 2px rgba(17, 17, 17, 0.2));
+}
+
+.modal-svg:hover {
+  filter: drop-shadow(0 0 1px var(--text-color));
+  stroke: var(--violet);
+}
+
+.btn-modal-close:is(:hover, :focus) .modal-svg,
+.modal-btn-main :is(:hover, :focus) {
+  scale: 1.5;
+}
+
+.btn-modal-close:is(:active) .modal-svg {
+  scale: 0.95;
+}
+
+/* ________________________1440px___________________________________ */
+
+@media screen and (min-width: 1440px) {
+  .modal-window-wrap {
+    bottom: unset;
+  }
+
+  .modal-wrapper {
+    width: 100%;
+    align-items: center;
   }
 }

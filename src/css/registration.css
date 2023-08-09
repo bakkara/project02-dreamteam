@@ -79,21 +79,22 @@
   }
 }
 
-.signinbtn {
-  color: var(--violet);
-  font-size: 18px;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-right: 20px;
-  text-decoration: underline;
-}
-
 .logoutbtn {
   color: var(--top-category-title);
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
 }
+
+.signinbtn {
+  color: var(--violet);
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 20px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 
 @media screen and (max-width: 767px) {
   .signinbtn {

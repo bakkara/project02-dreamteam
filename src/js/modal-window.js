@@ -14,10 +14,14 @@ const modalBookObj = {}; /**ініціалізація об'єкту з інфо
  */
 export async function modal(id) {
   try {
-    scrollWidth = window.innerWidth - elements.body.clientWidth + 'px'; /*визначаємо ширину скролу*/
+    scrollWidth =
+      window.innerWidth -
+      elements.body.clientWidth +
+      'px'; /*визначаємо ширину скролу*/
     Loading.standard(); /** вкл спінер */
     const modalBook = await getBook(id); /** запит на api */
-    const [...targetBooks] = load('targetBooks'); /** оримуємо масив книг з лок, сховища */
+    const [...targetBooks] =
+      load('targetBooks'); /** оримуємо масив книг з лок, сховища */
 
     /** оновлюємо отриманими даними наш об'єкт книги*/
     modalBookObj.bookId = id;
@@ -32,6 +36,7 @@ export async function modal(id) {
     Loading.remove(); /**викл спінер через */
     addListeners(); /** "вішаємо" слухачів на події */
   } catch (err) {
+    console.log(err);
     Report.failure(
       'Notiflix Failure',
       '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
@@ -76,7 +81,7 @@ function clickHandler() {
  */
 function addListeners() {
   elements.modalBtnClose.addEventListener('click', handlerClose);
-  document.addEventListener('keydown', handlerCloseW);
+  document.addEventListener('keydown', handlerCloseEsc);
   elements.modalMainBtn.addEventListener('click', clickHandler);
   elements.modal.addEventListener('click', handlerCloseW);
 }
@@ -85,7 +90,7 @@ function addListeners() {
  * видаляє слухачів з модалки та закриває модалку
  */
 function handlerClose() {
-  document.removeEventListener('keydown', handlerCloseW);
+  document.removeEventListener('keydown', handlerCloseEsc);
   elements.modalMainBtn.removeEventListener('click', clickHandler);
   elements.modal.removeEventListener('click', handlerCloseW);
   toggleModal();
@@ -96,7 +101,11 @@ function handlerClose() {
  * @param {*} e подія при натисненні кнопки чи при кліку
  */
 function handlerCloseW(e) {
-  if (e.key === 'Escape' || !e.target.closest('.modal-window')) handlerClose();
+  if (!e.target.closest('.modal-window')) handlerClose();
+}
+
+function handlerCloseEsc(e) {
+  if (e.key === 'Escape') handlerClose();
 }
 
 /**
@@ -106,21 +115,28 @@ function handlerCloseW(e) {
  */
 function toggleBtn(bool) {
   if (!bool) {
-    elements.modalMainBtn.textContent = 'add to shopping list';
     elements.modalMainBtn.nextElementSibling.classList.add('js-hidden-text');
-    elements.modalMainBtn.classList.remove('js-modal-remove');
+    setTimeout(() => {
+      elements.modalMainBtn.classList.remove('js-modal-remove');
+      elements.modalMainBtn.textContent = 'add to shopping list';
+    }, 100);
+
     return;
   }
   elements.modalMainBtn.textContent = 'remove from the shopping list';
-  elements.modalMainBtn.nextElementSibling.classList.remove('js-hidden-text');
   elements.modalMainBtn.classList.add('js-modal-remove');
+  setTimeout(() => {
+    elements.modalMainBtn.nextElementSibling.classList.remove('js-hidden-text');
+  }, 50);
 }
 
 /**
  * відкриває/закриває модалку
  */
 function toggleModal() {
-  elements.body.style.paddingRight = elements.modal.classList.contains('is-open')
+  elements.body.style.paddingRight = elements.modal.classList.contains(
+    'is-open'
+  )
     ? '0px'
     : scrollWidth;
   elements.modal.classList.toggle('is-open');

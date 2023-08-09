@@ -13,7 +13,7 @@
   font-size: 32px;
 
   font-weight: 700;
-  line-height: 38px;
+  line-height: 1.18;
   letter-spacing: -1.28px;
 
   margin-bottom: 120px;
@@ -27,7 +27,7 @@
   color: rgba(0, 0, 0, 0.6);
   text-align: center;
 
-  line-height: 18px;
+  line-height: 1.28;
   letter-spacing: -0.28px;
   margin-bottom: 14px;
 }
@@ -59,7 +59,7 @@
 .books-sh-container {
   width: 193px;
 }
-.book-card-title {
+.title-shop-list {
   width: 144px;
   white-space: nowrap;
   overflow: hidden;
@@ -71,7 +71,7 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 1.16;
   letter-spacing: 0.36px;
   margin-bottom: 8px;
 }
@@ -82,7 +82,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.28;
   letter-spacing: -0.56px;
 
   text-overflow: ellipsis;
@@ -102,7 +102,7 @@
   font-size: 12px;
   font-style: italic;
 
-  line-height: 14px;
+  line-height: 1.16;
   letter-spacing: -0.48px;
 
   width: 96px;
@@ -144,16 +144,20 @@
   flex-direction: column;
   gap: 20px;
 }
+.shopping-descr {
+  width: 193px;
+}
+
 @media screen and (min-width: 768px) {
   .shopping-list-title {
     font-size: 48px;
-    line-height: 52px;
+    line-height: 1.08;
     letter-spacing: -1.92px;
     margin-bottom: 140px;
   }
   .text-shop-list {
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.33;
     letter-spacing: -0.36px;
     margin-bottom: 20px;
   }
@@ -205,6 +209,9 @@
     width: auto;
     overflow: visible;
   }
+  .shopping-descr {
+    width: 508px;
+  }
 }
 @media screen and (min-width: 1440px) {
   .support {
@@ -226,5 +233,8 @@
     text-overflow: initial;
     width: auto;
     overflow: visible;
+  }
+  .shopping-descr {
+    width: 808px;
   }
 }
