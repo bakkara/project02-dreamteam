@@ -97,6 +97,23 @@
 .signup-header {
   display: none;
 }
+.signup-burger {
+  display: inline-flex;
+  justify-content: space-between;
+  color: #fff;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+  width: 184px;
+  height: 48px;
+  background-color: var(--violet);
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  padding: 14px;
+  z-index: 1;
+  position: fixed;
+  top: 104px;
+}
 
 .mbtn {
   display: inline-flex;
@@ -117,17 +134,6 @@
 .mbtn.is-open .icon-menu {
   display: none;
 }
-/* .mobile-menu { */
-  /* display: block; */
-/* } */
-/*  */
-/* .mobile-wrapper { */
-  /* display: none; */
-/* } */
-/*  */
-/* .mobile-wrapper.is-open { */
-  /* display: block; */
-/* } */
 
 .icon-cross {
   stroke: #111;
@@ -140,7 +146,6 @@
 .div-stephen {
   position: absolute;
   top: 84px;
-  left: 20px;
   display: flex;
   align-items: center;
 }
@@ -197,7 +202,6 @@
 .log-out {
   z-index: 1;
   position: fixed;
-  left: 20px;
   bottom: 20px;
   vertical-align: middle;
   padding: 0;
@@ -303,7 +307,6 @@
     z-index: 0;
     position: absolute;
     bottom: -48px;
-    left: 0;
     vertical-align: middle;
     margin-right: 237px;
     margin-bottom: 0;
