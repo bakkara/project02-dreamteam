@@ -147,6 +147,7 @@ body.dark-theme {
   .dark-theme .modal-shops-item:hover {
     filter: drop-shadow(0 7px 1px rgba(255, 255, 255, 0.2));
   }
+}
 
 /* Registration */
 .dark-theme .form-window {
@@ -163,5 +164,4 @@ body.dark-theme {
   background-color: var(--body-bg-light);
 }
 
-}
 
