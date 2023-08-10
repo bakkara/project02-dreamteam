@@ -13,18 +13,18 @@
   border: none;
   cursor: pointer;
   bottom: 30px; */
-
+  
   background-position: center;
   text-align: center;
   text-transform: uppercase;
-  border: 2px solid var(--violet);
+  border: 3px solid var(--violet);
   border-radius: 40px;
   padding: 14px 28px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.29;
-  /* width: 110px; */
-  height: 50px;
+  width: 100%;
+  height: 45px;
   /* right: 100%; */
 }
 
@@ -119,6 +119,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  /* .footer-block{
+    flex-wrap: wrap;
+    flex-direction: row;
+  } */
   .team-list {
     flex-direction: row;
     flex-wrap: wrap;
