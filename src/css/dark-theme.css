@@ -10,8 +10,12 @@
   --white: #fff;
   --top-category-title: #b4afaf;
   --text-color: #111;
-  --text-color-dark: #f3f3f3;
-  --bgc-modal: rgba(17, 17, 17, 0.5);
+  --text-color-dark: #fff;
+  /*#f3f3f3;*/
+  --bgc-modal: rgba(17, 17, 17, 0.4);
+  --modal-text-light: rgba(17, 17, 17, 0.4);
+  --modal-text-dark: rgba(255, 255, 255, 0.5);
+  --modal-text-autor: #b4afaf;
   --scroll-color: #e0e0e0;
   --text-shop-list: rgba(255, 255, 255, 0.6);
   --text-shop-list-light: rgba(0, 0, 0, 0.6);
@@ -35,6 +39,7 @@ body.dark-theme {
 .dark-theme .icon-cross {
   stroke: var(--text-color-dark);
 }
+
 .dark-theme .icon-menu {
   stroke: var(--text-color-dark);
 }
@@ -49,10 +54,11 @@ body.dark-theme {
     fill: var(--text-color-dark);
   }
 }
+
 /* Category-list */
 
 .dark-theme .category-list::-webkit-scrollbar-thumb {
-    border: 12px solid var(--scroll-color-dark);
+  border: 12px solid var(--scroll-color-dark);
 }
 
 .dark-theme .category-span {
@@ -75,18 +81,64 @@ body.dark-theme {
 .dark-theme .shop-title {
   color: var(--header-bg-light);
 }
+
 .dark-theme .text-shop-list {
   color: var(--text-shop-list);
 }
+
 .dark-theme .shopping-card {
   background-color: var(--text-color);
 }
+
 .dark-theme .book-card-title {
   color: var(--header-bg-light);
 }
+
 .dark-theme .shopping-description {
   color: var(--header-bg-light);
 }
 
 
+/*===========  Modal ============*/
 
+.dark-theme .modal-window {
+  color: var(--text-color-dark);
+  border: 2px solid var(--white);
+  background-color: var(--body-bg-dark);
+}
+
+.dark-theme .modal-svg {
+  stroke: var(--white);
+}
+
+.dark-theme .modal-autor {
+  color: var(--top-category-title);
+}
+
+.dark-theme .modal-btn-main {
+  color: var(--text-color-dark);
+}
+
+.dark-theme .modal-bottom-text {
+  color: var(--modal-text-dark);
+}
+
+.dark-theme .modal-shops-item:first-child {
+  filter: brightness(6);
+}
+
+@media screen and (min-width: 768px) {
+
+  .dark-theme .modal-svg:hover {
+    stroke: var(--violet);
+  }
+
+  .dark-theme .modal-shops-item:first-child:hover {
+    filter: brightness(6) drop-shadow(0 7px 1px rgba(255, 255, 255, 0.2));
+  }
+
+  .dark-theme .modal-shops-item:hover {
+    filter: drop-shadow(0 7px 1px rgba(255, 255, 255, 0.2));
+  }
+
+}

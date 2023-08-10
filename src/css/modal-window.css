@@ -8,8 +8,7 @@
   top: 0;
   left: 0;
   opacity: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   visibility: hidden;
   pointer-events: none;
   background-color: var(--bgc-modal);
@@ -21,7 +20,7 @@
   position: relative;
   width: 339px;
   height: 810px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   background-color: transparent;
   border: none;
 }
@@ -79,7 +78,7 @@
 
 .modal-img-wrap {
   display: flex;
-  width: 287px;
+  width: 100%;
   height: 408px;
   align-items: center;
   justify-content: center;
@@ -107,7 +106,7 @@
   font-weight: 400;
   line-height: 1.17;
   letter-spacing: -0.48px;
-  color: var(--top-category-title);
+  color: var(--modal-text-autor);
   margin-bottom: 18px;
 }
 
@@ -134,7 +133,7 @@
   margin: 40px auto 0;
   height: auto;
   width: 100%;
-  /* transition: all var(--time-transform) var(--transform); */
+  transition: all var(--time-transform) var(--transform);
 }
 
 .modal-btn-main {
@@ -165,18 +164,18 @@
 
 .modal-btn-main:active {
   scale: 0.95;
+  background-color: var(--violet);
 }
 
 .modal-bottom-text {
   display: block;
   font-size: 10px;
   width: 242px;
-  /* height: 28px; */
   padding-top: 8px;
   line-height: 1.2;
   letter-spacing: -0.4px;
   text-align: center;
-  color: var(--bgc-modal);
+  color: var(--modal-text-light);
   margin: auto;
   opacity: 1;
   transform: translateY(0px);
@@ -219,8 +218,8 @@
   .btn-modal-close {
     width: 28px;
     height: 28px;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
   }
 
   .modal-img-wrap {
@@ -246,9 +245,12 @@
   .modal-descr {
     width: 279px;
     margin-bottom: 20px;
-    overflow: unset; /* можна забрати */
-    min-height: 70px; /* можна забрати */
-    height: unset; /* можна забрати */
+    overflow: unset;
+    /* можна забрати */
+    min-height: 70px;
+    /* можна забрати */
+    height: unset;
+    /* можна забрати */
   }
 
   .modal-shops {
@@ -274,34 +276,33 @@
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.48px;
-    /* height: calc(28px + 8px); */
   }
-}
 
-.modal-btn-main:hover {
-  color: var(--white);
-  background-color: var(--violet);
-  box-shadow: 0 0 3px var(--violet);
-  text-shadow: 0 0 3px var(--white);
-}
+  .modal-btn-main:hover {
+    color: var(--white);
+    background-color: var(--violet);
+    box-shadow: 0 0 3px var(--violet);
+    text-shadow: 0 0 3px var(--white);
+  }
 
-.modal-link:is(:hover) .modal-img-shop {
-  scale: 1.3;
-  filter: drop-shadow(0 7px 2px rgba(17, 17, 17, 0.2));
-}
+  .modal-link:is(:hover) .modal-img-shop {
+    scale: 1.3;
+    filter: drop-shadow(0 7px 2px rgba(17, 17, 17, 0.2));
+  }
 
-.modal-svg:hover {
-  filter: drop-shadow(0 0 1px var(--text-color));
-  stroke: var(--violet);
-}
+  .modal-svg:hover {
+    filter: drop-shadow(0 0 1px var(--violet));
+    stroke: var(--violet);
+  }
 
-.btn-modal-close:is(:hover, :focus) .modal-svg,
-.modal-btn-main :is(:hover, :focus) {
-  scale: 1.5;
-}
+  .btn-modal-close:is(:hover, :focus) .modal-svg,
+  .modal-btn-main :is(:hover, :focus) {
+    scale: 1.5;
+  }
 
-.btn-modal-close:is(:active) .modal-svg {
-  scale: 0.95;
+  .btn-modal-close:is(:active) .modal-svg {
+    scale: 0.95;
+  }
 }
 
 /* ________________________1440px___________________________________ */
