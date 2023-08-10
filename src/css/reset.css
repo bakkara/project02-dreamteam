@@ -35,6 +35,10 @@ body {
   background-color: var(--body-bg-light);
 }
 
+#theme-switch:checked ~ body {
+  background-color: black;
+}
+
 .container {
   width: 100%;
   max-width: 375px;

@@ -3,6 +3,8 @@
   --time-transform: 250ms;
   --body-bg-light: #f6f6f6;
   --body-bg-dark: #202024;
+  --header-bg-dark: #111;
+  --header-bg-light:  #fff;
   --violet: #4f2ee8;
   --yellow: #eac645;
   --white: #fff;
@@ -10,5 +12,6 @@
   --text-color: #111;
   --bgc-modal: rgba(17, 17, 17, 0.5);
   --scroll-color: #E0E0E0;
-
+  --scroll-color-dark: rgba(17, 17, 17, 0.60);
+  --text-color-span-dark: rgba(255, 255, 255, 0.60);
 }

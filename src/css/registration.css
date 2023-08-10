@@ -1,13 +1,13 @@
 .form-wrapper {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100vw;
   top: 0;
   left: 0;
   background-color: var(--violet);
 }
 .form-window {
-  position: absolute;
+  position: fixed;
   width: calc(100% - 36px);
   top: 50%;
   left: 50%;
@@ -36,6 +36,7 @@
   transition: border-color var(--transition);
   font-size: 12px;
   margin-bottom: 28px;
+  display: block;
 }
 .btn-form {
   display: block;
