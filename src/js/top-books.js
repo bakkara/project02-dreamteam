@@ -145,5 +145,3 @@ function handlerPagination(entries) {
     }
     })
 }
-
-// export {displayCategories, countTopCategories}
