@@ -65,3 +65,7 @@ body.dark-theme {
   .dark-theme  .active {
       color: var(--yellow);
   }
+
+  .dark-theme .books-section {
+    color: var(--white);
+  }

@@ -196,7 +196,7 @@
 
 .log-out {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   left: 20px;
   bottom: 20px;
   vertical-align: middle;
@@ -218,9 +218,10 @@
 }
 
 .image-menu {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%
 }
 
 @media screen and (min-width: 767px) {
