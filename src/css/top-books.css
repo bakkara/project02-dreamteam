@@ -1,3 +1,4 @@
+
 .books-section-title {
   margin-bottom: 40px;
   font-size: 32px;
@@ -39,9 +40,6 @@
   letter-spacing: -0.64px;
   text-transform: uppercase;
   margin-bottom: 4px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .book-card-author {
   color: var(--top-category-title);
@@ -52,7 +50,7 @@
   letter-spacing: -0.48px;
 }
 .see-more-btn {
-  color: inherit;
+  color: var(--text-color);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29; /* 128.571% */
@@ -60,14 +58,7 @@
   text-transform: uppercase;
   border-radius: 40px;
   border: 2px solid var(--violet);
-  background: transparent;
   padding: 14px 28px;
-  transition: color var(--time-transform) var(--transform);
-}
-.see-more-btn:hover,
-.see-more-btn:focus {
-  background-color: var(--violet);
-  color: var(--white);
 }
 .btn-container-top-books {
   display: flex;
