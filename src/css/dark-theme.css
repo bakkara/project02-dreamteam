@@ -98,7 +98,6 @@ body.dark-theme {
   color: var(--header-bg-light);
 }
 
-
 /*===========  Modal ============*/
 
 .dark-theme .modal-window {
@@ -140,5 +139,25 @@ body.dark-theme {
   .dark-theme .modal-shops-item:hover {
     filter: drop-shadow(0 7px 1px rgba(255, 255, 255, 0.2));
   }
+
+/* Registration */
+.dark-theme .form-window {
+  background: var(--body-bg-dark);
+  border: 2px solid var(--body-bg-light);
+}
+.dark-theme .form-input {
+  border: 2px solid var(--body-bg-light);
+  background-color: var(--body-bg-dark);
+  color: var(--text-color);
+}
+.dark-theme .btn-form {
+  color: var(--text-color-light);
+  background-color: var(--body-bg-light);
+  
+}
+
+
+
+
 
 }

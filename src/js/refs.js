@@ -10,36 +10,28 @@ const elements = {
 
 export { elements };
 
-import img1 from '../images/image1.png';
-import img1x from '../images/image1_2x.png';
+import img1 from '../images/image1.png'
+import img1x from '../images/image1_2x.png'
+import img2 from '../images/image2.png'
+import img2x from '../images/image2_2x.png'
+import img3 from '../images/image3.png'
+import img3x from '../images/image3_2x.png'
+import img4 from '../images/image4.png'
+import img4x from '../images/image4_2x.png'
+import img5 from '../images/image5.png'
+import img5x from '../images/image5_2x.png'
+import img6 from '../images/image6.png'
+import img6x from '../images/image6_2x.png'
+import img7 from '../images/image7.png'
+import img7x from '../images/image7_2x.png'
+import img8 from '../images/image8.png'
+import img8x from '../images/image8_2x.png'
+import img9 from '../images/image9.png'
+import img9x from '../images/image9_2x.png'
 
-import img2 from '../images/image2.png';
-import img2x from '../images/image2_2x.png';
-
-import img3 from '../images/image3.png';
-import img3x from '../images/image3_2x.png';
-
-import img4 from '../images/image4.png';
-import img4x from '../images/image4_2x.png';
-
-import img5 from '../images/image5.png';
-import img5x from '../images/image5_2x.png';
-
-import img6 from '../images/image6.png';
-import img6x from '../images/image6_2x.png';
-
-import img7 from '../images/image7.png';
-import img7x from '../images/image7_2x.png';
-
-import img8 from '../images/image8.png';
-import img8x from '../images/image8_2x.png';
-
-import img9 from '../images/image9.png';
-import img9x from '../images/image9_2x.png';
-
-export let blocks = [
-  {
-    id: 1,
+export let blocks =  [
+    {
+   id: 1,
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
     img: `${img1}`,
