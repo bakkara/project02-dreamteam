@@ -7,5 +7,5 @@ let t,e;var n,r,i,o,a,s,l,c="undefined"!=typeof globalThis?globalThis:"undefined
             <a class="category" href="#">
                 <span class="category-span">${t}</span>
             </a>
-        </li>`).join(""))).catch(t=>console.log(t)),u("dTazW");let nn=document.querySelector(".scroll-up-btn");window.onscroll=function(){document.body.scrollTop>200||document.documentElement.scrollTop>200?nn.style.display="flex":nn.style.display="none"},nn.addEventListener("click",function(t=0){document.body.scrollTop=0,document.documentElement.scrollTop=t}),u("krGWQ"),u("3huUq"),u("ghT7p");
-//# sourceMappingURL=index.c286364c.js.map
+        </li>`).join(""))).catch(t=>console.log(t)),u("dTazW");let nn=document.querySelector(".scroll-up-btn");window.onscroll=function(){document.body.scrollTop>300||document.documentElement.scrollTop>300?nn.style.display="flex":nn.style.display="none"},nn.addEventListener("click",function(t=0){document.body.scrollTop=0,document.documentElement.scrollTop=t}),u("krGWQ"),u("3huUq"),u("ghT7p");
+//# sourceMappingURL=index.7253c8dc.js.map

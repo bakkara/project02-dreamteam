@@ -7,5 +7,5 @@
             <a class="category" href="#">
                 <span class="category-span">${t}</span>
             </a>
-        </li>`).join(""))).catch(t=>console.log(t)),u("xpKCW");let nn=document.querySelector(".scroll-up-btn");window.onscroll=function(){document.body.scrollTop>200||document.documentElement.scrollTop>200?nn.style.display="flex":nn.style.display="none"},nn.addEventListener("click",function(t=0){document.body.scrollTop=0,document.documentElement.scrollTop=t}),u("4Nugj"),u("1KhuP"),u("32ZrB")}();
-//# sourceMappingURL=index.e299e54d.js.map
+        </li>`).join(""))).catch(t=>console.log(t)),u("xpKCW");let nn=document.querySelector(".scroll-up-btn");window.onscroll=function(){document.body.scrollTop>300||document.documentElement.scrollTop>300?nn.style.display="flex":nn.style.display="none"},nn.addEventListener("click",function(t=0){document.body.scrollTop=0,document.documentElement.scrollTop=t}),u("4Nugj"),u("1KhuP"),u("32ZrB")}();
+//# sourceMappingURL=index.fdab4b67.js.map
