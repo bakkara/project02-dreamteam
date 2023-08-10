@@ -1,4 +1,6 @@
+
 let scrollToTopBtnEl = document.querySelector('.scroll-up-btn');
+
 
 window.onscroll = function () {
   scrollFunction();
