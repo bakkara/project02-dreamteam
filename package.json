@@ -30,7 +30,9 @@
     "@parcel/watcher": "^2.2.0",
     "axios": "^1.4.0",
     "firebase": "^10.1.0",
+    "firestore": "^1.1.6",
     "notiflix": "^3.2.6",
+    "notifly": "^0.0.1",
     "overlayscrollbars": "^2.2.1"
   }
 }
