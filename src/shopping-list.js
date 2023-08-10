@@ -1,8 +1,10 @@
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import './js/support.js';
 import './js/header.js';
 import './js/fire-base.js';
 import './js/burger.js';
 import './js/pagination.js';
+import './js/dark-theme.js';
 
 import amazon from './images/amazon1.png';
 import applebook from './images/applebook1.png';
@@ -29,7 +31,7 @@ async function getBook(bookId) {
       throw new Error('Error');
     }
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     return data;
   } catch (err) {
     console.log(err.message);
@@ -40,7 +42,7 @@ async function getBook(bookId) {
 function loadBooksFromLocalStorage() {
   const booksFromLocalStorage =
     JSON.parse(localStorage.getItem('targetBooks')) || [];
-    console.log((localStorage.getItem('targetBooks')))
+  console.log(localStorage.getItem('targetBooks'));
   return booksFromLocalStorage;
 }
 // Оновлюємо відступ заголовку в залежності від того, чи додані книги до списку
@@ -54,6 +56,7 @@ function updateMainTitleMargin(isBooksAdded) {
 // Відображаємо карточки книг на сторінці
 function displayBooksInShoppingList(bookIds) {
   bookList.innerHTML = '';
+  Loading.init();
   if (bookIds.length === 0) {
     message.style.display = 'block';
     updateMainTitleMargin(false);
@@ -69,6 +72,7 @@ function displayBooksInShoppingList(bookIds) {
     });
     updateMainTitleMargin(true);
   }
+  Loading.remove();
 }
 
 // Створюємо HTML-структуру карточки книги
@@ -141,10 +145,12 @@ function createBookCard(book) {
 
 // Видаляємо ідентифікатор книги зі списку локального сховища
 function removeBookFromLocalStorage(bookIdToRemove) {
+  Loading.init();
   const updatedBooks = loadBooksFromLocalStorage().filter(
     bookId => bookId !== bookIdToRemove
   );
   localStorage.setItem('targetBooks', JSON.stringify(updatedBooks));
+  Loading.remove();
 }
 
 // Завантажуємо ідентифікатори книг з локального сховища та відображає їх карточки
