@@ -57,7 +57,6 @@ body.dark-theme {
       color: var(--text-color-span-dark);
   }
   
-  
   .dark-theme  .category-li .upper-case {
       color: var(--yellow);
   }
@@ -69,3 +68,8 @@ body.dark-theme {
   .dark-theme .books-section {
     color: var(--white);
   }
+
+ .dark-theme .modal-wrapper {
+  background-color: var(--bgc-modal);
+  }
+  

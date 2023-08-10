@@ -15,12 +15,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
-
+const signUpBtnSwitchForm = document.querySelector('.signupbtn')
+signUpBtnSwitchForm.addEventListener('click', switchForm)
 const signUpBtnHeader = document.querySelector('.signup-header')
 const userNameText = document.querySelector('.text-stephen')
 const userNameTextMobile = document.querySelector('#text-stephen')
 const closeFormBtn = document.querySelector('.js-form-close')
 const formEl = document.querySelector('.form-wrapper');
+const formElSignUp = document.querySelector('.form-wrapper-signup');
 const navList = document.querySelector('.nav');
 const signUpSvg = document.querySelector('.sign-up-svg')
 const userDivHeader = document.querySelector('.div-stephen-header')
@@ -56,6 +58,9 @@ function toggleForm(evt) {
   if (!formEl.classList.contains('is-hidden')) {
     document.body.classList.toggle('no-scroll');
   }
+}
+function switchForm(){
+  formElSignUp.classList.toggle('is-hidden');
 }
 
 async function signUp(evt) {

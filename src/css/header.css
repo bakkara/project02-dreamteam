@@ -3,9 +3,9 @@
   width: 100%;
   padding: 18px 20px;
   margin-bottom: 40px;
-  border: 1.5px solid #111;
+  border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
-  background-color: #fff;
+  background-color: var(--header-bg-light);
   z-index: 2;
   position: fixed;
   top: 0;
@@ -257,6 +257,9 @@
     align-items: center;
     gap: 24px;
   }
+  .toggle-switch {
+    margin: 0px 24px 0px auto;
+  }
   .sign-up-btn {
     display: flex;
     align-items: center;
@@ -332,7 +335,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 0px 0px 0px auto;
+  margin: 0px 14px 0px auto;
 }
 
 .switch {
