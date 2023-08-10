@@ -48,7 +48,6 @@ body.dark-theme {
   color: var(--text-color-dark);
 }
 
-
 @media screen and (min-width: 767px) {
   .dark-theme .icon-sl-header {
     fill: var(--text-color-dark);
@@ -96,6 +95,13 @@ body.dark-theme {
 
 .dark-theme .shopping-description {
   color: var(--header-bg-light);
+}
+
+.dark-theme .first-img {
+  filter: brightness(0) invert(1);
+}
+.dark-theme .modal-link:is(:hover) .first-img {
+  filter: brightness(0) invert(1);
 }
 
 /*===========  Modal ============*/
@@ -153,11 +159,7 @@ body.dark-theme {
 .dark-theme .btn-form {
   color: var(--text-color-light);
   background-color: var(--body-bg-light);
-  
 }
 
-
-
-
-
 }
+
