@@ -98,15 +98,19 @@ function createBookCard(book) {
   });
 
   const storesListMarkup = storesImgs
-    .map(
-      i => `<li class="modal-shops-item">
+    .map((i, index) => {
+      return `<li class="modal-shops-item">
             <a class="modal-link" href="${i.link}"
                target="_blank" name="${i.name}"
                         rel="noreferrer noopener">
-                        <img class="modal-img-shop" src="${i.img[0]}" alt="${i.name}" srcset="${i.img[1]} 1x, ${i.img[2]} 2x">
+                        <img class="modal-img-shop${
+                          index === 0 ? ' first-img' : ''
+                        }" src="${i.img[0]}" alt="${i.name}" srcset="${
+        i.img[1]
+      } 1x, ${i.img[2]} 2x">
                     </a>
-                </li>`
-    )
+                </li>`;
+    })
     .join('');
 
   const bookCard = document.createElement('div');

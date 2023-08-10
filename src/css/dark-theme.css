@@ -43,7 +43,6 @@ body.dark-theme {
   color: var(--text-color-dark);
 }
 
-
 @media screen and (min-width: 767px) {
   .dark-theme .icon-sl-header {
     fill: var(--text-color-dark);
@@ -52,7 +51,7 @@ body.dark-theme {
 /* Category-list */
 
 .dark-theme .category-list::-webkit-scrollbar-thumb {
-    border: 12px solid var(--scroll-color-dark);
+  border: 12px solid var(--scroll-color-dark);
 }
 
 .dark-theme .category-span {
@@ -87,7 +86,12 @@ body.dark-theme {
 .dark-theme .shopping-description {
   color: var(--header-bg-light);
 }
-
+.dark-theme .first-img {
+  filter: brightness(0) invert(1);
+}
+.dark-theme .modal-link:is(:hover) .first-img {
+  filter: brightness(0) invert(1);
+}
 
 /* Registration */
 .dark-theme .form-window {
@@ -102,10 +106,4 @@ body.dark-theme {
 .dark-theme .btn-form {
   color: var(--text-color-light);
   background-color: var(--body-bg-light);
-  
 }
-
-
-
-
-
