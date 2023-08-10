@@ -1,7 +1,7 @@
 .form-wrapper {
   position: fixed;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   background-color: var(--violet);
@@ -9,7 +9,7 @@
 .form-wrapper-signup {
   position: fixed;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   background-color: var(--violet);
@@ -91,15 +91,18 @@
   }
 }
 
-.signupbtn {
+.signupbtn,
+.signinbtn {
   color: var(--top-category-title);
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   border: none;
+  background-color: inherit;
 }
 
-.signinbtn {
+.signinbtn.is-active,
+.signupbtn.is-active {
   color: var(--violet);
   font-size: 18px;
   font-weight: 700;

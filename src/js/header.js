@@ -42,7 +42,7 @@ const userNameLocal = localStorage.getItem("userName");
 const menuBtnRef = document.querySelector("[data-menu-button]");
 menuBtnRef.addEventListener('click', openBurger)
 
-function openBurger() {
+export function openBurger() {
   const mobileMenuSignIN = document.querySelector('.mobile-wrapper')
   const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false;
   menuBtnRef.classList.toggle("is-open");

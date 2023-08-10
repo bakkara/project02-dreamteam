@@ -8,20 +8,22 @@ background-image: linear-gradient(to bottom,
             #b9abf8);
 width: 335px;
 height: 352px;
+
 }
 
 .blocks {
-    margin-top: 40px;
     height: 188px;
+    margin-top: 40px;
     overflow: hidden;
 }
 
 .block {
     display: block; 
+    height: 32px;
 }
 
 .block:not(:last-child) {
-    margin-bottom: 13px;
+    margin-bottom: 18px;
 }
 
 .foundations-title {
@@ -34,6 +36,7 @@ height: 352px;
 
 .foundations-title-text {
 font-size: 22px;
+line-height: 1.5em;
 }
 
 .gotofoundation {
@@ -48,6 +51,7 @@ font-size: 22px;
 
 .support-content {
     margin-bottom: 16px;
+    padding-left: 40px;
 }
 .button-scroll-down {
     display: flex;

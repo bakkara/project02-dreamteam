@@ -3,15 +3,18 @@ cursor: pointer;
 position: sticky;
 bottom: 30px;
 left: 100%;
-width: 70px;
-height: 70px;
+width: 64px;
+height: 64px;
 border: none;
 border-radius: 50%;
 transition: transfrorm cubic-bezier(0.4, 0, 0.2, 1);
+margin-bottom: 140px;
 }
 
 #myBtn:hover {
  transform: scale(1.1);
 }
 
-
+.buttonup {
+    object-fit:fill;
+}

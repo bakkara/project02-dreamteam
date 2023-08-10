@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth"
 import { getFirestore, setDoc, doc } from "firebase/firestore"; 
-
+import { openBurger } from "./header";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZmcnC_2fBns-z8P5Wk9Fw_wxB6fZENSM",
@@ -15,21 +15,45 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const signUpBtn = document.querySelector('#signup')
 const signInBtn = document.querySelector('#signin')
-const signUpBtnSwitchForm = document.querySelector('.signupbtn')
-signUpBtnSwitchForm.addEventListener('click', switchForm)
+// const signUpBtnSwitchForm = document.querySelector('.signupbtn')
+// const signInBtnSwitchForm = document.querySelector('.signinbtn')
+// signUpBtnSwitchForm.addEventListener('click', switchForm)
+// signInBtnSwitchForm.addEventListener('click', switchForm)
+
 const signUpBtnHeader = document.querySelector('.signup-header')
+const signUpBtnBurger = document.querySelector('.signup-burger')
 const userNameText = document.querySelector('.text-stephen')
 const userNameTextMobile = document.querySelector('#text-stephen')
 const closeFormBtn = document.querySelector('.js-form-close')
-const formEl = document.querySelector('.form-wrapper');
+const formElSignIn = document.querySelector('.form-wrapper');
 const formElSignUp = document.querySelector('.form-wrapper-signup');
 const navList = document.querySelector('.nav');
 const signUpSvg = document.querySelector('.sign-up-svg')
 const userDivHeader = document.querySelector('.div-stephen-header')
-
+const mobileMenuSignUP = document.querySelector('.mobile-wrapper-signup');
 const btnLogOutList = document.querySelectorAll('.log-out')
 const auth = getAuth();
 const db = getFirestore(app)
+const formContainer = document.querySelector('.form-container');
+formContainer.addEventListener('click', handleButtonClick);
+
+function handleButtonClick(evt) {
+  if (evt.target.classList.contains('signupbtn')) {
+    formElSignUp.classList.remove('is-hidden');
+    formElSignIn.classList.add('is-hidden');
+  } else if (evt.target.classList.contains('signinbtn')) {
+    formElSignUp.classList.add('is-hidden');
+    formElSignIn.classList.remove('is-hidden');
+  }
+
+  const signUpBtn = formContainer.querySelector('.signupbtn');
+  const signInBtn = formContainer.querySelector('.signinbtn');
+
+  signUpBtn.classList.toggle('is-active', evt.target === signUpBtn);
+  signInBtn.classList.toggle('is-active', evt.target === signInBtn);
+
+  document.body.classList.toggle('no-scroll', !formElSignUp.classList.contains('is-hidden'));
+}
 
 signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
@@ -37,6 +61,7 @@ btnLogOutList.forEach(btnLogOut => {
   btnLogOut.addEventListener('click', logOut);
 });
 signUpBtnHeader.addEventListener('click', toggleForm)
+signUpBtnBurger.addEventListener('click', mobileFormOpen)
 closeFormBtn.addEventListener('click', toggleForm)
 
 signUpSvg.addEventListener('click', () => {
@@ -52,16 +77,28 @@ if (userNameLocal) {
   userDivHeader.style.display = "flex"
   navList.style.display = "flex"
 } 
-
-function toggleForm(evt) {
-  formEl.classList.toggle('is-hidden');
-  if (!formEl.classList.contains('is-hidden')) {
+function mobileFormOpen() {
+  openBurger();
+  formElSignIn.classList.toggle('is-hidden');
+  if (!formElSignIn.classList.contains('is-hidden')) {
     document.body.classList.toggle('no-scroll');
   }
 }
-function switchForm(){
-  formElSignUp.classList.toggle('is-hidden');
+
+function toggleForm(evt) {
+  formElSignIn.classList.toggle('is-hidden');
+  if (!formElSignIn.classList.contains('is-hidden')) {
+    document.body.classList.toggle('no-scroll');
+  }
 }
+
+// function switchForm(){
+//   formElSignUp.classList.toggle('is-hidden');
+//   signUpBtnSwitchForm.classList.toggle('is-active')
+//   if (!formElSignUp.classList.contains('is-hidden')) {
+//     document.body.classList.toggle('no-scroll');
+//   }
+// }
 
 async function signUp(evt) {
   

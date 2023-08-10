@@ -8,6 +8,7 @@ import applebook2x from '../images/applebook@2x.png';
 import barnesnoble1x from '../images/barnesnoble@1x.png';
 import barnesnoble2x from '../images/barnesnoble@2x.png';
 
+
 function createModalMarkup(book) {
   /**створюю об'єкт з даними про назви магазинів і посиланнь на зображення*/
   const storesImgs = [
@@ -78,6 +79,19 @@ function createCartBookMarcup(data) {
   return cartBook;
 }
 
+function murkupFoundation(arr) {
+  // blocksEl.innerHTML=''
+    return arr.map(({ title, url, img , id, imgr}) => `
+    <li class="block">
+   <div>
+    <a href="${url}" class='gotofoundation' target="_blank">
+        <p>0${id}</p>
+        <img  class='image' src='${img}' srcset='${imgr}' alt="${title}">
+    </a>
+   </div>
+  </li>`).join('')
+}
+ 
 export { createModalMarkup, createCartBookMarcup};
-
+export { murkupFoundation }
 
