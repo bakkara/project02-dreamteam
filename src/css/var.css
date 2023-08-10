@@ -4,14 +4,17 @@
   --body-bg-light: #f6f6f6;
   --body-bg-dark: #202024;
   --header-bg-dark: #111;
-  --header-bg-light:  #fff;
+  --header-bg-light: #fff;
   --violet: #4f2ee8;
   --yellow: #eac645;
   --white: #fff;
   --top-category-title: #b4afaf;
   --text-color: #111;
   --bgc-modal: rgba(17, 17, 17, 0.5);
-  --scroll-color: #E0E0E0;
-  --scroll-color-dark: rgba(17, 17, 17, 0.60);
-  --text-color-span-dark: rgba(255, 255, 255, 0.60);
+  --scroll-color: #e0e0e0;
+  --scroll-color-dark: rgba(17, 17, 17, 0.6);
+  --text-color-span-dark: rgba(255, 255, 255, 0.6);
+  --text-shop-list: rgba(255, 255, 255, 0.6);
+  --text-shop-list-light: rgba(0, 0, 0, 0.6);
+  --delete-button: rgba(79, 46, 232, 1);
 }

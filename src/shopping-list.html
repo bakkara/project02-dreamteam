@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="./css/shopping-list.css">
     <link rel="stylesheet" href="./css/index.css" />
-    
+
 
 </head>
 
@@ -24,7 +24,8 @@
             <section class="shop-section">
 
                 <div class="shopping-list">
-                    <h1 class="shopping-list-title">Shopping <span class="shopping-list-title s-l-title">List</span>
+                    <h1 class="shopping-list-title shop-title">Shopping <span
+                            class="shopping-list-title s-l-title">List</span>
                     </h1>
                     <div class="book-list" id="bookList">
                         <!-- Картки книг  -->
@@ -37,11 +38,12 @@
                             alt="book" class="shop-img" width="265">
 
                     </div>
+                    <include src="./partials/pagination.html"></include>
                 </div>
-            </section> 
+            </section>
         </main>
     </div>
-    <include src="./partials/pagination.html"></include>
+    <!-- <include src="./partials/pagination.html"></include> -->
     <include src="./partials/sign-in.html"></include>
     <include src="./partials/sign-up.html"></include>
     <include src="./partials/burger.html"></include>

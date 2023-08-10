@@ -1,3 +1,4 @@
+@import url('./dark-theme.css');
 .support {
   display: none;
   padding-top: 40px;
@@ -8,8 +9,6 @@
   align-items: flex-end;
 }
 .shopping-list-title {
-  color: var(--text-color);
-
   font-size: 32px;
 
   font-weight: 700;
@@ -18,13 +17,15 @@
 
   margin-bottom: 120px;
 }
-
+.shop-title {
+  color: var(--text-color);
+}
 .s-l-title {
   color: var(--violet);
 }
 
 .text-shop-list {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--text-shop-list-light);
   text-align: center;
 
   line-height: 1.28;
@@ -45,7 +46,7 @@
   position: relative;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background: #fff;
+  background-color: var(--header-bg-light);
   height: 170px;
   padding: 14px 14px;
   display: flex;
@@ -116,10 +117,14 @@
   top: 14px;
   right: 14px;
   border-radius: 50px;
-  background-color: rgba(79, 46, 232, 1);
+  background-color: var(--delete-button);
   border: none;
   width: 28px;
   height: 28px;
+}
+.delete-button:is(:hover) {
+  scale: 1.3;
+  filter: drop-shadow(0 7px 2px rgba(88, 135, 236, 0.2));
 }
 .shopping-svg {
   position: absolute;
