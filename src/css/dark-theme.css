@@ -47,31 +47,12 @@ body.dark-theme {
 @media screen and (min-width: 767px) {
   .dark-theme .icon-sl-header {
     fill: var(--text-color-dark);
-
-  /* Category-list */
-  
-  .dark-theme .category-list::-webkit-scrollbar-thumb {
-      border: 12px solid var(--scroll-color-dark);
-  }
-  
-  .dark-theme  .category-span {
-      color: var(--text-color-span-dark);
-  }
-  
-  .dark-theme  .category-li .upper-case {
-      color: var(--yellow);
-  }
-  
-  .dark-theme  .active {
-      color: var(--yellow);
   }
 }
-
-
 /* Category-list */
 
 .dark-theme .category-list::-webkit-scrollbar-thumb {
-  border: 12px solid var(--scroll-color-dark);
+    border: 12px solid var(--scroll-color-dark);
 }
 
 .dark-theme .category-span {
