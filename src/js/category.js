@@ -7,8 +7,8 @@ import { elements } from './refs.js';
 const URL = 'https://books-backend.p.goit.global/books/category-list';
 
 elements.categoryList.addEventListener('click', onclickCategory);
-elements.categoryList.addEventListener('mouseover', MouseClickAccentOn);
-elements.categoryList.addEventListener('mouseout', MouseClickAccentOff);
+elements.categoryList.addEventListener('mouseover', mouseClickAccentOn);
+elements.categoryList.addEventListener('mouseout', mouseClickAccentOff);
 
 const getCategoryList = async () => {
   const response = await axios(URL);
@@ -71,18 +71,18 @@ function removeUpperCase() {
     toRemove.forEach(el => el.classList.remove('upper-case'))
 };
 
-function MouseClickAccentOn(event) {
+function mouseClickAccentOn(event) {
 
   if (event.target.nodeName !== 'SPAN') {
         return;
     }
-    const Accent = event.target;
-    Accent.classList.add('active');
+    const accent = event.target;
+    accent.classList.add('active');
 };
 
-function MouseClickAccentOff(event) {
-    const Accent = event.target;
-    Accent.classList.remove('active');
+function mouseClickAccentOff(event) {
+    const accent = event.target;
+    accent.classList.remove('active');
 };
 
 
