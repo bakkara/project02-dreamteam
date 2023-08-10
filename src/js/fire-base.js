@@ -25,19 +25,23 @@ const navList = document.querySelector('.nav');
 const signUpSvg = document.querySelector('.sign-up-svg')
 const userDivHeader = document.querySelector('.div-stephen-header')
 
-const btnLogOut = document.querySelector('.log-out')
+const btnLogOutList = document.querySelectorAll('.log-out')
 const auth = getAuth();
 const db = getFirestore(app)
 
 signUpBtn.addEventListener('click', signUp)
 signInBtn.addEventListener('click', signIn)
-btnLogOut.addEventListener('click', logOut)
+btnLogOutList.forEach(btnLogOut => {
+  btnLogOut.addEventListener('click', logOut);
+});
 signUpBtnHeader.addEventListener('click', toggleForm)
 closeFormBtn.addEventListener('click', toggleForm)
 
 signUpSvg.addEventListener('click', () => {
-    btnLogOut.classList.toggle('show');
-})
+  btnLogOutList.forEach(btnLogOut => {
+      btnLogOut.classList.toggle('show');
+  });
+});
 
 const userNameLocal = localStorage.getItem("userName");
 if (userNameLocal) {

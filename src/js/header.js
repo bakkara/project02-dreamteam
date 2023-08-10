@@ -18,7 +18,22 @@ function updateNavLinks() {
   homeLink.classList.toggle('nav-item-current', currentPage === 'index');
   shoppingListLink.classList.toggle('nav-item-current', currentPage === 'shopping-list');
 }
+const mobileMenuItems = document.querySelectorAll('.mobile-container [data-page]');
 
+mobileMenuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    currentPage = item.getAttribute('data-page');
+    localStorage.setItem('currentPage', currentPage);
+    updateMobileNavLinks();
+  });
+});
+
+function updateMobileNavLinks() {
+  mobileMenuItems.forEach(item => {
+    const pageAttribute = item.getAttribute('data-page');
+    item.classList.toggle('nav-item-current', currentPage === pageAttribute);
+  });
+}
 updateNavLinks();
 
 const userNameTextMobile = document.querySelector('#text-stephen')
@@ -28,17 +43,27 @@ const menuBtnRef = document.querySelector("[data-menu-button]");
 menuBtnRef.addEventListener('click', openBurger)
 
 function openBurger() {
-  const mobileMenu = document.querySelector('.mobile-wrapper')
+  const mobileMenuSignIN = document.querySelector('.mobile-wrapper')
   const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false;
   menuBtnRef.classList.toggle("is-open");
   menuBtnRef.setAttribute("aria-expanded", !expanded);
   
-  if (userNameLocal) userNameTextMobile.textContent = localStorage.getItem("userName");
-
-  if (!mobileMenu.classList.contains('is-hidden')) {
+  if (userNameLocal) {
+    mobileMenuSignIN.classList.toggle("is-hidden");
+    userNameTextMobile.textContent = localStorage.getItem("userName");
+     if (!mobileMenuSignIN.classList.contains('is-hidden')) {
     document.body.classList.toggle('no-scroll');
     }
-  mobileMenu.classList.toggle("is-open");
+  } else { 
+    const mobileMenuSignUP = document.querySelector('.mobile-wrapper-signup');
+    mobileMenuSignUP.classList.toggle("is-hidden");
+    if (!mobileMenuSignUP.classList.contains('is-hidden')) {
+      document.body.classList.toggle('no-scroll');
+      }
+  }
+
+ 
   
 };
+
 
