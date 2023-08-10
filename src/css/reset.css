@@ -35,10 +35,6 @@ body {
   background-color: var(--body-bg-light);
 }
 
-#theme-switch:checked ~ body {
-  background-color: black;
-}
-
 .container {
   width: 100%;
   max-width: 375px;
@@ -50,6 +46,14 @@ body {
   margin-top: 104px;
 }
 
+.category-support {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -57,8 +61,10 @@ body {
     padding-right: 32px;
   }
   .category-support {
-    display: flex;
+    flex-direction: row;
     gap: 32px;
+    justify-content: space-between;
+    margin-bottom: 100px;
   }
 }
 
@@ -72,8 +78,11 @@ body {
     display: flex;
     gap: 40px;
     margin-top: 112px;
+    justify-content: space-between;
   }
   .category-support {
     flex-direction: column;
+    justify-content: flex-start;
+    gap: 86px;
   }
 }

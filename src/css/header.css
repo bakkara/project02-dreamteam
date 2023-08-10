@@ -243,9 +243,7 @@
     fill: #fff;
   }
   .header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+    display: block;
   }
   .toggle-switch {
     margin: 0px 24px 0px auto;

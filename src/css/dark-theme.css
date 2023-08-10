@@ -47,7 +47,9 @@ body.dark-theme {
 .dark-theme .nav-item {
   color: var(--text-color-dark);
 }
-
+.dark-theme .nav-item-current {
+  color: var(--text-color);
+}
 @media screen and (min-width: 767px) {
   .dark-theme .icon-sl-header {
     fill: var(--text-color-dark);
