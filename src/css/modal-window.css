@@ -25,17 +25,17 @@
   border: none;
 }
 
-.is-open {
+.is-open-modal {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.no-scroll {
+.no-scroll-modal {
   overflow: hidden;
 }
 
-.modal-wrapper.is-open .modal-window {
+.modal-wrapper.is-open-modal .modal-window {
   opacity: 1;
   transform: translate(0px, 0%);
 }
