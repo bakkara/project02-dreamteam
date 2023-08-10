@@ -6,6 +6,15 @@
   left: 0;
   background-color: var(--violet);
 }
+.form-wrapper-signup {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  top: 0;
+  left: 0;
+  background-color: var(--violet);
+}
+
 .form-window {
   position: fixed;
   width: calc(100% - 36px);
@@ -25,7 +34,9 @@
   height: 50px;
   border-radius: 40px;
   border: 2px solid #111;
-  padding: 20px 173px 20px 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
   background-color: var(--body-bg-light);
   color: var(--text-color);
   font-weight: 700;
@@ -80,11 +91,12 @@
   }
 }
 
-.logoutbtn {
+.signupbtn {
   color: var(--top-category-title);
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
+  border: none;
 }
 
 .signinbtn {
@@ -94,6 +106,7 @@
   margin-right: 20px;
   text-transform: uppercase;
   text-decoration: underline;
+  border: none;
 }
 
 
