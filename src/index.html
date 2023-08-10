@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookshelf</title>
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
-  <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
 
-  <link rel="stylesheet" href="./css/index.css" />
-</head>
+  <body>
+    <include src="./partials/header.html"></include>
+    <div class="container">
+      <h1 class="is-hidden">Book Shelf</h1>
+      <main class="main-section">
+        <aside class="category-support">
+          <include src="./partials/category.html"></include>
+          <include src="./partials/support.html"></include>
+        </aside>
+        <include src="./partials/books-section.html"></include>
+         <button type="button" class="scroll-up-btn" id="myBtn">
+        <img src="./images/up.png" alt="UP" width="64" class="buttonup">
+      </button>
+      </main>
+    </div>     
 
-<body>
-  <include src="./partials/header.html"></include>
-  <div class="container">
-    <main class="main-section">
-      <aside class="category-support">
-        <include src="./partials/category.html"></include>
-        <include src="./partials/support.html"></include>
-      </aside>
-      <include src="./partials/books-section.html"></include>
-    </main>
-  </div>
-
-  <include src="./partials/sign-in.html"></include>
-  <include src="./partials/sign-up.html"></include>
-
-  <!-- <include src="./partials/footer.html"></include> -->
-  <include src="./partials/modal-window.html"></include>
-  <include src="./partials/scroll-up.html"></include>
-  <include src="./partials/burger.html"></include>
-  <script type="module" src="./index.js"></script>
-</body>
-
+     <!-- <include src="./partials/footer.html"></include> -->
+    <include src="./partials/modal-window.html"></include>
+    <include src="./partials/scroll-up.html"></include>
+    <include src="./partials/burger.html"></include>
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
