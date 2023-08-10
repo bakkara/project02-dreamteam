@@ -16,8 +16,7 @@ export async function modal(id) {
   try {
     scrollWidth =
       window.innerWidth -
-      elements.body.clientWidth +
-      'px'; /*визначаємо ширину скролу*/
+      elements.body.clientWidth; /*визначаємо ширину скролу*/
     Loading.standard(); /** вкл спінер */
     const modalBook = await getBook(id); /** запит на api */
     const [...targetBooks] =
@@ -32,7 +31,7 @@ export async function modal(id) {
     elements.modalBookCard.innerHTML = createModalMarkup(modalBook);
 
     toggleBtn(modalBookObj.isInLS); /** заповнюємо текстом головну кнопку  */
-    toggleModal(); /** відкриваємо модалку */
+    toggleModal('open'); /** відкриваємо модалку */
     Loading.remove(); /**викл спінер через */
     addListeners(); /** "вішаємо" слухачів на події */
   } catch (err) {
@@ -133,10 +132,11 @@ function toggleBtn(bool) {
 /**
  * відкриває/закриває модалку
  */
-function toggleModal() {
-  elements.body.style.marginRight = elements.modal.classList.contains('is-open')
-    ? '0px'
-    : scrollWidth;
-  elements.modal.classList.toggle('is-open');
-  elements.body.classList.toggle('no-scroll');
+function toggleModal(toDo) {
+  elements.body.style.marginRight = toDo ? scrollWidth + 'px' : '';
+  document.querySelector('header').style.width = toDo
+    ? 'calc( 100% - ' + scrollWidth + 'px)'
+    : '';
+  elements.modal.classList.toggle('is-open-modal', toDo);
+  elements.body.classList.toggle('no-scroll-modal', toDo);
 }
