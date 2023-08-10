@@ -1,3 +1,8 @@
+.pagination {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 .pagination-list {
     margin: 0;
     padding: 0;
