@@ -1,8 +1,7 @@
 .header {
-  position: relative;
   width: 100%;
-  padding: 18px 20px;
-  margin-bottom: 40px;
+  padding-top: 13px;
+  padding-bottom: 13px;
   border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
   background-color: var(--header-bg-light);
@@ -11,54 +10,7 @@
   top: 0;
   left: 0;
 }
-.mobile-wrapper {
-  position: fixed;
-  width: 100vw;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--violet);
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-  background: radial-gradient(
-    189.32% 190.93% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
-    #fff 100%
-  );
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
 
-.mobile-wrapper-signup {
-  position: fixed;
-  width: 100vw;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--violet);
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-  background: radial-gradient(
-    189.32% 190.93% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
-    #fff 100%
-  );
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.mobile-container {
-  width: 100%;
-  max-width: 375px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-  position: relative;
-}
 .is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -90,6 +42,7 @@
   gap: 8px;
   align-items: center;
 }
+
 .nav-list {
   display: none;
 }
@@ -97,6 +50,37 @@
 .signup-header {
   display: none;
 }
+
+.mobile-wrapper,
+.mobile-wrapper-signup {
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--violet);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-container {
+  width: 100%;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .signup-burger {
   display: inline-flex;
   justify-content: space-between;
@@ -174,11 +158,12 @@
   align-items: center;
   gap: 4px;
 }
+
 .nav-item-current {
   display: flex;
   padding: 8px 16px;
   border-radius: 36px;
-  background: #eac645;
+  background: var(--yellow);
   color: var(--text-color);
 }
 
@@ -193,6 +178,7 @@
   align-content: stretch;
   align-items: flex-start;
   gap: 16px;
+  z-index: 2;
 }
 
 .icon-sl {
@@ -209,9 +195,9 @@
   height: 48px;
   flex-shrink: 0;
   border-radius: 18px;
-  border: 1.5px solid #111;
-  background: #fff;
-  color: #111;
+  border: 1.5px solid var(--text-color);
+  background: var(--white);
+  color: var(--text-color);
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.56px;
@@ -224,6 +210,7 @@
 .image-menu {
   position: fixed;
   bottom: 0;
+  width: 100%;
 }
 
 @media screen and (min-width: 767px) {
@@ -249,7 +236,7 @@
     display: flex;
     padding: 8px 16px;
     border-radius: 36px;
-    background: #eac645;
+    background: var(--yellow);
   }
   .sign-up-svg {
     fill: #fff;
@@ -270,14 +257,14 @@
     flex-shrink: 0;
     border-radius: 18px;
     border: 1.5px solid #111;
-    background: #4f2ee8;
+    background: var(--violet);
     margin-right: 222px;
     margin-left: 20px;
   }
   .signup-header {
     display: inline-flex;
     justify-content: space-between;
-    color: #fff;
+    color: var(--white);
     font-weight: 500;
     line-height: 18px;
     letter-spacing: -0.56px;
@@ -288,6 +275,7 @@
     border: 1.5px solid #111;
     padding: 14px;
   }
+
   .div-stephen-header {
     display: none;
     width: 184px;
@@ -301,6 +289,7 @@
   .wrapper-button {
     position: relative;
   }
+
   .log-out {
     z-index: 0;
     position: absolute;
@@ -319,6 +308,7 @@
   .log-out.show {
     display: flex;
   }
+
   .mobile-menu {
     display: none;
   }
@@ -378,7 +368,7 @@
 }
 
 input:checked + .slider {
-  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  background: linear-gradient(180deg, var(--violet) 0%, #dcdcdc 100%);
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
