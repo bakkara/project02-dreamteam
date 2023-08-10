@@ -49,10 +49,15 @@ line-height: 1.5em;
     filter: brightness(0) invert(1)
 }
 
+.image:hover {
+filter: none;
+}
+
 .support-content {
     margin-bottom: 16px;
     padding-left: 40px;
 }
+
 .button-scroll-down {
     display: flex;
     justify-content: center;
