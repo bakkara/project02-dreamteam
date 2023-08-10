@@ -134,11 +134,12 @@ function toggleBtn(bool) {
  * відкриває/закриває модалку
  */
 function toggleModal() {
-  elements.body.style.paddingRight = elements.modal.classList.contains(
-    'is-open'
-  )
+  console.log(elements.body.children.header);
+  const scrollValue = elements.modal.classList.contains('is-open')
     ? '0px'
     : scrollWidth;
+  // elements.body.children.header.style.marginRight = scrollValue;
+  elements.body.style.marginRight = scrollValue;
   elements.modal.classList.toggle('is-open');
   elements.body.classList.toggle('no-scroll');
 }
