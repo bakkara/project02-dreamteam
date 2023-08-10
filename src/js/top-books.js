@@ -6,9 +6,12 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
 import { createCartBookMarcup } from './markup.js';
 
-function displayCategories(data) {
+let countTopCategories = 4;
+
+function displayCategories(data, countTopCategories) {
+  // let dataToShow = data.slice(0,)
   elements.BooksInfo.innerHTML = "";
-  const categoriesHtml = data.map(createTopBooks).join('');
+  const categoriesHtml = data.slice(0,countTopCategories).map(createTopBooks).join('');
   elements.BooksInfo.innerHTML = ` <h2 class="books-section-title">Best Sellers <span class="last-word">Books</span> </h2>`
   elements.BooksInfo.insertAdjacentHTML("beforeend",categoriesHtml) ;
   return ""
@@ -51,7 +54,7 @@ function renderTopBooks() {
     .then(data => {
         Loading.remove();
         // console.log(data);
-        const markup = displayCategories(data);
+        const markup = displayCategories(data, countTopCategories);
         elements.BooksInfo.insertAdjacentHTML("beforeend", markup);
         addEventListenersToBooks();
         addEventListenersToButtons();
@@ -85,4 +88,4 @@ function onOpenBook(bookId) {
 }
 
 
-export {renderTopBooks}
+export {renderTopBooks,displayCategories, countTopCategories}
