@@ -10,7 +10,11 @@
   --white: #fff;
   --top-category-title: #b4afaf;
   --text-color: #111;
-  --bgc-modal: rgba(17, 17, 17, 0.5);
+  --text-color-dark: #fff;
+  --bgc-modal: rgba(17, 17, 17, 0.4);
+  --modal-text-light: rgba(17, 17, 17, 0.6);
+  --modal-text-dark: rgba(255, 255, 255, 0.5);
+  --modal-text-autor: #b4afaf;
   --scroll-color: #e0e0e0;
   --scroll-color-dark: rgba(17, 17, 17, 0.6);
   --text-color-span-dark: rgba(255, 255, 255, 0.6);
