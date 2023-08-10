@@ -89,4 +89,23 @@ body.dark-theme {
 }
 
 
+/* Registration */
+.dark-theme .form-window {
+  background: var(--body-bg-dark);
+  border: 2px solid var(--body-bg-light);
+}
+.dark-theme .form-input {
+  border: 2px solid var(--body-bg-light);
+  background-color: var(--body-bg-dark);
+  color: var(--text-color);
+}
+.dark-theme .btn-form {
+  color: var(--text-color-light);
+  background-color: var(--body-bg-light);
+  
+}
+
+
+
+
 
