@@ -1,30 +1,35 @@
 import { getOneCategoriesBooksFromApi } from './api.js';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
 import { createCartBookMarcup } from './markup.js';
-import { observer, bookGuard } from './top-books.js';
+import { loader } from './top-books.js';
+
 const booksSection = document.querySelector('.books-list');
 
 let category;
 
 export function handlerSeeMoreBtn(categories) {   
   booksSection.innerHTML="";
-  observer.unobserve(bookGuard);
+  if (loader) {
+    loader.style.display = 'block';
+  }
   category = categories;
-  getOneCategoriesBooksFromApi(categories).then(resp => {    
+  getOneCategoriesBooksFromApi(categories)
+    .then(resp => {    
+        if (loader) {
+          loader.style.display = 'block';
+        }  
+        createGalleryCategoriesBooksMarkup(resp);
+        cardsListners();
           
-      createGalleryCategoriesBooksMarkup(resp);
-      cardsListners();
-        
-  }).catch(error => {
-    
-    Report.failure(
-      'Oops!',
-      'Something went wrong! Try reloading the page!',
-      'Okay',
-    );
-  })
+    }).catch(error => {
+      
+      Report.failure(
+        'Oops!',
+        'Something went wrong! Try reloading the page!',
+        'Okay',
+      );
+    })
 }
 
 
