@@ -121,7 +121,7 @@
 @media screen and (min-width: 768px) {
   /* .footer-block{
     flex-wrap: wrap;
-    flex-direction: row;
+    
   } */
   .team-list {
     flex-direction: row;
