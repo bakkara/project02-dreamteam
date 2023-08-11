@@ -167,7 +167,7 @@ body.dark-theme {
   background-color: var(--body-bg-light);
 }
 .dark-theme .form-svg-icon {
-  fill: var(--text-color);
+  fill: var(--body-bg-dark);
   stroke: var(--white);
 }
 

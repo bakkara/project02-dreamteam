@@ -29,6 +29,7 @@
             <button class="signupbtn">Sign up</button>
         </div>
     </div>
+
     <div class="form-wrapper-signup is-hidden">
         <div class="form-window">
             <button type="button" class="btn-form-close js-form-close" data-modal-close>
@@ -37,12 +38,25 @@
                 </svg>
             </button>
             <form>
-<input class="form-input" type="text" placeholder="NAME" name="name" id="userNameSignUp" required>
-<input class="form-input" type="text" placeholder="Enter email" name="email" id="emailSignUp" required>
-<input class="form-input" type="password" placeholder="Password" name="psw" id="pswSignUp" required>
-
+                <div class="form-input-wrap">
+                    <input class="form-input" type="text" placeholder="NAME" name="name" id="userNameSignUp" required>
+                </div>
+                <div class="form-input-wrap">
+                    <svg width="18" height="18" class="form-svg">
+                        <use href="./images/symbol-defs.svg#icon-mail" class="form-svg-icon"></use>
+                    </svg>
+                    <input class="form-input" type="text" placeholder="Enter email" name="email" id="emailSignUp"
+                        required>
+                </div>
+                <div class="form-input-wrap">
+                    <svg width="18" height="18" class="form-svg">
+                        <use href="./images/symbol-defs.svg#icon-lock" class="form-svg-icon"></use>
+                    </svg>
+                    <input class="form-input" type="password" placeholder="Password" name="psw" id="pswSignUp" required>
+                </div>
             </form>
-            <button class="btn-form" type="button" id="signup" name="signup" class="signupbtn">Sign up</button>
+            <button class="btn-form" type="button" id="signup" name="signup" class="signupbtn">Sign
+                up</button>
             <button class="signupbtn is-active">Sign up </button>
             <button class="signinbtn">Sign in</button>
         </div>
