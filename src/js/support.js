@@ -20,12 +20,14 @@ function scrollDownUp() {
 }
 
 function scrollDown() { 
-  const { height: cardHeight } = document
+    const { height: cardHeight } = document
                     .querySelector(".blocks")
-    .firstElementChild.getBoundingClientRect();
-    
+                    .firstElementChild.getBoundingClientRect();
+    const element = document.getElementsByClassName("block")[0];
+    const margin = window.getComputedStyle(element).marginBottom;
+ 
     blocksEl.scrollBy({
-    top: cardHeight+18,
+    top: cardHeight + Number.parseInt(margin),
     behavior: "smooth",
     })
 }
