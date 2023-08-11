@@ -59,7 +59,7 @@
 }
 .overlay-text {
 text-transform: uppercase;
-color:--text-color;
+color: var(--text-color);
     font-family: DM Sans;
     font-size: 14px;
     font-style: normal;
