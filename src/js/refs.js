@@ -1,5 +1,5 @@
 const elements = {
-  BooksInfo: document.querySelector('.books-list'),
+  booksInfo: document.querySelector('.books-list'),
   modalMainBtn: document.querySelector('.js-modal-btn'),
   modalBookCard: document.querySelector('.js-modal-book'),
   modalBtnClose: document.querySelector('.js-modal-close'),
