@@ -25,7 +25,6 @@ async function getBook(bookId) {
       throw new Error('Error');
     }
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (err) {
     console.log(err.message);
@@ -36,7 +35,6 @@ async function getBook(bookId) {
 function loadBooksFromLocalStorage() {
   const booksFromLocalStorage =
     JSON.parse(localStorage.getItem('targetBooks')) || [];
-  console.log(localStorage.getItem('targetBooks'));
   return booksFromLocalStorage;
 }
 // Оновлюємо відступ заголовку в залежності від того, чи додані книги до списку

@@ -5,7 +5,7 @@
   border: 3px solid var(--violet);
   border-radius: 40px;
   padding: 16px;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.29;
   width: 100%;
@@ -14,11 +14,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  /* right: 100%; */
-}
-
-.footer-block:hover {
+  display: flex;
   background-color: var(--violet);
+  justify-content: center;
+  align-items: center;
+  /* right: 100%; */
 }
 
 .promo-title {
@@ -34,7 +34,6 @@
 
 .img {
   display: block;
-  /* border: 1px solid #fefefe; */
   margin: auto;
   border-radius: 25%;
   padding: 2px;
@@ -50,7 +49,6 @@
 
 .team-info {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-  background-color: var(--header);
   display: block;
   border-radius: 0px 0px 4px 4px;
   width: 100%;
@@ -101,7 +99,6 @@
 
 .team-social:is(:hover, :focus) {
   background-color: var(--violet);
-  scale: 1.5;
 }
 
 .team-icon {
@@ -110,15 +107,11 @@
 
 .team-icon:is(:hover, :focus) {
   fill: var(--second-title-color);
-  /* box-shadow: 5px 5px 5px #000000; */
+  box-shadow: var(--text-color);
 }
 
 @media screen and (min-width: 768px) {
 
-  /* .footer-block{
-    flex-wrap: wrap;
-    flex-direction: row;
-  } */
   .team-list {
     flex-direction: row;
     flex-wrap: wrap;

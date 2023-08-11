@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth"
 import { getFirestore, setDoc, doc } from "firebase/firestore"; 
 import { openBurger } from "./header";
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZmcnC_2fBns-z8P5Wk9Fw_wxB6fZENSM",
@@ -103,9 +104,9 @@ function toggleForm(evt) {
 async function signUp(evt) {
   
     try {
-      const email = document.querySelector('#email').value;
-      const password = document.querySelector('#psw').value;
-      const userName = document.querySelector('#userName').value;
+      const email = document.querySelector('#emailSignUp').value;
+      const password = document.querySelector('#pswSignUp').value;
+      const userName = document.querySelector('#userNameSignUp').value;
       const userAuth = await createUserWithEmailAndPassword(auth, email, password);
       const uid = userAuth.user.uid
       // const userObj = {
@@ -126,7 +127,14 @@ async function signUp(evt) {
       window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
-        alert(errorMessage)
+        Report.failure(
+          `${errorMessage}`,
+          '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
+          'Okey... Fix it',
+          () => {
+            location.reload();
+          }
+        );
     }
  
 }
@@ -144,20 +152,26 @@ async function signIn(evt) {
       window.location.replace('./index.html')
       } catch (error) {
         const errorMessage = error.message;
-        alert(errorMessage)
+        Report.failure(
+          `${errorMessage}`,
+          '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
+          'Okey... Fix it',
+          () => {
+            location.reload();
+          }
+        );
     }
 }
 
 async function logOut() {
-    signOut(auth).then(() => {
-    console.log('Log out');
-    localStorage.removeItem("userName");
-     userDivHeader.classList.add('is-hidden')
-    localStorage.removeItem("userUid");
-    window.location.replace('./index.html');
-     navList.style.display = "none"
-    signUpBtnHeader.style.display = "flex"   
-  }).catch((err) => {
-    console.log(err)
-  })
+  signOut(auth).then(() => {
+  localStorage.removeItem("userName");
+   userDivHeader.classList.add('is-hidden')
+  localStorage.removeItem("userUid");
+  window.location.replace('./index.html');
+   navList.style.display = "none"
+  signUpBtnHeader.style.display = "flex"   
+}).catch((err) => {
+  console.log(err)
+})
 }
