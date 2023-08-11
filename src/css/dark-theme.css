@@ -163,5 +163,7 @@ body.dark-theme {
   color: var(--text-color-light);
   background-color: var(--body-bg-light);
 }
-
-
+/* Footer */
+.dark-theme .team-title-name {
+  color: var(--header-bg-light);
+}
