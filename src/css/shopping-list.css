@@ -1,7 +1,11 @@
 @import url('./dark-theme.css');
+.main-section-shop {
+  margin-top: 104px;
+}
+
 .support {
   display: none;
-  padding-top: 40px;
+  /* padding-top: 40px; */
 }
 .link-book-shop {
   display: flex;
@@ -32,10 +36,7 @@
   letter-spacing: -0.28px;
   margin-bottom: 14px;
 }
-.shop-section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
+
 .message {
   width: 265px;
   height: 248px;
@@ -221,6 +222,11 @@
   }
 }
 @media screen and (min-width: 1440px) {
+  .main-section-shop {
+    display: flex;
+    gap: 40px;
+    margin-top: 130px;
+  }
   .support {
     display: block;
   }
