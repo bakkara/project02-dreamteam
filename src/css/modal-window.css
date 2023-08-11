@@ -86,6 +86,8 @@
   margin-bottom: 14px;
   overflow: hidden;
   outline: none;
+  background: url('../images/icon-plug.svg') no-repeat center;
+  background-size: 60px 54px;
 }
 
 .modal-img {

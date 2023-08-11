@@ -8,7 +8,6 @@ import applebook2x from '../images/applebook@2x.png';
 import barnesnoble1x from '../images/barnesnoble@1x.png';
 import barnesnoble2x from '../images/barnesnoble@2x.png';
 
-
 function createModalMarkup(book) {
   /**створюю об'єкт з даними про назви магазинів і посиланнь на зображення*/
   const storesImgs = [
@@ -44,11 +43,16 @@ function createModalMarkup(book) {
     )
     .join('');
 
+  /** перевіряю чи є картинка в відповіді з бекенда і повертаю розмітку картинки */
+  const imgModal = book.book_imag
+    ? `<img src="${book.book_image}" 
+              alt="${book.list_name}" 
+              id="${book._id}" class="modal-img"></img>`
+    : '';
+
   /**формую картку модалки */
   return `<div class="modal-img-wrap">
-              <img src="${book.book_image}" 
-              alt="${book.list_name}" 
-              id="${book._id}" class="modal-img">
+             ${imgModal}
           </div>
           <div>
             <h2 class="modal-title">${book.title}</h2>
@@ -81,7 +85,9 @@ function createCartBookMarcup(data) {
 
 function murkupFoundation(arr) {
   // blocksEl.innerHTML=''
-    return arr.map(({ title, url, img , id, imgr}) => `
+  return arr
+    .map(
+      ({ title, url, img, id, imgr }) => `
     <li class="block">
    <div>
     <a href="${url}" class='gotofoundation' target="_blank">
@@ -89,9 +95,10 @@ function murkupFoundation(arr) {
         <img  class='image' src='${img}' srcset='${imgr}' alt="${title}">
     </a>
    </div>
-  </li>`).join('')
+  </li>`
+    )
+    .join('');
 }
- 
-export { createModalMarkup, createCartBookMarcup};
-export { murkupFoundation }
 
+export { createModalMarkup, createCartBookMarcup };
+export { murkupFoundation };
