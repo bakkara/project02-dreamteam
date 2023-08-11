@@ -2,13 +2,12 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100%;
   top: 0;
   left: 0;
   opacity: 0;
-  overflow: hidden;
+  overflow-y: auto;
   visibility: hidden;
   pointer-events: none;
   background-color: var(--bgc-modal);
@@ -19,8 +18,8 @@
 .modal-window-wrap {
   position: relative;
   width: 339px;
-  height: 810px;
-  /* overflow-y: auto; */
+  top: calc(50% - 762px / 2);
+  overflow-y: auto;
   background-color: transparent;
   border: none;
 }
@@ -41,7 +40,7 @@
 }
 
 .modal-window {
-  position: absolute;
+  position: relative;
   padding: 38px 22px;
   height: auto;
   color: var(--text-color);
@@ -49,7 +48,7 @@
   border: 2px solid var(--text-color);
   background-color: var(--body-bg-light);
   opacity: 0;
-  top: 0;
+  /* top: 0; */
   transform: translate(0px, -100%);
   transition: all var(--time-transform) var(--transform);
 }
@@ -201,6 +200,7 @@
     bottom: calc(200px - 36px);
     width: 583px;
     height: 506px;
+    top: unset;
   }
 
   .modal-window {
