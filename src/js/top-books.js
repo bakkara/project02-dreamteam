@@ -144,3 +144,5 @@ function handlerPagination(entries) {
     }
     })
 }
+
+export {loader}
