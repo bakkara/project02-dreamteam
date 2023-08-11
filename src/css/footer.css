@@ -5,7 +5,7 @@
   border: 3px solid var(--violet);
   border-radius: 40px;
   padding: 16px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.29;
   width: 100%;
@@ -15,6 +15,10 @@
   justify-content: center;
   margin-bottom: 16px;
   /* right: 100%; */
+}
+
+.footer-block:hover {
+  background-color: var(--violet);
 }
 
 .promo-title {
@@ -30,7 +34,7 @@
 
 .img {
   display: block;
-  border: 1px solid #000000;
+  /* border: 1px solid #fefefe; */
   margin: auto;
   border-radius: 25%;
   padding: 2px;
@@ -97,6 +101,7 @@
 
 .team-social:is(:hover, :focus) {
   background-color: var(--violet);
+  scale: 1.5;
 }
 
 .team-icon {
@@ -105,7 +110,7 @@
 
 .team-icon:is(:hover, :focus) {
   fill: var(--second-title-color);
-  box-shadow: #000000;
+  /* box-shadow: 5px 5px 5px #000000; */
 }
 
 @media screen and (min-width: 768px) {
