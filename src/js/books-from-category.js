@@ -3,14 +3,13 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { modal } from './modal-window.js';
 import { createCartBookMarcup } from './markup.js';
-import { observer, bookGuard } from './top-books.js';
 const booksSection = document.querySelector('.books-list');
 
 let category;
 
 export function handlerSeeMoreBtn(categories) {   
   booksSection.innerHTML="";
-  observer.unobserve(bookGuard);
+
   category = categories;
   getOneCategoriesBooksFromApi(categories).then(resp => {    
           

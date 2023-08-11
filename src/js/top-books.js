@@ -23,7 +23,6 @@ const observer = new IntersectionObserver(handlerPagination, options);
 function displayCategories(data) {
   const categoriesHtml = data.slice(startCount,countTopCategories).map(createTopBooks).join('');
   elements.booksInfo.insertAdjacentHTML("beforeend",categoriesHtml) ;
-  const guard = observer.observe(bookGuard);
   return ""
 }
 
@@ -122,7 +121,9 @@ function handlerPagination(entries) {
               
             }
         
-              
+            if (bookGuard.parentElement) {
+              observer.unobserve(bookGuard);
+            }
             if (data.length <= countTopCategories){
               observer.unobserve(bookGuard)
             }
@@ -143,5 +144,3 @@ function handlerPagination(entries) {
     }
     })
 }
-
-export {observer, bookGuard}
