@@ -11,7 +11,6 @@
   --top-category-title: #b4afaf;
   --text-color: #111;
   --text-color-dark: #fff;
-  /*#f3f3f3;*/
   --bgc-modal: rgba(17, 17, 17, 0.4);
   --modal-text-light: rgba(17, 17, 17, 0.4);
   --modal-text-dark: rgba(255, 255, 255, 0.5);
@@ -47,9 +46,11 @@ body.dark-theme {
 .dark-theme .nav-item {
   color: var(--text-color-dark);
 }
+
 .dark-theme .nav-item-current {
   color: var(--text-color);
 }
+
 @media screen and (min-width: 767px) {
   .dark-theme .icon-sl-header {
     fill: var(--text-color-dark);
@@ -102,6 +103,7 @@ body.dark-theme {
 .dark-theme .first-img {
   filter: brightness(0) invert(1);
 }
+
 .dark-theme .modal-link:is(:hover) .first-img {
   filter: brightness(0) invert(1);
 }
@@ -154,14 +156,29 @@ body.dark-theme {
   background: var(--body-bg-dark);
   border: 2px solid var(--body-bg-light);
 }
+
 .dark-theme .form-input {
   border: 2px solid var(--body-bg-light);
   background-color: var(--body-bg-dark);
   color: var(--text-color);
 }
+
 .dark-theme .btn-form {
   color: var(--text-color-light);
   background-color: var(--body-bg-light);
 }
 
+/*---------------- footer=--------------*/
 
+
+.dark-theme .footer-block,
+/* .dark-theme .team-title-name, */
+.dark-theme .promo-title,
+.dark-theme .team-style {
+  color: var(--text-color-dark)
+}
+
+.dark-theme .team-info {
+  background-color: rgb(44, 44, 44);
+  border-radius: 5%;
+}
