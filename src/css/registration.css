@@ -49,6 +49,21 @@
   margin-bottom: 28px;
   display: block;
 }
+.form-input-wrap {
+  position: relative;
+}
+
+.form-svg {
+  position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill var(--transition);
+}
+ .form-svg-icon {
+  fill: var(--white);
+  stroke: var(--text-color)
+ }
 .btn-form {
   display: block;
   width: 100%;

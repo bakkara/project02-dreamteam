@@ -7,10 +7,22 @@
                 </svg>
             </button>
             <form>
-                <input class="form-input" type="text" placeholder="NAME" name="name" id="userName" required>
-                <input class="form-input" type="text" placeholder="Enter email" name="email" id="email" required>
-                <input class="form-input" type="password" placeholder="Password" name="psw" id="psw" required>
+                <div class="form-input-wrap">
+                    <input class="form-input" type="text" placeholder="NAME" name="name" id="userName" required>
+                </div>
+                <div class="form-input-wrap">
+                    <svg width="18" height="18" class="form-svg">
+                        <use href="./images/symbol-defs.svg#icon-mail" class="form-svg-icon"></use>
+                    </svg>
+                    <input class="form-input" type="text" placeholder="Enter email" name="email" id="email" required>
 
+                </div>
+                <div class="form-input-wrap">
+                    <input class="form-input" type="password" placeholder="Password" name="psw" id="psw" required>
+                    <svg width="18" height="18" class="form-svg">
+                        <use href="./images/symbol-defs.svg#icon-lock" class="form-svg-icon"></use>
+                    </svg>
+                </div>
             </form>
             <button class="btn-form" type="button" id="signin" name="signup" class="signupbtn">Sign in</button>
             <button class="signinbtn is-active">Sign in </button>
@@ -25,9 +37,9 @@
                 </svg>
             </button>
             <form>
-                <input class="form-input" type="text" placeholder="NAME" name="name" id="userNameSignUp" required>
-                <input class="form-input" type="text" placeholder="Enter email" name="email" id="emailSignUp" required>
-                <input class="form-input" type="password" placeholder="Password" name="psw" id="pswSignUp" required>
+<input class="form-input" type="text" placeholder="NAME" name="name" id="userNameSignUp" required>
+<input class="form-input" type="text" placeholder="Enter email" name="email" id="emailSignUp" required>
+<input class="form-input" type="password" placeholder="Password" name="psw" id="pswSignUp" required>
 
             </form>
             <button class="btn-form" type="button" id="signup" name="signup" class="signupbtn">Sign up</button>
