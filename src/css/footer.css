@@ -18,6 +18,7 @@
   background-color: var(--violet);
   justify-content: center;
   align-items: center;
+  color: white;
   /* right: 100%; */
 }
 
