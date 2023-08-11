@@ -17,7 +17,7 @@ export function handlerSeeMoreBtn(categories) {
   getOneCategoriesBooksFromApi(categories)
     .then(resp => {    
         if (loader) {
-          loader.style.display = 'block';
+          loader.style.display = 'none';
         }  
         createGalleryCategoriesBooksMarkup(resp);
         cardsListners();
