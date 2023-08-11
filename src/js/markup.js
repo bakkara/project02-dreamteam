@@ -44,7 +44,7 @@ function createModalMarkup(book) {
     .join('');
 
   /** перевіряю чи є картинка в відповіді з бекенда і повертаю розмітку картинки */
-  const imgModal = book.book_imag
+  const imgModal = book.book_image
     ? `<img src="${book.book_image}" 
               alt="${book.list_name}" 
               id="${book._id}" class="modal-img"></img>`
