@@ -6,6 +6,21 @@ const elements = {
   modal: document.querySelector('.js-modal'),
   body: document.body,
   categoryList: document.querySelector('.category-list'),
+  signUpBtn: document.querySelector('#signup'),
+  signInBtn: document.querySelector('#signin'),
+  signUpBtnHeader: document.querySelector('.signup-header'),
+  signUpBtnBurger: document.querySelector('.signup-burger'),
+  userNameText: document.querySelector('.text-stephen'),
+  userNameTextMobile: document.querySelector('#text-stephen'),
+  closeFormBtn: document.querySelector('.js-form-close'),
+  formElSignIn: document.querySelector('.form-wrapper'),
+  formElSignUp: document.querySelector('.form-wrapper-signup'),
+  navList: document.querySelector('.nav'),
+  signUpSvg: document.querySelector('.sign-up-svg'),
+  userDivHeader: document.querySelector('.div-stephen-header'),
+  mobileMenuSignUP: document.querySelector('.mobile-wrapper-signup'),
+  btnLogOutList: document.querySelectorAll('.log-out'),
+  formContainer: document.querySelector('.form-container'),
 };
 
 export { elements };
